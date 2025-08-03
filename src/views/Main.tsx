@@ -1,4 +1,5 @@
 import About from "./About";
+import Education from "./Education";
 import Landing from "./Landing";
 
 export default function Main() {
@@ -6,6 +7,7 @@ export default function Main() {
         <div>
             <Landing />
             <About />
+            <Education />
         </div>
     )
 }

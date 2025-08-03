@@ -5,3 +5,23 @@
 .bg-secondary {
     background: rgb(15,15,15);
 }
+
+.bg-third {
+    background: rgb(25,25,25);
+}
+
+.hoverable-element .hoverable-element-popup {
+    display: none;
+    z-index: 10;
+}
+
+.hoverable-element:hover .hoverable-element-popup {
+    display: flex;
+}
+
+.university:hover {
+    background: rgb(15,15,15); 
+}
+.university-selected:hover {
+    background: rgb(25,25,25);
+}

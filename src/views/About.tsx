@@ -1,3 +1,4 @@
+import AlbumList from "../components/AlbumList";
 import BookTierList from "../components/BookTierList";
 import ProficiencyElement from "../components/ProficiencyElement";
 
@@ -5,9 +6,9 @@ export default function About() {
     return (
         <div className="px-10 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">ABOUT ME</p>
-            <p className="text-4xl mb-15 tracking-wider">My main proficiencies</p>
+            <p className="text-4xl mb-15 tracking-wider">MY MAIN PROFICIENCIES</p>
             
-            <div className="flex flex-row flex-wrap items-center justify-center gap-10 mb-50">
+            <div className="flex flex-row flex-wrap items-center justify-center gap-10">
                 <ProficiencyElement 
                     name="Backend Development" 
                     icon={<i className="fa-solid fa-cloud-arrow-up text-5xl text-cyan-500"></i>}
@@ -67,12 +68,18 @@ export default function About() {
                 />
             </div>
 
-            <p className="text-4xl mt-20 tracking-wider">Some great books</p>
-            <p className="text-lg text-gray-400 mt-5 mb-20">
+            <p className="text-4xl mt-40 tracking-wider">SOME GREAT BOOKS</p>
+            <p className="text-lg text-gray-400 mt-5 mb-10">
                 I really like reading, mainly Fantasy and some Sci-Fi.<br></br>
                 Here are some of by favorite book series.
             </p>
             <BookTierList />
+
+            <p className="text-4xl mt-40 tracking-wider">MUSIC I LIKE</p>
+            <p className="text-lg text-gray-400 mt-5 mb-10">
+                While not as impactful to me as certain books, here are some albums I really like.
+            </p>
+            <AlbumList />
         </div>
     )
 }
