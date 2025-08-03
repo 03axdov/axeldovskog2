@@ -34,7 +34,9 @@ export default function Education() {
         filename1: string,
         filename2: string,
         filename3: string,
-        description: string
+        description: string,
+        gpa?: number,
+        gpaMax?: number
     ) {
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
@@ -50,6 +52,19 @@ export default function Education() {
                 <p className="w-full mt-5 text-gray-300 text-lg">
                     {description}
                 </p>
+
+                <div className="mt-5 w-full">
+                    <p className="text-gray-400 w-full text-start">Rough GPA</p>
+                    <div className="mt-3 flex flex-row items-center w-full">
+                        <div className="h-[10px] rounded-full flex-grow bg-gray-700 overflow-hidden">
+                            <div className="h-full bg-blue-500 rounded-full" style={{
+                                width: (gpa && gpaMax ? Math.round((100 * (gpa / gpaMax))) + "%": "0")
+                            }}></div>
+                        </div>
+                        {gpa && gpaMax && <p className="m-0 ml-3 text-lg">{gpa} <span className="text-gray-400">out of {gpaMax}</span></p>}
+                        {!gpa && !gpaMax && <p className="m-0 ml-3 text-lg">No grades yet.</p>}
+                    </div>
+                </div>
             </div>
         )
     }
@@ -78,12 +93,12 @@ export default function Education() {
                 {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At National Taiwan University,
                 the #1 ranked university in one of the worlds most technologically innovative countries,
                 I'm aiming to study courses within Computer Science,
-                primarily within machine learning and data handling.`)}
+                primarily within machine learning and data handling.`, 4.35, 5)}
 
                 {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `At National Taiwan University,
                 the #1 ranked university in one of the worlds most technologically innovative countries,
                 I'm aiming to study courses within Computer Science,
-                primarily within machine learning and data handling.`)}
+                primarily within machine learning and data handling.`, 4.3, 5)}
             </div>
         </div>
     )
