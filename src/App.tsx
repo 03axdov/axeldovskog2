@@ -3,6 +3,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Landing from './views/Landing'
 import Navbar from './components/Navbar'
+import Main from './views/Main'
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </div>)
 }

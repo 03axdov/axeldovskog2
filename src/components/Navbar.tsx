@@ -1,6 +1,6 @@
 export default function Navbar() {
     return (
-        <div className="fixed top-0 left-0 w-full flex flex-row items-center justify-between p-4 px-8">
+        <div className="fixed top-0 left-0 w-full flex flex-row items-center justify-between p-4 px-8 bg-main">
 
             <div className="h-full flex flex-row items-center gap-x-10">
                 <div className="text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 rounded-full ">
