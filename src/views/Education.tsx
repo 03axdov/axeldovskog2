@@ -75,13 +75,13 @@ export default function Education() {
             <p className="text-4xl tracking-wider">MY EDUCATION</p>
             <p className="text-lg text-gray-400 mt-5">
                 I'm studying 200% at Lund University, Sweden.<br></br>
-                During the fall semester of 2025 I'm an exchange student at Nation Taiwan University.
+                During the fall semester of 2025, I'm studying as an exchange student at National Taiwan University.
             </p>
 
-            <div className="flex flex-row justify-center w-full my-20 gap-x-10">
+            <div className="flex flex-row justify-center w-full mt-20 gap-x-10">
                 <div className="flex flex-col w-[420px] min-w-[420px]">
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
-                    {getUniversityElement("lu.png", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}
+                    {getUniversityElement("lthLogo.jpg", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}
                     {getUniversityElement("lu.png", "Bachelor of International Business", "Lund University", "August 2023 - June 2026", "lusem")}
                 </div>
 

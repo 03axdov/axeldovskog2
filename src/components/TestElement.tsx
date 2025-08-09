@@ -10,12 +10,12 @@ interface TestElementProps {
 
 export default function TestElement({testName, score, maxScore, filename, description, scoreSection, percentile}: TestElementProps) {
     return (
-        <div className="p-10 rounded-md bg-secondary w-[450px] h-[650px] flex flex-col items-center">
+        <div className="p-10 rounded-md bg-secondary w-[450px] h-[610px] flex flex-col items-center">
             <img className="h-[75px] w-[155px] mb-5 rounded-md" src={"/static/images/tests/" + filename}/>
             <p className="text-2xl mb-5 mt-3">{testName}</p>
-            <p className="text-lg w-full text-left text-gray-400">
+            <p className="text-lg text-left text-gray-400 p-1 px-2 rounded-md bg-third">
                 Score: 
-                <span className="text-white ml-3">{score}</span>
+                <span className="ml-3 text-blue-400">{score}</span>
                 <span className="text-gray-400 text-sm ml-1"> / {maxScore}</span>
             </p>
             <p className="mt-5 mb-auto text-gray-400 text-justify">

@@ -9,7 +9,7 @@ export default function Tests() {
                 I've taken the American SAT, as well as the Swedish counterpart called Högskoleprovet.
             </p>
 
-            <div className="mt-15 mb-50 flex flex-row items-center flex-wrap gap-10">
+            <div className="mt-15 flex flex-row items-center flex-wrap gap-10">
                 <TestElement 
                 testName="SAT" 
                 score={1560}

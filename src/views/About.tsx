@@ -16,19 +16,23 @@ export default function About() {
                                 as well as creating efficient ways of modelling data."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="p-1 px-3 text-md rounded-md border border-green-400 text-green-400">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-green-400 text-green-400">
+                                <i className="fa-brands fa-java fa-md mr-2"></i>
                                 Java Spring Boot
                             </p>
-                            <p className="p-1 px-3 text-md rounded-md border border-orange-400 text-orange-400">
-                                Amazon Web Service
-                            </p>
-                            <p className="p-1 px-3 text-md rounded-md border border-blue-500 text-blue-500">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-500 text-blue-500">
+                                <i className="fa-brands fa-python fa-md mr-2"></i>
                                 Python Django
                             </p>
-                            <p className="p-1 px-3 text-md rounded-md border border-pink-500 text-pink-500">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
+                                <i className="fa-brands fa-aws fa-md mr-2"></i>
+                                AWS
+                            </p>
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-pink-500 text-pink-500">
+                                <i className="fa-solid fa-hexagon-nodes fa-md mr-2"></i>
                                 Neo4j Graph Database
                             </p>
-                            
+
                         </div>
                     }
                 />
@@ -39,15 +43,23 @@ export default function About() {
                     description="This includes interacting with APIs, constructing intuitive and easy-to-use pages and websites, and styling these."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="p-1 px-3 text-md rounded-md border border-cyan-400 text-cyan-400">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                                <i className="fa-brands fa-react fa-md mr-2"></i>
                                 Javascript React
                             </p>
-                            <p className="p-1 px-3 text-md rounded-md border border-blue-300 text-blue-300">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-300 text-blue-300">
+                                <i className="fa-solid fa-wind fa-md mr-2"></i>
                                 TailwindCSS
                             </p>
-                            <p className="p-1 px-3 text-md rounded-md border border-yellow-500 text-yellow-500">
-                                HTML + CSS
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-500 text-orange-500">
+                                <i className="fa-brands fa-html5 fa-md mr-2"></i>
+                                HTML
                             </p>
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
+                                <i className="fa-brands fa-css3 fa-md mr-2"></i>
+                                CSS
+                            </p>
+
                         </div>
                     }
                 />
@@ -59,7 +71,8 @@ export default function About() {
                     and a website that allows users to build models without having to code (see Projects)."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="p-1 px-3 text-md rounded-md border border-orange-400 text-orange-400">
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-500 text-orange-500">
+                                <i className="fa-brands fa-google fa-md mr-2"></i>
                                 TensorFlow
                             </p>
                             

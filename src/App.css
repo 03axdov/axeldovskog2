@@ -9,6 +9,9 @@
 .bg-third {
     background: rgb(25,25,25);
 }
+.border-third {
+    border-color: rgb(25,25,25);
+}
 
 .hoverable-element .hoverable-element-popup {
     display: none;
