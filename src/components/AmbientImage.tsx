@@ -1,21 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Vibrant } from "node-vibrant/browser";
-import AmbientImage from "./AmbientImage";
 
-interface AlbumElementProps {
-    filename: string,
-    link: string,
-    title: string,
-    artists: string
+interface Props {
+    url: string
 }
 
-export default function AlbumElement({filename, link, title, artists}: AlbumElementProps) {
-
+export default function AmbientImage({url}: Props) {
     const [shadowColor, setShadowColor] = useState("rgba(0,0,0,0.3)");
     const imgRef = useRef(null);
     
     useEffect(() => {
-        getMostSaturatedColor("/static/images/albums/" + filename)
+        getMostSaturatedColor(url)
         
     }, []);
 
@@ -56,20 +51,10 @@ export default function AlbumElement({filename, link, title, artists}: AlbumElem
     }
 
     return (
-        <a 
-
-        className="hoverable-element w-[calc(20%-28px] max-w-[calc(20%-28px)] aspect-square relative flex flex-col items-center"
-        target="_blank" 
-        href={link}>
-            <div className="pointer-events-none hoverable-element-popup absolute bg-[rgb(0,0,0,0.9)] bottom-[calc(100%-10px)] p-2 px-4 rounded-md flex flex-col">
-                <p className="text-xl whitespace-nowrap">{title}</p>
-                <p className="text-md text-gray-400 whitespace-nowrap">by {artists}</p>
-            </div>
-            <div className="rounded-md" style={{
-                boxShadow: "0 0 50px 10px " + shadowColor
-            }}>
-                <AmbientImage url={"/static/images/albums/" + filename}/>
-            </div>
-        </a>
+        <div className="rounded-md" style={{
+            boxShadow: "0 0 50px 10px " + shadowColor
+        }}>
+            <img ref={imgRef} className="h-full w-full rounded-md" src={url}/>
+        </div>
     )
 }

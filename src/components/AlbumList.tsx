@@ -2,7 +2,7 @@ import AlbumElement from "./AlbumElement";
 
 export default function AlbumList() {
     return (
-        <div className="w-[calc(800px+5*20px)] max-w-[100%] flex flex-row flex-wrap items-center gap-5">
+        <div className="w-[calc(800px+5*28px)] max-w-[100%] flex flex-row flex-wrap items-center gap-7">
             <AlbumElement filename="h&v.jpg" link="https://open.spotify.com/album/7txGsnDSqVMoRl6RQ9XyZP" title="Heroes and Villains" artists="Metro Boomin" />
             <AlbumElement filename="wywh.png" link="https://open.spotify.com/album/0bCAjiUamIFqKJsekOYuRw" title="Wish You Were Here" artists="Pink Floyd" />
             <AlbumElement filename="astroworld.png" link="https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I" title="ASTROWORLD" artists="Travis Scott" />

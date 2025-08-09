@@ -11,8 +11,8 @@ export default function Career() {
         duration: string, position: string, section: WorkType
     ) {
         return (
-            <div className={"flex rounded-lg w-full p-4 flex-row items-center cursor-pointer " +
-                (selectedSection == section ? "bg-third" : "bg-secondary")
+            <div className={"flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer " +
+                (selectedSection == section ? "bg-third border border-[rgb(0,0,0,0)]" : "border border-gray-600")
             }
             onClick={() => setSelectedSection(section)}>
                 <img className="w-[100px] rounded-lg mr-5" src={"/static/images/career/" + filename}/>
@@ -58,7 +58,7 @@ export default function Career() {
                             as well as allowing managers to understand how well a project is coming along and plan accordingly.
                         </p>
                         
-                        <p className="mt-10 text-xl w-full text-gray-200">Frameworks and technologies used</p>
+                        <p className="mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                             <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-yellow-400 text-yellow-400">
                                 <i className="fa-brands fa-js fa-lg mr-3"></i>
@@ -77,10 +77,10 @@ export default function Career() {
                     </div>}
 
                     {(selectedSection == "Neo4j") && <div className="flex flex-col items-center">
-                        <h1 className="w-full text-4xl pb-3 border-b border-gray-600 mb-5 text-gray-200">Neo4j</h1>
+                        <h1 className="w-full text-4xl pb-3 mb-5 border-b border-gray-600 text-gray-200">Neo4j <span className="text-gray-400">(Graph Database)</span></h1>
                         
-                        <div className="w-full flex flex-row gap-x-2 pb-5 border-b border-gray-600 justify-center">
-                            <img className="rounded-lg h-full object-cover" src="/static/images/career/graph.jpg" />
+                        <div className="w-full flex flex-row gap-x-2 pb-5 justify-center">
+                            <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/graph.jpg" />
                         </div>
                         <p className="mt-10 text-lg text-gray-400">
                             Worked with a team of 3 other interns and two full-time employees to develop a tool to assist the support team.
@@ -89,7 +89,7 @@ export default function Career() {
                             calculate how to upgrade certain products from one version to another given an ecosystem of used products.
                         </p>
                         
-                        <p className="mt-10 text-xl w-full text-gray-200">Frameworks and technologies used</p>
+                        <p className="mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                             <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
                                 <i className="fa-brands fa-java fa-lg mr-3"></i>
