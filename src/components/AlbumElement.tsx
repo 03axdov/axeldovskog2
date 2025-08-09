@@ -57,7 +57,6 @@ export default function AlbumElement({filename, link, title, artists}: AlbumElem
 
     return (
         <a 
-
         className="hoverable-element w-[calc(20%-28px] max-w-[calc(20%-28px)] aspect-square relative flex flex-col items-center"
         target="_blank" 
         href={link}>
@@ -65,11 +64,7 @@ export default function AlbumElement({filename, link, title, artists}: AlbumElem
                 <p className="text-xl whitespace-nowrap">{title}</p>
                 <p className="text-md text-gray-400 whitespace-nowrap">by {artists}</p>
             </div>
-            <div className="rounded-md" style={{
-                boxShadow: "0 0 50px 10px " + shadowColor
-            }}>
-                <AmbientImage url={"/static/images/albums/" + filename}/>
-            </div>
+            <AmbientImage url={"/static/images/albums/" + filename}/>
         </a>
     )
 }
