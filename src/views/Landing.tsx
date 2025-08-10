@@ -15,7 +15,7 @@ export default function Landing() {
 
                 </div>
 
-                <img className="h-[400px] max-h-[90%] rounded-full object-cover" src="/static/images/axeldovskog.png" />
+                <img className="h-[400px] max-h-[90%] rounded-full object-cover shadow-[0_0_50px_0_rgb(0,150,255,0.5)]" src="/static/images/axeldovskog.png" />
             </div>
         </div>
     )
