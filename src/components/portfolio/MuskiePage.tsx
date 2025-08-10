@@ -85,13 +85,19 @@ AFTER TRAINING:
             >
                 {resExample}
             </SyntaxHighlighter>
-            <p className="mt-10 text-lg text-gray-400">
+            
+            <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
+                <i className="fa-solid fa-calendar text-sm mr-3" />
+                September 2023 - October 2023
+            </p>
+
+            <p className="text-lg text-gray-400">
                 A machine-learning framework built from "scratch" using Python and the math library Numpy. 
                 It allows users to create and train machine-learning models (both regression and image classification are supported).
                 See above for a very basic example of how to create a model.
             </p>
             <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
-                <a target="_blank" href="https://github.com/03axdov/Dalinar" 
+                <a target="_blank" href="https://github.com/03axdov/muskie" 
                 className="flex flex-row items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
                     <i className="fa-brands fa-github fa-lg mr-3" />
                     Muskie GitHub

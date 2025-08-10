@@ -1,5 +1,6 @@
 import About from "./About";
 import Career from "./Career";
+import Contact from "./Contact";
 import Education from "./Education";
 import Landing from "./Landing";
 import Portfolio from "./Portfolio";
@@ -14,6 +15,7 @@ export default function Main() {
             <Tests />
             <Career />
             <Portfolio />
+            <Contact />
         </div>
     )
 }

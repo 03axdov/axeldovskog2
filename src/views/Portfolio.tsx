@@ -1,6 +1,7 @@
 import { useState } from "react"
 import DalinarPage from "../components/portfolio/DalinarPage"
 import MuskiePage from "../components/portfolio/MuskiePage"
+import MediaReviewrPage from "../components/portfolio/MediaReviewrPage"
 
 type ProjectType = "Dalinar" | "Muskie" | "MediaReviewr"
 
@@ -44,9 +45,7 @@ export default function Portfolio() {
 
                     {selectedSection == "Muskie" && <MuskiePage />}
 
-                    {selectedSection == "MediaReviewr" && <div>
-                        
-                    </div>}
+                    {selectedSection == "MediaReviewr" && <MediaReviewrPage />}
                 </div>
             </div>
         </div>

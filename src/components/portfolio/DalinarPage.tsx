@@ -39,7 +39,12 @@ export default function DalinarPage() {
                 </div>
             </div>
 
-            <p className="mt-10 text-lg text-gray-400">
+            <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
+                <i className="fa-solid fa-calendar text-sm mr-3" />
+                September 2024 - May 2025
+            </p>
+
+            <p className="text-lg text-gray-400">
                 A website that allows users to create machine learning datasets and models without having to code.
                 Users are then able to export models or train them on datasets, evaluate models, and use the models to predict data.<br></br>
                 This project taught me a lot about working on large-scale projects, using APIs for more complex scenarios, e.g. using tasks, as well as web development & machine-learning in general.
