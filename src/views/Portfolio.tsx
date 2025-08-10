@@ -1,6 +1,6 @@
 import { useState } from "react"
-import DalinarPage from "../components/DalinarPage"
-import MuskiePage from "../components/MuskiePage"
+import DalinarPage from "../components/portfolio/DalinarPage"
+import MuskiePage from "../components/portfolio/MuskiePage"
 
 type ProjectType = "Dalinar" | "Muskie" | "MediaReviewr"
 

@@ -52,7 +52,7 @@ export default function AmbientImage({url}: Props) {
 
     return (
         <div
-        className="rounded-xl shadow-[0_0_50px_10px_var(--shadow-color)] hover:shadow-[0_0_80px_20px_var(--shadow-color)] hover:z-1"
+        className="rounded-xl shadow-[0_0_50px_0px_var(--shadow-color)] hover:shadow-[0_0_50px_5px_var(--shadow-color)] hover:z-1"
         style={{ "--shadow-color": shadowColor }}>
             <img ref={imgRef} className="h-full w-full rounded-xl" src={url}/>
         </div>

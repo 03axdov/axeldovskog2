@@ -21,19 +21,19 @@ export default function DalinarPage() {
                 <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 text-sm ml-3" />
             </a>
             
-            <div className="w-[full] flex flex-col items-center gap-2 pb-5 border-b border-gray-600">
-                <img className="w-[80%] rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
+            <div className="w-[full] flex flex-col items-start gap-2 pb-5 border-b border-gray-600">
+                <img className="w-[80%] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
 
                 <div className="w-[80%] grid grid-cols-3 gap-2">
-                    <img className="w-full aspect-[4/3] object-cover rounded-lg cursor-pointer" 
+                    <img className="w-full border border-gray-800 aspect-[4/3] object-cover rounded-lg cursor-pointer" 
                     onClick={() => imageOnClick(1)} 
                     src={`/static/images/portfolio/dalinar${currentImages[1]}.jpg`} />
 
-                    <img className="w-full aspect-[4/3] object-cover rounded-lg cursor-pointer" 
+                    <img className="w-full border border-gray-800 aspect-[4/3] object-cover rounded-lg cursor-pointer" 
                     onClick={() => imageOnClick(2)} 
                     src={`/static/images/portfolio/dalinar${currentImages[2]}.jpg`} />
 
-                    <img className="w-full aspect-[4/3] object-cover rounded-lg cursor-pointer" 
+                    <img className="w-full border border-gray-800 aspect-[4/3] object-cover rounded-lg cursor-pointer" 
                     onClick={() => imageOnClick(3)}
                     src={`/static/images/portfolio/dalinar${currentImages[3]}.jpg`} />
                 </div>
@@ -44,11 +44,20 @@ export default function DalinarPage() {
                 Users are then able to export models or train them on datasets, evaluate models, and use the models to predict data.<br></br>
                 This project taught me a lot about working on large-scale projects, using APIs for more complex scenarios, e.g. using tasks, as well as web development & machine-learning in general.
             </p>
-            <a target="_blank" href="https://www.dalinar.net" 
-            className="flex flex-row items-center justify-center rounded-full p-2 px-6 bg-blue-500 hover:bg-blue-600 cursor-pointer mt-5 mr-auto">
-                Check out website
-                <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3" />
-            </a>
+            <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
+                <a target="_blank" href="https://www.dalinar.net" 
+                className="flex flex-row items-center justify-center rounded-full p-2 px-6 bg-blue-500 hover:bg-blue-600 cursor-pointer">
+                    Check out the website
+                    <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3" />
+                </a>
+
+                <a target="_blank" href="https://github.com/03axdov/Dalinar" 
+                className="flex flex-row items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
+                    <i className="fa-brands fa-github fa-lg mr-3" />
+                    Dalinar GitHub
+                </a>
+            </div>
+            
 
             <p className="text-xl w-full mt-10 mb-2 text-gray-200">Tutorial</p>
             <p className="mb-5 text-lg text-gray-400">
