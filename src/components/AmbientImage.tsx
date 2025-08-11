@@ -5,6 +5,11 @@ interface Props {
     url: string
 }
 
+type CSSVars = React.CSSProperties & {
+  [key: `--${string}`]: string | number;
+};
+
+
 export default function AmbientImage({url}: Props) {
     const [shadowColor, setShadowColor] = useState("rgba(0,0,0,0.3)");
     const imgRef = useRef(null);
@@ -53,7 +58,7 @@ export default function AmbientImage({url}: Props) {
     return (
         <div
         className="rounded-xl shadow-[0_0_50px_0px_var(--shadow-color)] hover:shadow-[0_0_50px_5px_var(--shadow-color)] hover:z-1"
-        style={{ "--shadow-color": shadowColor }}>
+        style={{ "--shadow-color": shadowColor } as CSSVars}>
             <img ref={imgRef} className="h-full w-full rounded-xl" src={url}/>
         </div>
     )

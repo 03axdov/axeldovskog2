@@ -33,14 +33,14 @@ export default function Portfolio() {
                 I enjoy working on my own projects in my spare time. Here are the main ones.
             </p>
             
-            <div className="portfolio-container flex flex-row mt-20 justify-center gap-15 relative">
+            <div className="portfolio-container w-full max-w-[100%] flex flex-row mt-20 justify-center gap-15 relative">
                 <div className="flex flex-col items-center gap-y-5 w-[300px] min-w-[300px]">
                     {getProjectElement("Dalinar.jpg", "Dalinar", "#18191c", "blue-300")}
                     {getProjectElement("Muskie.jpg", "Muskie", "#18191c", "cyan-400")}
                     {getProjectElement("Mediareviewr.jpg", "MediaReviewr", "#18191c", "purple-400")}
                 </div>
 
-                <div className="max-w-[1000px]">
+                <div className="portfolio-inner w-[1000px] max-w-[calc(100%-300px-60px)]">
                     {selectedSection == "Dalinar" && <DalinarPage />}
 
                     {selectedSection == "Muskie" && <MuskiePage />}

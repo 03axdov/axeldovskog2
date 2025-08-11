@@ -21,10 +21,10 @@ export default function DalinarPage() {
                 <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 text-sm ml-3" />
             </a>
             
-            <div className="w-[full] flex flex-col items-start gap-2 pb-5 border-b border-gray-600">
-                <img className="w-[80%] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
+            <div className=" flex flex-col items-center w-full gap-2 pb-5 border-b border-gray-600">
+                <img className="w-[100%] max-w-[800px] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
 
-                <div className="w-[80%] grid grid-cols-3 gap-2">
+                <div className="w-[100%] max-w-[800px] grid grid-cols-3 gap-2">
                     <img className="w-full border border-gray-800 aspect-[4/3] object-cover rounded-lg cursor-pointer" 
                     onClick={() => imageOnClick(1)} 
                     src={`/static/images/portfolio/dalinar${currentImages[1]}.jpg`} />

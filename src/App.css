@@ -71,6 +71,11 @@ select:-webkit-autofill:focus {
     align-items: center;
   }
 
+  .portfolio-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .career-spacing {
     display: none;
   }
@@ -89,4 +94,8 @@ select:-webkit-autofill:focus {
     .navbar {
         display: none;
     }
+}
+
+code {
+    border-radius: 10px;
 }

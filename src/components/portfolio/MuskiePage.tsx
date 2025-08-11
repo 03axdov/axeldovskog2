@@ -1,6 +1,4 @@
-import { useState } from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import CodeBlock from "../CodeBlock"
 
 export default function MuskiePage() {
 
@@ -61,30 +59,8 @@ AFTER TRAINING:
                 MUSKIE
                 <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 text-sm ml-3" />
             </a>
-            <SyntaxHighlighter
-                language="python"
-                style={vscDarkPlus}
-                customStyle={{
-                borderRadius: "0.5rem",
-                padding: "0 20px",
-                width: "100%",
-                fontSize: "0.9rem",
-                }}
-            >
-                {codeExample}
-            </SyntaxHighlighter>
-            <SyntaxHighlighter
-                language=""
-                style={vscDarkPlus}
-                customStyle={{
-                borderRadius: "0.5rem",
-                padding: "0 20px",
-                width: "100%",
-                fontSize: "0.9rem",
-                }}
-            >
-                {resExample}
-            </SyntaxHighlighter>
+            <div className="w-full"><CodeBlock code={codeExample} language="python" /></div>
+            <div className="w-full"><CodeBlock code={resExample} language="python" /></div>
             
             <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
                 <i className="fa-solid fa-calendar text-sm mr-3" />

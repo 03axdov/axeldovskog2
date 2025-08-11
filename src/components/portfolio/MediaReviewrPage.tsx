@@ -4,7 +4,7 @@ export default function MediaReviewrPage() {
             <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" className="w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
                 MEDIAREVIEWR
                 <span className="text-gray-400 ml-3">
-                    (SITE OFFLINE)
+                    (OFFLINE)
                 </span>
             </a>
 
