@@ -11,7 +11,7 @@ export default function Career() {
         duration: string, position: string, section: WorkType
     ) {
         return (
-            <div className={"flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer " +
+            <div className={"work-element flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer " +
                 (selectedSection == section ? "bg-third border border-[rgb(0,0,0,0)]" : "border border-gray-600")
             }
             onClick={() => setSelectedSection(section)}>
@@ -27,7 +27,7 @@ export default function Career() {
     }
 
     return (
-        <div className="px-10 mt-50 mb-50 flex flex-col items-center">
+        <div id="career"  className="px-10 mt-50 mb-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">CAREER</p>
             <p className="text-4xl tracking-wider">MY CAREER</p>
             <p className="text-lg text-gray-400 mt-5">
@@ -35,12 +35,12 @@ export default function Career() {
                 There was no opportunity for extending my internship at Neo4j as I'm going on exchange studies.
             </p>
             
-            <div className="flex flex-row mt-20 justify-center gap-x-15">
-                <div className="flex flex-col items-center w-[420px]">
+            <div className="career-container flex flex-row mt-20 justify-center gap-15">
+                <div className="career-inner flex flex-col items-center w-[420px] min-w-[420px]">
                     {getWorkElement("Neo4j", "neo4j.svg", "full", " 9 June 2025 - 15 August 2025", "Software Engineer (Intern)", "Neo4j")}
-                    <div className="border-r border-gray-600 h-[100px]"></div>
+                    <div className="career-spacing border-r border-gray-600 h-[100px]"></div>
                     {getWorkElement("Arm", "arm.png", "part", " 15 August 2024 - 31 December 2024", "Software Engineer (Intern)", "Arm1")}
-                    <div className="border-r border-gray-600 h-[100px]"></div>
+                    <div className="career-spacing border-r border-gray-600 h-[100px]"></div>
                     {getWorkElement("Arm", "arm.png", "full", " 15 June 2024 - 15 August 2024", "Software Engineer (Intern)", "Arm2")}
                 </div>
 
@@ -52,7 +52,20 @@ export default function Career() {
                             <img className="w-[calc(50%-4px)] rounded-lg h-full object-cover" src="/static/images/career/armChip.jpg" />
                             <img className="w-[calc(50%-4px)] rounded-lg h-full object-cover" src="/static/images/career/arm2.webp" />
                         </div>
-                        <p className="mt-10 text-lg text-gray-400">
+
+                        <div className="flex my-5 flex-row items-center w-full flex-wrap gap-3">
+                            <p className="text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center">
+                                <i className="fa-solid fa-calendar text-sm mr-3" />
+                                15 June 2024 - 31 December 2024
+                            </p>
+
+                            <p className="text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center">
+                                <i className="fa-solid fa-location-dot text-sm mr-3" />
+                                Lund, Sweden
+                            </p>
+                        </div>
+
+                        <p className="text-lg text-gray-400">
                             I upgraded a preexisting internal tool in order to develop a program called JiraGantt, which utilized
                             the Jira API for tasks in order to create a personalized experience where employees could easily get an overview of their own tasks,
                             as well as allowing managers to understand how well a project is coming along and plan accordingly.
@@ -82,7 +95,20 @@ export default function Career() {
                         <div className="w-full flex flex-row gap-x-2 pb-5 justify-center">
                             <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/graph.jpg" />
                         </div>
-                        <p className="mt-10 text-lg text-gray-400">
+
+                        <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
+                            <p className="text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center">
+                                <i className="fa-solid fa-calendar text-sm mr-3" />
+                                9 June 2025 - 15 August 2025
+                            </p>
+
+                            <p className="text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center">
+                                <i className="fa-solid fa-location-dot text-sm mr-3" />
+                                Malmö, Sweden
+                            </p>
+                        </div>
+
+                        <p className="text-lg text-gray-400">
                             Worked with a team of 3 other interns and two full-time employees to develop a tool to assist the support team.
                             This included modelling the entire Neo4j product ecosytem as a graph (in the Neo4j Graph Database) in order to identify the impact of CVEs (Common Vulnerabilities and Exposures),
                             being able to provide accurate descriptions of what's changed between two versions of a product, and being able to
@@ -122,6 +148,10 @@ export default function Career() {
                             <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-pink-400 text-pink-400">
                                 <i className="fa-solid fa-hexagon-nodes fa-lg mr-3"></i>
                                 Neo4j Cypher Query Language
+                            </p>
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-500 text-blue-500">
+                                <i className="fa-brands fa-docker fa-lg mr-3"></i>
+                                Docker
                             </p>
                         </div>
                     </div>}

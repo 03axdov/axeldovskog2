@@ -23,7 +23,7 @@ export default function TestElement({testName, score, maxScore, filename, descri
             </p>
             {scoreSection}
             <div className="min-h-[10px] mt-5 max-h-[10px] w-full rounded-full flex-grow bg-gray-700 overflow-hidden">
-                <div className="h-full bg-blue-500 rounded-full" style={{
+                <div className={"h-full " + (testName == "SAT" ? "purple-gradient" : "blue-gradient") + " rounded-full"} style={{
                     width: Math.round((100 * (score / maxScore))) + "%"
                 }}></div>
             </div>

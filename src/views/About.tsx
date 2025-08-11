@@ -4,7 +4,7 @@ import ProficiencyElement from "../components/ProficiencyElement";
 
 export default function About() {
     return (
-        <div className="px-10 flex flex-col items-center">
+        <div id="about" className="px-10 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">ABOUT ME</p>
             <p className="text-4xl mb-15 tracking-wider">MY MAIN PROFICIENCIES</p>
             

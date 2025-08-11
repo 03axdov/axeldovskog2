@@ -57,7 +57,7 @@ export default function Education() {
                     <p className="text-gray-400 w-full text-start">Rough GPA</p>
                     <div className="mt-3 flex flex-row items-center w-full">
                         <div className="h-[10px] rounded-full flex-grow bg-gray-700 overflow-hidden">
-                            <div className="h-full bg-blue-500 rounded-full" style={{
+                            <div className={"h-full " + (name == "Lund University (LTH)" ? "blue-gradient" : "purple-gradient") + " rounded-full"} style={{
                                 width: (gpa && gpaMax ? Math.round((100 * (gpa / gpaMax))) + "%": "0")
                             }}></div>
                         </div>
@@ -70,7 +70,7 @@ export default function Education() {
     }
 
     return (
-        <div className="px-10 mt-50 flex flex-col items-center">
+        <div id="education" className="px-10 mt-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">EDUCATION</p>
             <p className="text-4xl tracking-wider">MY EDUCATION</p>
             <p className="text-lg text-gray-400 mt-5">
@@ -78,7 +78,7 @@ export default function Education() {
                 During the fall semester of 2025, I'm studying as an exchange student at National Taiwan University.
             </p>
 
-            <div className="flex flex-row justify-center w-full mt-20 gap-x-10">
+            <div className="education-container flex flex-row justify-center w-full mt-20 gap-10">
                 <div className="flex flex-col w-[420px] min-w-[420px]">
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                     {getUniversityElement("lthLogo.jpg", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}

@@ -34,7 +34,7 @@ export default function Contact() {
     };
 
     return (
-        <div className="px-10 mt-50 mb-50 flex flex-col items-center">
+        <div id="contact" className="px-10 mt-50 mb-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">CONTACT</p>
             <p className="text-4xl tracking-wider">CONTACT ME</p>
             <p className="text-lg text-gray-400 mt-5">
@@ -132,8 +132,8 @@ export default function Contact() {
                 <button
                     type="submit"
                     className="inline-flex cursor-pointer ml-auto items-center justify-center rounded-md 
-                    bg-indigo-600 px-5 py-2 text-sm text-white
-                     hover:bg-indigo-500 focus:outline-none"
+                    purple-gradient purple-gradient-hover px-5 py-2 text-sm text-white
+                      focus:outline-none"
                 >
                     Send message
                 </button>

@@ -51,9 +51,9 @@ export default function DalinarPage() {
             </p>
             <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
                 <a target="_blank" href="https://www.dalinar.net" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 bg-blue-500 hover:bg-blue-600 cursor-pointer">
+                className="flex flex-row items-center justify-center rounded-full p-2 px-6 blue-gradient blue-gradient-hover cursor-pointer">
+                    <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
-                    <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3" />
                 </a>
 
                 <a target="_blank" href="https://github.com/03axdov/Dalinar" 
@@ -115,7 +115,11 @@ export default function DalinarPage() {
                 </p>
                 <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
                     <i className="fa-brands fa-aws fa-lg mr-3"></i>
-                    AWS
+                    AWS S3
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
+                    <i className="fa-brands fa-aws fa-lg mr-3"></i>
+                    AWS EC2
                 </p>
             </div>
         </div>

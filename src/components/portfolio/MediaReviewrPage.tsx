@@ -24,9 +24,9 @@ export default function MediaReviewrPage() {
 
             <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
                 <a target="_blank" href="https://www.mediareviewr.com/" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 bg-purple-600 hover:bg-purple-600 cursor-pointer">
+                className="flex flex-row items-center justify-center rounded-full p-2 px-6 purple-gradient purple-gradient-hover cursor-pointer">
+                    <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
-                    <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3" />
                 </a>
 
                 <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" 
@@ -34,6 +34,34 @@ export default function MediaReviewrPage() {
                     <i className="fa-brands fa-github fa-lg mr-3" />
                     MediaReviewr GitHub
                 </a>
+            </div>
+
+            <p className="text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
+            <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-yellow-400 text-yellow-400">
+                    <i className="fa-brands fa-js fa-lg mr-3"></i>
+                    Javascript
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
+                    <i className="fa-brands fa-python fa-lg mr-3"></i>
+                    Python
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                    <i className="fa-brands fa-react fa-lg mr-3"></i>
+                    Javascript React
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-green-300 text-green-300">
+                    <i className="fa-brands fa-python fa-lg mr-3"></i>
+                    Python Django
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-purple-400 text-purple-400">
+                    <i className="fa-brands fa-salesforce fa-lg mr-3"></i>
+                    Heroku
+                </p>
+                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
+                    <i className="fa-brands fa-aws fa-lg mr-3"></i>
+                    AWS S3
+                </p>
             </div>
         </div>
     )

@@ -2,14 +2,14 @@ import TestElement from "../components/TestElement";
 
 export default function Tests() {
     return (
-        <div className="px-10 mt-50 flex flex-col items-center">
+        <div id="tests" className="px-10 mt-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">TEST SCORES</p>
             <p className="text-4xl tracking-wider">STANDARDIZED TESTS</p>
             <p className="text-lg text-gray-400 mt-5">
                 I've taken the American SAT, as well as the Swedish counterpart called Högskoleprovet.
             </p>
 
-            <div className="mt-15 flex flex-row items-center flex-wrap gap-10">
+            <div className="mt-15 flex flex-row items-center justify-center flex-wrap gap-10">
                 <TestElement 
                 testName="SAT" 
                 score={1560}

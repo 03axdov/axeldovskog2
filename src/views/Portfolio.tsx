@@ -26,15 +26,15 @@ export default function Portfolio() {
     }
 
     return (
-        <div className="px-10 mt-50 mb-50 flex flex-col items-center">
+        <div id="portfolio" className="px-10 mt-50 mb-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">PORTFOLIO</p>
             <p className="text-4xl tracking-wider">MY PERSONAL PROJECTS</p>
             <p className="text-lg text-gray-400 mt-5">
                 I enjoy working on my own projects in my spare time. Here are the main ones.
             </p>
             
-            <div className="flex flex-row mt-20 justify-center gap-x-15 relative">
-                <div className="flex flex-col items-center gap-y-5 sticky top-0 w-[300px] min-w-[300px]">
+            <div className="portfolio-container flex flex-row mt-20 justify-center gap-15 relative">
+                <div className="flex flex-col items-center gap-y-5 w-[300px] min-w-[300px]">
                     {getProjectElement("Dalinar.jpg", "Dalinar", "#18191c", "blue-300")}
                     {getProjectElement("Muskie.jpg", "Muskie", "#18191c", "cyan-400")}
                     {getProjectElement("Mediareviewr.jpg", "MediaReviewr", "#18191c", "purple-400")}
@@ -48,6 +48,8 @@ export default function Portfolio() {
                     {selectedSection == "MediaReviewr" && <MediaReviewrPage />}
                 </div>
             </div>
+
+            <p className="text-md text-gray-400 mt-20">I also built this website using Javascript React and TailwindCSS for styling.</p>
         </div>
     )
 }
