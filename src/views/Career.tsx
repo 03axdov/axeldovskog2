@@ -17,10 +17,10 @@ export default function Career() {
             onClick={() => setSelectedSection(section)}>
                 <img className="w-[100px] rounded-lg mr-5" src={"/static/images/career/" + filename}/>
                 <div className="flex flex-col">
-                    <p className="whitespace-nowrap text-xl">{name}</p>
-                    <p className="whitespace-nowrap text-lg text-gray-300">{position}</p>
-                    <p className="whitespace-nowrap text-md text-gray-400">{duration}</p>
-                    <p className="whitespace-nowrap text-md text-gray-400">{status == "part" ? "Part-time" : "Full-time"}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-xl">{name}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-lg text-gray-300">{position}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{duration}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{status == "part" ? "Part-time" : "Full-time"}</p>
                 </div>
             </div>
         )
@@ -29,7 +29,7 @@ export default function Career() {
     return (
         <div id="career"  className="px-10 mt-50 mb-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">CAREER</p>
-            <p className="text-4xl tracking-wider">MY CAREER</p>
+            <p className="section-subtitle text-4xl tracking-wider">MY CAREER</p>
             <p className="text-lg text-gray-400 mt-5">
                 I've done two summer internships, one of which included part-time work later on.<br></br>
                 There was no opportunity for extending my internship at Neo4j as I'm going on exchange studies.

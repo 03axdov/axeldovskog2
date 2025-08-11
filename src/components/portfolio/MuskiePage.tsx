@@ -72,7 +72,7 @@ AFTER TRAINING:
                 It allows users to create and train machine-learning models (both regression and image classification are supported).
                 See above for a very basic example of how to create a model.
             </p>
-            <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
+            <div className="flex flex-row items-center gap-3 mt-5 w-full">
                 <a target="_blank" href="https://github.com/03axdov/muskie" 
                 className="flex flex-row items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
                     <i className="fa-brands fa-github fa-lg mr-3" />

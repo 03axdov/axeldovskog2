@@ -22,9 +22,9 @@ export default function DalinarPage() {
             </a>
             
             <div className=" flex flex-col items-center w-full gap-2 pb-5 border-b border-gray-600">
-                <img className="w-[100%] max-w-[800px] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
+                <img className="w-[100%] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/dalinar${currentImages[0]}.jpg`} />
 
-                <div className="w-[100%] max-w-[800px] grid grid-cols-3 gap-2">
+                <div className="w-[100%] grid grid-cols-3 gap-2">
                     <img className="w-full border border-gray-800 aspect-[4/3] object-cover rounded-lg cursor-pointer" 
                     onClick={() => imageOnClick(1)} 
                     src={`/static/images/portfolio/dalinar${currentImages[1]}.jpg`} />
@@ -49,15 +49,15 @@ export default function DalinarPage() {
                 Users are then able to export models or train them on datasets, evaluate models, and use the models to predict data.<br></br>
                 This project taught me a lot about working on large-scale projects, using APIs for more complex scenarios, e.g. using tasks, as well as web development & machine-learning in general.
             </p>
-            <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
+            <div className="flex flex-row flex-wrap items-center gap-3 mt-5 w-full">
                 <a target="_blank" href="https://www.dalinar.net" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 blue-gradient blue-gradient-hover cursor-pointer">
+                className="flex flex-row items-center justify-center whitespace-nowrap rounded-full p-2 px-6 blue-gradient blue-gradient-hover cursor-pointer">
                     <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
                 </a>
 
                 <a target="_blank" href="https://github.com/03axdov/Dalinar" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
+                className="flex flex-row items-center justify-center whitespace-nowrap rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
                     <i className="fa-brands fa-github fa-lg mr-3" />
                     Dalinar GitHub
                 </a>

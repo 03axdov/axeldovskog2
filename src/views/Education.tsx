@@ -20,9 +20,9 @@ export default function Education() {
             >
                 <img className="w-[50px] mr-5" src={"/static/images/education/" + logoFilename}/>
                 <div className="flex flex-col">
-                    <p className="whitespace-nowrap text-xl">{title}</p>
-                    <p className="whitespace-nowrap text-lg text-gray-300">{universityName}</p>
-                    <p className="whitespace-nowrap text-md text-gray-400">{time}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-xl">{title}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-lg text-gray-300">{universityName}</p>
+                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{time}</p>
                 </div>
             </div>
         )
@@ -41,7 +41,7 @@ export default function Education() {
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
                 <div className="relative flex flex-row h-[450px] w-full gap-x-3">
-                    <p className="absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md">{name}</p>
+                    <p className="university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md">{name}</p>
                     <img className="w-[60%] bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1}/>
                     <div className="flex flex-col gap-y-3 flex-grow">
                         <img className="h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename2}/>
@@ -72,14 +72,14 @@ export default function Education() {
     return (
         <div id="education" className="px-10 mt-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">EDUCATION</p>
-            <p className="text-4xl tracking-wider">MY EDUCATION</p>
+            <p className="section-subtitle text-4xl tracking-wider">MY EDUCATION</p>
             <p className="text-lg text-gray-400 mt-5">
                 I'm studying 200% at Lund University, Sweden.<br></br>
                 During the fall semester of 2025, I'm studying as an exchange student at National Taiwan University.
             </p>
 
             <div className="education-container flex flex-row justify-center w-full mt-20 gap-10">
-                <div className="flex flex-col w-[420px] min-w-[420px]">
+                <div className="universities flex flex-col w-[420px] min-w-[420px]">
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                     {getUniversityElement("lthLogo.jpg", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}
                     {getUniversityElement("lu.png", "Bachelor of International Business", "Lund University", "August 2023 - June 2026", "lusem")}

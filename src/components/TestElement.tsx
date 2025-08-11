@@ -10,7 +10,7 @@ interface TestElementProps {
 
 export default function TestElement({testName, score, maxScore, filename, description, scoreSection, percentile}: TestElementProps) {
     return (
-        <div className="p-10 rounded-md bg-secondary w-[450px] h-[610px] flex flex-col items-center">
+        <div className="test-element p-10 rounded-md bg-secondary max-w-[100%] w-[450px] min-h-[610px] flex flex-col items-center">
             <img className="h-[75px] w-[155px] mb-5 rounded-md" src={"/static/images/tests/" + filename}/>
             <p className="text-2xl mb-5 mt-3">{testName}</p>
             <p className="text-lg text-left text-gray-400 p-1 px-2 rounded-md bg-third">
@@ -22,7 +22,7 @@ export default function TestElement({testName, score, maxScore, filename, descri
                 {description}
             </p>
             {scoreSection}
-            <div className="min-h-[10px] mt-5 max-h-[10px] w-full rounded-full flex-grow bg-gray-700 overflow-hidden">
+            <div className="h-[10px] mt-5 w-full rounded-full bg-gray-700 overflow-hidden">
                 <div className={"h-full " + (testName == "SAT" ? "purple-gradient" : "blue-gradient") + " rounded-full"} style={{
                     width: Math.round((100 * (score / maxScore))) + "%"
                 }}></div>

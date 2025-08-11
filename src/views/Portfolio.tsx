@@ -28,7 +28,7 @@ export default function Portfolio() {
     return (
         <div id="portfolio" className="px-10 mt-50 mb-50 flex flex-col items-center">
             <p className="text-2xl text-gray-500 mb-10 tracking-widest">PORTFOLIO</p>
-            <p className="text-4xl tracking-wider">MY PERSONAL PROJECTS</p>
+            <p className="section-subtitle text-4xl tracking-wider">MY PERSONAL PROJECTS</p>
             <p className="text-lg text-gray-400 mt-5">
                 I enjoy working on my own projects in my spare time. Here are the main ones.
             </p>

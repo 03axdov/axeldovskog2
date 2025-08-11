@@ -1,7 +1,7 @@
 export default function MediaReviewrPage() {
     return (
         <div className="flex flex-col">
-            <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" className="w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
+            <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" className="w-full text-4xl pb-3 flex flex-row flex-wrap items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
                 MEDIAREVIEWR
                 <span className="text-gray-400 ml-3">
                     (OFFLINE)
@@ -22,15 +22,15 @@ export default function MediaReviewrPage() {
                 See the videos on the GitHub page for some detailed functionality, as I've taken down the website.
             </p>
 
-            <div className="flex flex-row items-center gap-x-3 mt-5 w-full">
+            <div className="flex flex-row flex-wrap items-center gap-3 mt-5 w-full">
                 <a target="_blank" href="https://www.mediareviewr.com/" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 purple-gradient purple-gradient-hover cursor-pointer">
+                className="flex flex-row whitespace-nowrap items-center justify-center rounded-full p-2 px-6 purple-gradient purple-gradient-hover cursor-pointer">
                     <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
                 </a>
 
                 <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" 
-                className="flex flex-row items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
+                className="flex flex-row whitespace-nowrap items-center justify-center rounded-full p-2 px-6 border border-gray-600 hover:border-gray-400">
                     <i className="fa-brands fa-github fa-lg mr-3" />
                     MediaReviewr GitHub
                 </a>
