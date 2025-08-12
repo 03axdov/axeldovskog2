@@ -7,7 +7,8 @@ interface AlbumElementProps {
     artists: string
 }
 
-export default function AlbumElement({filename, link, title, artists}: AlbumElementProps) {
+export default function AlbumElement({filename, title, artists}: AlbumElementProps) {
+    
 
     return (
         <a 
