@@ -43,7 +43,7 @@ export default function Contact() {
 
             <form
                 onSubmit={onSubmit}
-                className="mt-10 w-full max-w-2xl rounded-2xl border border-gray-800/60 bg-gray-900/40 backdrop-blur p-6 shadow-lg"
+                className="mt-10 w-full max-w-2xl rounded-2xl border border-gray-800 bg-secondary backdrop-blur p-6 shadow-lg"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Name */}
@@ -56,7 +56,7 @@ export default function Contact() {
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={`mt-1 w-full rounded-lg border bg-gray-900/70 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
+                    className={`mt-1 w-full rounded-lg bg-main border px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
                         errors.name ? "border-red-400" : "border-gray-800"
                     }`}
                     placeholder="John Doe"
@@ -78,7 +78,7 @@ export default function Contact() {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={`mt-1 w-full rounded-lg border bg-gray-900/70 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
+                    className={`mt-1 w-full rounded-lg border bg-main px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
                         errors.email ? "border-red-400" : "border-gray-800"
                     }`}
                     placeholder="john.doe@example.com"
@@ -99,7 +99,7 @@ export default function Contact() {
                     type="text"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className={`mt-1 w-full rounded-lg border bg-gray-900/70 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70 ${errors.subject ? "border-red-600" : "border-gray-800"}`}
+                    className={`mt-1 w-full rounded-lg bg-main border px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70 ${errors.subject ? "border-red-600" : "border-gray-800"}`}
                     placeholder="Regarding..."
                 />
                 {errors.subject && <p className="mt-1 text-sm text-red-500">{errors.subject}</p>}
@@ -115,7 +115,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={6}
-                    className={`mt-1 w-full rounded-lg border bg-gray-900/70 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
+                    className={`mt-1 w-full rounded-lg bg-main border px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none ${
                     errors.message ? "border-red-400" : "border-gray-800"
                     }`}
                     placeholder="Hi! I’m reaching out regarding..."
@@ -132,7 +132,7 @@ export default function Contact() {
                 <button
                     type="submit"
                     className="inline-flex cursor-pointer ml-auto items-center justify-center rounded-md 
-                    purple-gradient purple-gradient-hover px-5 py-2 text-sm text-white
+                    bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm text-white
                       focus:outline-none"
                 >
                     Send message
