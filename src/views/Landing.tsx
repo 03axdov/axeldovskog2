@@ -8,15 +8,15 @@ export default function Landing() {
                         Hi, I'm<br></br>
                         <span className="text-blue-400">Axel Dovskog</span>
                     </p>
-                    <p className="landing-body text-left text-xl text-gray-200 max-w-[500px] leading-9">
+                    <p className="landing-body text-gray-400 text-left text-xl max-w-[500px] leading-9">
                         I'm 21 years old, and studying Computer Science and International business at Lund University.<br></br> 
                         Welcome to my personal website!
                     </p>
                     <div className="landing-buttons flex flex-row flex-wrap gap-3">
-                        <a href="#career" className="rounded-full border-none blue-gradient blue-gradient-hover p-2 px-10 cursor-pointer">
+                        <a href="#career" className="rounded-full border-none bg-blue-600 hover:bg-blue-700 p-2 px-10 cursor-pointer">
                             Career
                         </a>
-                        <a href="#portfolio" className="rounded-full border-none purple-gradient purple-gradient-hover p-2 px-10 cursor-pointer">
+                        <a href="#portfolio" className="rounded-full border-none bg-purple-600 hover:bg-purple-700 p-2 px-10 cursor-pointer">
                             Portfolio
                         </a>
                     </div>

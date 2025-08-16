@@ -51,7 +51,7 @@ export default function DalinarPage() {
             </p>
             <div className="flex flex-row flex-wrap items-center gap-3 mt-5 w-full">
                 <a target="_blank" href="https://www.dalinar.net" 
-                className="flex flex-row items-center justify-center whitespace-nowrap rounded-full p-2 px-6 blue-gradient blue-gradient-hover cursor-pointer">
+                className="flex flex-row items-center justify-center whitespace-nowrap rounded-full p-2 px-6 bg-blue-600 hover:bg-blue-700 cursor-pointer">
                     <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
                 </a>
@@ -80,8 +80,9 @@ export default function DalinarPage() {
                     style={{
                     position: "absolute",
                     top: 0,
-                    left: "10%",
-                    width: "80%",
+                    left: "0%",
+                    width: "100%",
+                    maxWidth: "80%",
                     height: "80%"
                     }}
                 ></iframe>

@@ -1,3 +1,5 @@
+
+
 .bg-main {
     background: rgb(5,5,5);
 }
@@ -32,7 +34,7 @@
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px rgb(17 24 39) inset; /* bg-gray-900 */
+  -webkit-box-shadow: 0 0 0px 1000px rgb(5,5,5) inset; /* bg-gray-900 */
   -webkit-text-fill-color: #f3f4f6; /* text-gray-100 */
   transition: background-color 9999s ease-in-out 0s;
 }
@@ -40,7 +42,7 @@ select:-webkit-autofill {
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px rgb(17 24 39) inset;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(5 5 5) inset;
   -webkit-text-fill-color: #f3f4f6;
 }
 
@@ -58,6 +60,54 @@ select:-webkit-autofill:focus {
 }
 .purple-gradient-hover:hover {
     background: linear-gradient(90deg, rgba(115, 0, 255, 0.9) 0%, rgba(191, 0, 255, 0.9) 100%);
+}
+
+@media (max-width: 1075px) {
+    .landing-header {
+        font-size: 2.5rem;
+        max-width: 100%;
+        line-height: 1.5;
+    }
+    .landing-body {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .landing-image {
+        margin-top: 10px;
+        width: auto;
+        max-width: 300px;
+        height: auto;
+        max-height: 300px;
+    }
+    .landing-container {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 775px) {
+    .landing-container {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .landing-header {
+        text-align: center;
+    }
+    .landing-body {
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+    }
+    .landing-buttons {
+        justify-content: center;
+    }
+
+    .navbar {
+        background: rgb(0,0,0,0)!important;
+        border-color: rgb(0,0,0,0)!important;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -93,31 +143,6 @@ select:-webkit-autofill:focus {
 
 
 @media (max-width: 600px) {
-    .landing-container {
-        width: 100%;
-        min-width: 100%;
-    }
-    .landing-header {
-        font-size: 2.5rem;
-        max-width: 100%;
-        line-height: 1.5;
-        text-align: center;
-    }
-    .landing-body {
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.5;
-    }
-    .landing-buttons {
-        justify-content: center;
-    }
-    .landing-image {
-        margin-top: 10px;
-        width: 300px;
-        min-width: 300px;
-        height: 300px;
-        max-height: 300px;
-    }
 
     .section-subtitle {
         text-align: center;
@@ -184,9 +209,32 @@ select:-webkit-autofill:focus {
         display: flex!important;
     }
 
-    .navbar {
-        background: rgb(0,0,0,0)!important;
-        border-color: rgb(0,0,0,0)!important;
+    .work-element {
+        padding: 5px 10px;
+    }
+
+    .career-element-image {
+        width: 50px!important;
+    }
+
+    .career-element-larger {
+        font-size: 1rem;
+    }
+    .career-element-large {
+        font-size: 0.9rem;
+    }
+    .career-element-mid {
+        font-size: 0.8rem;
+    }
+
+    .career-element-large, .career-element-larger, .career-element-mid {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .career-element-texts {
+        max-width: calc(100% - 70px)!important;
     }
 }
 

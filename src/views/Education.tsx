@@ -19,10 +19,10 @@ export default function Education() {
             onClick={() => setSelectedSection(selectedVal)}
             >
                 <img className="w-[50px] mr-5" src={"/static/images/education/" + logoFilename}/>
-                <div className="flex flex-col">
-                    <p className="whitespace-nowrap allow-wrap-small text-xl">{title}</p>
-                    <p className="whitespace-nowrap allow-wrap-small text-lg text-gray-300">{universityName}</p>
-                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{time}</p>
+                <div className="flex flex-col max-w-[calc(100%-50px-20px)]">
+                    <p className="whitespace-nowrap max-w-[100%] career-element-larger text-xl">{title}</p>
+                    <p className="whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300">{universityName}</p>
+                    <p className="whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400">{time}</p>
                 </div>
             </div>
         )

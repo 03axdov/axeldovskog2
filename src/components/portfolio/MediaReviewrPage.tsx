@@ -24,7 +24,7 @@ export default function MediaReviewrPage() {
 
             <div className="flex flex-row flex-wrap items-center gap-3 mt-5 w-full">
                 <a target="_blank" href="https://www.mediareviewr.com/" 
-                className="flex flex-row whitespace-nowrap items-center justify-center rounded-full p-2 px-6 purple-gradient purple-gradient-hover cursor-pointer">
+                className="flex flex-row whitespace-nowrap items-center justify-center rounded-full p-2 px-6 bg-purple-600 hover:bg-purple-700 cursor-pointer">
                     <i className="fa-solid fa-arrow-up-right-from-square text-sm mr-3" />
                     Check out the website
                 </a>

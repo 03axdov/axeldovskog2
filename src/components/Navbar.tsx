@@ -98,7 +98,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <nav className="flex flex-col gap-y-1 p-4 px-6">
+        <nav className="flex flex-col gap-y-3 p-4 px-6">
           <NavLinks onClick={() => setOpen(false)} />
           <a
             href="#contact"

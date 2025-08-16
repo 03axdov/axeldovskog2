@@ -15,12 +15,12 @@ export default function Career() {
                 (selectedSection == section ? "bg-third border border-[rgb(0,0,0,0)]" : "border border-gray-600")
             }
             onClick={() => setSelectedSection(section)}>
-                <img className="w-[100px] rounded-lg mr-5" src={"/static/images/career/" + filename}/>
-                <div className="flex flex-col">
-                    <p className="whitespace-nowrap allow-wrap-small text-xl">{name}</p>
-                    <p className="whitespace-nowrap allow-wrap-small text-lg text-gray-300">{position}</p>
-                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{duration}</p>
-                    <p className="whitespace-nowrap allow-wrap-small text-md text-gray-400">{status == "part" ? "Part-time" : "Full-time"}</p>
+                <img className="career-element-image w-[100px] rounded-lg mr-5" src={"/static/images/career/" + filename}/>
+                <div className="career-element-texts flex flex-col max-w-[calc(100%-100px-20px)]">
+                    <p className="whitespace-nowrap max-w-[100%] career-element-larger text-xl">{name}</p>
+                    <p className="whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300">{position}</p>
+                    <p className="whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400">{duration}</p>
+                    <p className="whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400">{status == "part" ? "Part-time" : "Full-time"}</p>
                 </div>
             </div>
         )
