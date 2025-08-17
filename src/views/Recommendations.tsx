@@ -33,7 +33,7 @@ export default function Recommendations() {
     return (
         <div id="about" className="overflow-x-hidden pb-20 px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>RECOMMENDATIONS</p>
-            <p className={"section-subtitle text-4xl mb-15 tracking-wider title-" + theme}>SOME RECOMMENDATIONS</p>
+            <p lang="en" className={"section-subtitle text-4xl mb-15 tracking-wider max-w-[100%] hyphens-auto whitespace-normal break-words recommendations-title title-" + theme}>SOME RECOMMENDATIONS</p>
 
             <div className="flex flex-row items-center gap-5 flex-wrap">
                 {getRecommendationElement(

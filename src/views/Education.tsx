@@ -43,7 +43,7 @@ export default function Education() {
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
                 <div className="relative flex flex-row h-[450px] w-full gap-x-3">
-                    <p className={"text-white university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md title-" + theme}>{name}</p>
+                    <p className={"text-white university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md"}>{name}</p>
                     <img className="w-[60%] bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1}/>
                     <div className="flex flex-col gap-y-3 flex-grow">
                         <img className="h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename2}/>

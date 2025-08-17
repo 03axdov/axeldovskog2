@@ -108,6 +108,10 @@ select:-webkit-autofill:focus {
         border-color: rgb(0,0,0,0)!important;
     }
 
+    .navbar-element-light {
+        color: white!important;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -236,6 +240,10 @@ select:-webkit-autofill:focus {
     .career-element-texts {
         max-width: calc(100% - 70px)!important;
     }
+
+    .landing-header {
+        margin-top: 72px;
+    }
 }
 
 @media (max-width: 440px) {
@@ -254,6 +262,7 @@ select:-webkit-autofill:focus {
     .book-element {
         height: 65px;
     }
+
 }
 
 code {
@@ -273,3 +282,7 @@ code {
 .navbar .contact {
     white-space: nowrap;
 }
+
+.hyphens-auto { hyphens: auto; }
+.hyphens-manual { hyphens: manual; }
+.hyphens-none { hyphens: none; }

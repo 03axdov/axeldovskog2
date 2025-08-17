@@ -33,7 +33,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-white rounded-md navbar-element-" + theme}
+          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-gray-400 rounded-md navbar-element-" + theme}
           onClick={onClick}
         >
           {l.label}
@@ -46,7 +46,7 @@ export default function Navbar() {
     <div className={"navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-700 navbar-" + theme}>
       <div className="flex flex-row items-center justify-between p-4 px-8">
         {/* Left side: links (desktop) */}
-        <nav className="hidden md:flex h-full flex-row items-center gap-x-10">
+        <nav className="hidden md:flex h-full flex-row items-center gap-x-10 text-white">
           <NavLinks />
         </nav>
 
@@ -69,7 +69,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
         >
           {/* Font Awesome Free icons */}
-          <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl`} />
+          <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl icon-` + theme} />
         </button>
       </div>
 

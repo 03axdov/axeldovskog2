@@ -4,7 +4,7 @@ export default function Landing() {
     const { theme } = useTheme()
     
     return (
-        <div className="flex flex-row justify-center items-center w-full px-10 mt-[72px] h-[100vh]">
+        <div className="flex flex-row justify-center items-center w-full px-10 pt-[72px] h-[100vh]">
             <div className="flex flex-row h-auto items-start justify-center gap-x-20 gap-y-10 pb-[72px] flex-wrap">
 
                 <div className="landing-container flex flex-col justify-start gap-y-7 min-w-[450px]">
@@ -31,7 +31,9 @@ export default function Landing() {
 
                 </div>
 
-                <img className="landing-image aspect-square h-[400px] max-h-[90%] rounded-full object-cover shadow-[0_0_50px_0_rgb(0,150,255,0.5)]" src="/static/images/axeldovskog.png" />
+                <img 
+                className={"landing-image aspect-square h-[400px] max-h-[90%] rounded-full object-cover shadow-[0_0_50px_0_rgb(0,150,255,0.5)] landing-img-" + theme} 
+                src="/static/images/axeldovskog.png" />
             </div>
         </div>
     )

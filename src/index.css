@@ -23,7 +23,7 @@ body {
   color: black;
 }
 .theme-light {
-  font-family: sans-serif;
+  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
   font-weight: 500;
   color: black;
   background: white;
@@ -101,9 +101,22 @@ body {
 .career-image-light {
   background: rgb(35,35,35);
 }
+.career-light {
+  border: 1px solid rgb(0,0,0,0);
+}
 .portfolio-selected-light {
   border: none!important;
-  box-shadow: 0 0 20px 10px black;
+  box-shadow: 0 0 10px 2px black;
+}
+.icon-light {
+  color: black;
+}
+.landing-img-light {
+  box-shadow: 0 0 50px 0 black;
+}
+.theme-modal-light {
+  border: 1px solid rgb(0,0,0,0);
+  box-shadow: 0 0 20px 0 black;
 }
 
 .theme-sci-fi {
