@@ -9,10 +9,131 @@ body {
   line-height: 1.5;
   letter-spacing: 0px;
   word-spacing: 0px;
-  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-  font-weight: 500;
   font-optical-sizing: auto;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   font-size: 16px;
+}
+
+.theme-dark {
+  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 500;
+}
+.title-light {
+  color: black;
+}
+.theme-light {
+  font-family: sans-serif;
+  font-weight: 500;
+  color: black;
+  background: white;
+}
+.navbar-light {
+  background: white!important;
+  color: black!important;
+  border-color: rgb(100,100,100)!important;
+}
+.navbar-element-light {
+  color: black;
+}
+.navbar-element-light:hover {
+  border: 1px solid black;
+}
+.landing-title-light {
+  color: black;
+}
+.landing-body-light {
+  color: rgb(50,50,50);
+}
+.recommendation-light {
+  background: white!important;
+  border: 1px solid black!important;
+}
+.recommendation-text-light {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.proficiency-light {
+  background: white!important;
+  border: 1px solid black!important;
+}
+.proficiency-light .proficiency-description, .proficiency-light .proficiency-technologies {
+  color: black;
+}
+.text-light {
+  color: black;
+}
+.bar-light {
+  background: rgb(200, 200, 200)!important;
+}
+.university-light:hover, .career-light:hover {
+  background: white!important;
+  border: 1px solid rgb(150,150,150);
+}
+.university-selected-light, .career-selected-light {
+  background: white!important;
+  border: 1px solid black!important;
+}
+.test-element-light {
+  background: white!important;
+  border: 1px solid black;
+}
+.element-border-light {
+  background: white!important;
+  border: 1px solid black;
+  color: black;
+}
+.blue-text-light {
+  color: rgb(0, 64, 255);
+}
+.blue-border-light {
+  border-color: rgb(0, 64, 255);
+}
+.purple-text-light {
+  color: rgb(176, 0, 176);
+}
+.purple-border-light {
+  border-color: rgb(176, 0, 176);
+}
+.text-gray-light {
+  color: rgb(50,50,50);
+}
+.career-image-light {
+  background: rgb(35,35,35);
+}
+.portfolio-selected-light {
+  border: none!important;
+  box-shadow: 0 0 20px 10px black;
+}
+
+.theme-sci-fi {
+  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 500;
+}
+.title-sci-fi {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.navbar-sci-fi {
+  border: 0; /* replace border with glow */
+  /* y-offset | blur | spread | color */
+  box-shadow:
+    0 1px 0 rgba(0, 255, 247, 0.3),          /* crisp edge just below */
+    0 10px 20px -6px rgba(0, 255, 247, 0.2), /* close soft glow */
+    0 28px 48px -18px rgba(0, 255, 247, 0.1); /* longer fade downward */
+}
+.navbar-element-sci-fi {
+  
+  background: rgb(25,25,25);
+  border-radius: 5px;
+}
+.navbar-element-sci-fi:hover {
+  background: rgb(35,35,35);
+}
+
+.theme-modal {
+  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 500;
 }

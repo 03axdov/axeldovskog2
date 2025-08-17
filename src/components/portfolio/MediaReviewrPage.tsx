@@ -1,9 +1,15 @@
+import { useTheme } from "../../contexts/ThemeContext"
+
 export default function MediaReviewrPage() {
+    const { theme } = useTheme()
+    
     return (
         <div className="flex flex-col">
-            <a target="_blank" href="https://github.com/03axdov/www.mediareviewr.com" className="w-full text-4xl pb-3 flex flex-row flex-wrap items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
+            <a target="_blank" 
+            href="https://github.com/03axdov/www.mediareviewr.com" 
+            className={"w-full text-4xl pb-3 flex flex-row flex-wrap items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200 title-" + theme}>
                 MEDIAREVIEWR
-                <span className="text-gray-400 ml-3">
+                <span className={"text-gray-400 ml-3 text-gray-" + theme}>
                     (OFFLINE)
                 </span>
             </a>
@@ -12,12 +18,12 @@ export default function MediaReviewrPage() {
                 <img className="w-full max-w-[500px] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/MediareviewrPage.jpg`} />
             </div>
 
-            <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
+            <p className={"text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center element-border-" + theme}>
                 <i className="fa-solid fa-calendar text-sm mr-3" />
                 January 2022 - May 2022
             </p>
 
-            <p className="text-lg text-gray-400">
+            <p className={"text-lg text-gray-400 text-" + theme}>
                 A social media website tailored for movies, shows, etc. Allows users to create posts, groups, etc.
                 See the videos on the GitHub page for some detailed functionality, as I've taken down the website.
             </p>
@@ -36,7 +42,7 @@ export default function MediaReviewrPage() {
                 </a>
             </div>
 
-            <p className="text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
+            <p className={"text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
             <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                 <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-yellow-400 text-yellow-400">
                     <i className="fa-brands fa-js fa-lg mr-3"></i>

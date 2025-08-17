@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Contact() {
+    const { theme } = useTheme()
+    
     const [form, setForm] = useState({ email: "", subject: "", message: "" });
 
     return (
-        <div id="contact" className="px-10 mb-50 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest pt-[100px]">CONTACT</p>
-            <p className="text-4xl tracking-wider">CONTACT ME</p>
-            <p className="text-lg text-gray-400 mt-5">
-                Feel free to reach out to me at <a className="text-blue-400 hover:underline" href="mailto:axel.dovskog@outlook.com">axel.dovskog@outlook.com</a> or using the form below!
+        <div id="contact" className="px-10 pb-20 flex flex-col items-center">
+            <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>CONTACT</p>
+            <p className={"text-4xl tracking-wider title-" + theme}>CONTACT ME</p>
+            <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
+                Feel free to reach out to me at <a className={"text-blue-400 hover:underline blue-text-" + theme} href="mailto:axel.dovskog@outlook.com">axel.dovskog@outlook.com</a> or using the form below!
             </p>
 
             <form

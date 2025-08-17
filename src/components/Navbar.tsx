@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -9,6 +10,7 @@ const LINKS = [
 ];
 
 export default function Navbar() {
+  const { theme } = useTheme()
   const [open, setOpen] = useState(false);
 
   // Lock body scroll when menu is open (nice to have)
@@ -31,7 +33,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className="text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 rounded-full"
+          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-white rounded-md navbar-element-" + theme}
           onClick={onClick}
         >
           {l.label}
@@ -41,7 +43,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-700">
+    <div className={"navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-700 navbar-" + theme}>
       <div className="flex flex-row items-center justify-between p-4 px-8">
         {/* Left side: links (desktop) */}
         <nav className="hidden md:flex h-full flex-row items-center gap-x-10">
@@ -52,7 +54,7 @@ export default function Navbar() {
         <a
           href="#contact"
           className="hidden whitespace-nowrap md:flex flex-row items-center rounded-md 
-          border-none blue-gradient blue-gradient-hover p-2 px-6 cursor-pointer"
+          border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 cursor-pointer"
         >
           <i className="fa-solid fa-address-card mr-3"></i>
           Contact me
@@ -104,7 +106,7 @@ export default function Navbar() {
           <NavLinks onClick={() => setOpen(false)} />
           <a
             href="#contact"
-            className="mt-4 whitespace-nowrap rounded-full border-none blue-gradient blue-gradient-hover p-2 px-6 text-center"
+            className="mt-4 whitespace-nowrap rounded-full border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 text-center"
             onClick={() => setOpen(false)}
           >
             Contact me

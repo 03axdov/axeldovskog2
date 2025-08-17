@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useTheme } from "../contexts/ThemeContext"
 
 type SectionTypes = "ntu" | "lth" | "lusem"
 
 export default function Education() {
+    const { theme } = useTheme()
 
     const [selectedSection, setSelectedSection] = useState<SectionTypes>("ntu")
 
@@ -14,15 +16,15 @@ export default function Education() {
         selectedVal: SectionTypes
     ) {
         return (
-            <div className={"university w-full flex flex-row items-center cursor-pointer " +
-            "rounded-lg p-4 " + (selectedSection == selectedVal ? "bg-third university-selected" : "")}
+            <div className={"university w-full flex flex-row items-center border border-[rgb(0,0,0,0)] cursor-pointer university-" + theme +
+            " rounded-lg p-4 " + (selectedSection == selectedVal ? "bg-third university-selected university-selected-" + theme : "")}
             onClick={() => setSelectedSection(selectedVal)}
             >
                 <img className="w-[50px] mr-5" src={"/static/images/education/" + logoFilename}/>
                 <div className="flex flex-col max-w-[calc(100%-50px-20px)]">
                     <p className="whitespace-nowrap max-w-[100%] career-element-larger text-xl">{title}</p>
-                    <p className="whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300">{universityName}</p>
-                    <p className="whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400">{time}</p>
+                    <p className={"whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300 text-" + theme}>{universityName}</p>
+                    <p className={"whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400 text-" + theme}>{time}</p>
                 </div>
             </div>
         )
@@ -41,7 +43,7 @@ export default function Education() {
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
                 <div className="relative flex flex-row h-[450px] w-full gap-x-3">
-                    <p className="university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md">{name}</p>
+                    <p className={"text-white university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md title-" + theme}>{name}</p>
                     <img className="w-[60%] bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1}/>
                     <div className="flex flex-col gap-y-3 flex-grow">
                         <img className="h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename2}/>
@@ -49,19 +51,19 @@ export default function Education() {
                     </div>
                 </div>
                 
-                <p className="w-full mt-5 text-gray-300 text-lg">
+                <p className={"w-full mt-5 text-gray-300 text-lg text-" + theme}>
                     {description}
                 </p>
 
                 <div className="mt-5 w-full">
-                    <p className="text-gray-400 w-full text-start">Rough GPA</p>
+                    <p className={"text-gray-400 w-full text-start text-" + theme}>Rough GPA</p>
                     <div className="mt-3 flex flex-row items-center w-full">
-                        <div className="h-[10px] rounded-full flex-grow bg-gray-700 overflow-hidden">
+                        <div className={"h-[10px] rounded-full flex-grow bg-gray-700 overflow-hidden bar-" + theme}>
                             <div className={"h-full " + (name == "Lund University (LTH)" ? "blue-gradient" : "purple-gradient") + " rounded-full"} style={{
                                 width: (gpa && gpaMax ? Math.round((100 * (gpa / gpaMax))) + "%": "0")
                             }}></div>
                         </div>
-                        {gpa && gpaMax && <p className="m-0 ml-3 text-lg">{gpa} <span className="text-gray-400">out of {gpaMax}</span></p>}
+                        {gpa && gpaMax && <p className="m-0 ml-3 text-lg">{gpa} <span className={"text-gray-400 text-" + theme}>out of {gpaMax}</span></p>}
                         {!gpa && !gpaMax && <p className="m-0 ml-3 text-lg">No grades yet.</p>}
                     </div>
                 </div>
@@ -71,9 +73,9 @@ export default function Education() {
 
     return (
         <div id="education" className="px-10 mt-20 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest pt-[100px]">EDUCATION</p>
-            <p className="section-subtitle text-4xl tracking-wider">MY EDUCATION</p>
-            <p className="text-lg text-gray-400 mt-5">
+            <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>EDUCATION</p>
+            <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY EDUCATION</p>
+            <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
                 I'm studying 200% at Lund University, Sweden.<br></br>
                 During the fall semester of 2025, I'm studying as an exchange student at National Taiwan University.
             </p>

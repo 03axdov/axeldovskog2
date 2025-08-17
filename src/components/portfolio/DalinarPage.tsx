@@ -1,9 +1,11 @@
 import { useState } from "react"
 import PortfolioImages from "../PortfolioImages"
+import { useTheme } from "../../contexts/ThemeContext"
 
 type ImageType = 1 | 2 | 3 | 4
 
 export default function DalinarPage() {
+    const { theme } = useTheme()
 
     const [currentImages, setCurrentImages] = useState<ImageType[]>([1, 2, 3, 4])
 
@@ -17,19 +19,20 @@ export default function DalinarPage() {
 
     return (
         <div className="flex flex-col">
-            <a target="_blank" href="https://www.dalinar.net" className="w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
+            <a target="_blank" href="https://www.dalinar.net" 
+            className={"w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200 title-" + theme}>
                 DALINAR
                 <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 text-sm ml-3" />
             </a>
             
             <PortfolioImages currentImages={currentImages} imageOnClick={imageOnClick} />
 
-            <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
-                <i className="fa-solid fa-calendar text-sm mr-3" />
+            <p className={"text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center element-border-" + theme}>
+                <i className={"fa-solid fa-calendar text-sm mr-3"} />
                 September 2024 - May 2025
             </p>
 
-            <p className="text-lg text-gray-400">
+            <p className={"text-lg text-gray-400 text-" + theme}>
                 A website that allows users to create machine learning datasets and models without having to code.
                 Users are then able to export models or train them on datasets, evaluate models, and use the models to predict data.<br></br>
                 This project taught me a lot about working on large-scale projects, using APIs for more complex scenarios, e.g. using tasks, as well as web development & machine-learning in general.
@@ -49,8 +52,8 @@ export default function DalinarPage() {
             </div>
             
 
-            <p className="text-xl w-full mt-10 mb-2 text-gray-200">Tutorial</p>
-            <p className="mb-5 text-lg text-gray-400">
+            <p className={"text-xl w-full mt-10 mb-2 text-gray-200 text-" + theme}>Tutorial</p>
+            <p className={"mb-5 text-lg text-gray-400 text-gray-" + theme}>
                 Here's a brief tutorial, please excuse the audio :)
             </p>
 
@@ -73,7 +76,7 @@ export default function DalinarPage() {
                 ></iframe>
             </div>
 
-            <p className="text-xl w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
+            <p className={"text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
             <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                 <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-yellow-400 text-yellow-400">
                     <i className="fa-brands fa-js fa-lg mr-3"></i>
