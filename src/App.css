@@ -34,7 +34,7 @@
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px rgb(5,5,5) inset; /* bg-gray-900 */
+  -webkit-box-shadow: 0 0 0px 1000px rgb(25,25,25) inset; /* bg-gray-900 */
   -webkit-text-fill-color: #f3f4f6; /* text-gray-100 */
   transition: background-color 9999s ease-in-out 0s;
 }
@@ -42,7 +42,7 @@ select:-webkit-autofill {
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px rgb(5 5 5) inset;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(25,25,25) inset;
   -webkit-text-fill-color: #f3f4f6;
 }
 

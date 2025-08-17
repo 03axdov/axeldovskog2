@@ -70,8 +70,8 @@ export default function Education() {
     }
 
     return (
-        <div id="education" className="px-10 mt-50 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest">EDUCATION</p>
+        <div id="education" className="px-10 mt-20 flex flex-col items-center">
+            <p className="text-2xl text-gray-500 mb-10 tracking-widest pt-[100px]">EDUCATION</p>
             <p className="section-subtitle text-4xl tracking-wider">MY EDUCATION</p>
             <p className="text-lg text-gray-400 mt-5">
                 I'm studying 200% at Lund University, Sweden.<br></br>

@@ -51,8 +51,10 @@ export default function Navbar() {
         {/* Right side: CTA (desktop) */}
         <a
           href="#contact"
-          className="hidden whitespace-nowrap md:inline-block rounded-full border-none blue-gradient blue-gradient-hover p-2 px-6 cursor-pointer"
+          className="hidden whitespace-nowrap md:flex flex-row items-center rounded-md 
+          border-none blue-gradient blue-gradient-hover p-2 px-6 cursor-pointer"
         >
+          <i className="fa-solid fa-address-card mr-3"></i>
           Contact me
         </a>
 

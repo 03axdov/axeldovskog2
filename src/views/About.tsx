@@ -5,7 +5,7 @@ import ProficiencyElement from "../components/ProficiencyElement";
 export default function About() {
     return (
         <div id="about" className="overflow-x-hidden pb-20 px-10 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest">ABOUT ME</p>
+            <p className="text-2xl text-gray-500 mb-10 tracking-widest pt-[100px]">ABOUT ME</p>
             <p className="section-subtitle text-4xl mb-15 tracking-wider">MY MAIN PROFICIENCIES</p>
             
             <div className="max-w-[100%] flex flex-row flex-wrap items-center justify-center gap-10">
