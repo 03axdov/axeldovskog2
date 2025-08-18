@@ -115,8 +115,13 @@ body {
   box-shadow: 0 0 50px 0 black;
 }
 .theme-modal-light {
-  border: 1px solid rgb(0,0,0,0);
-  box-shadow: 0 0 20px 0 black;
+  border: 1px solid black!important;
+  background: white!important;
+  color: black!important;
+}
+.light-light-theme-button {
+  color: rgb(0, 123, 255);
+  border: 1px solid rgb(0, 123, 255);
 }
 
 .theme-sci-fi {

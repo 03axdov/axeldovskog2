@@ -17,12 +17,12 @@ export default function Contact() {
             <form
                 action="https://formspree.io/f/xzzvqbay"
                 method="POST"
-                className="mt-10 w-full max-w-2xl rounded-2xl border border-gray-800 bg-secondary backdrop-blur p-6 shadow-lg"
+                className={"mt-10 w-full max-w-2xl rounded-2xl border border-gray-800 bg-secondary backdrop-blur p-6 shadow-lg element-border-" + theme}
             >
 
                 {/* Email */}
                 <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                    <label htmlFor="email" className={"block text-sm font-medium text-gray-300 text-" + theme}>
                     Email
                     </label>
                     <input
@@ -31,7 +31,7 @@ export default function Contact() {
                     name="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={`mt-1 w-full rounded-lg border border-gray-600 focus:text-blue-400 focus:border-blue-400 bg-third px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none`}
+                    className={`mt-1 w-full rounded-lg border border-gray-600 focus:text-blue-400 focus:border-blue-400 bg-third px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none element-border-` + theme}
                     placeholder="john.doe@example.com"
                     />
                     
@@ -39,21 +39,21 @@ export default function Contact() {
 
                 {/* Subject */}
                 <div className="mt-4">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300">Subject</label>
+                <label htmlFor="subject" className={"block text-sm font-medium text-gray-300 text-" + theme}>Subject</label>
                 <input
                     id="subject"
                     type="text"
                     name="subject"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className={`mt-1 w-full rounded-lg bg-third border border-gray-600 focus:text-blue-400 focus:border-blue-400 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none`}
+                    className={`mt-1 w-full rounded-lg bg-third border border-gray-600 focus:text-blue-400 focus:border-blue-400 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none element-border-` + theme}
                     placeholder="Regarding..."
                 />
                 </div>
 
                 {/* Message */}
                 <div className="mt-4">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+                <label htmlFor="message" className={"block text-sm font-medium text-gray-300 text-" + theme}>
                     Message
                 </label>
                 <textarea
@@ -63,7 +63,7 @@ export default function Contact() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={6}
                     className={`mt-1 w-full rounded-lg bg-third border border-gray-600 focus:border-blue-400 px-3 py-2
-                        text-gray-100 placeholder-gray-500 focus:outline-none min-h-[300px] resize-none`}
+                        text-gray-100 placeholder-gray-500 focus:outline-none min-h-[300px] resize-none element-border-` + theme}
                     placeholder="Hi! I'm reaching out regarding..."
                 />
                 </div>

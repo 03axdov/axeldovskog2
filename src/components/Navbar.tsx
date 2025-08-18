@@ -54,7 +54,7 @@ export default function Navbar() {
         <a
           href="#contact"
           className="hidden whitespace-nowrap md:flex flex-row items-center rounded-md 
-          border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 cursor-pointer"
+          border-none text-white bg-blue-500 hover:bg-blue-600 p-2 px-6 cursor-pointer"
         >
           <i className="fa-solid fa-address-card mr-3"></i>
           Contact me
@@ -106,7 +106,7 @@ export default function Navbar() {
           <NavLinks onClick={() => setOpen(false)} />
           <a
             href="#contact"
-            className="mt-4 whitespace-nowrap rounded-full border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 text-center"
+            className="mt-4 text-white whitespace-nowrap rounded-full border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 text-center"
             onClick={() => setOpen(false)}
           >
             Contact me

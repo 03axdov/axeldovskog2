@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { useTheme } from "../contexts/ThemeContext"
+import PDFModal from "../components/PDFModal"
 
 type SectionTypes = "ntu" | "lth" | "lusem"
 
 export default function Education() {
     const { theme } = useTheme()
 
+    const [showTranscript, setShowTranscript] = useState(false)
     const [selectedSection, setSelectedSection] = useState<SectionTypes>("ntu")
 
     function getUniversityElement(
@@ -92,16 +94,24 @@ export default function Education() {
                 I'm aiming to study courses within Computer Science,
                 primarily within machine learning and data handling.`)}
 
-                {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At National Taiwan University,
-                the #1 ranked university in one of the worlds most technologically innovative countries,
-                I'm aiming to study courses within Computer Science,
-                primarily within machine learning and data handling.`, 4.35, 5)}
+                {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
 
-                {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `At National Taiwan University,
-                the #1 ranked university in one of the worlds most technologically innovative countries,
-                I'm aiming to study courses within Computer Science,
-                primarily within machine learning and data handling.`, 4.3, 5)}
+                {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `At LUSEM I've spent 2 years studying different topics within business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).`, 4.3, 5)}
             </div>
+
+            <button 
+            className={"mt-15 flex flex-row items-center cursor-pointer text-xl p-2 px-4 rounded-md border border-gray-400 element-border-" + theme }
+            onClick={() => setShowTranscript(true)}>
+                <i className="fa-solid fa-file-pdf mr-3 text-blue-400"></i>
+                My transcript
+            </button>
+            <PDFModal
+                open={showTranscript}
+                onClose={() => setShowTranscript(false)}
+                title="Transcript"
+                src="/static/images/education/transcript.pdf" // or omit and pass {file}
+                file={undefined}
+            />
         </div>
     )
 }
