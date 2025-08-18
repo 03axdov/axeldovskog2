@@ -4,7 +4,7 @@ export default function Landing() {
     const { theme } = useTheme()
     
     return (
-        <div className="flex flex-row justify-center items-center w-full px-10 pt-[72px] h-[100vh]">
+        <div className="flex flex-row justify-center items-center w-full px-10 min-h-[100vh]">
             <div className="flex flex-row h-auto items-start justify-center gap-x-20 gap-y-10 pb-[72px] flex-wrap">
 
                 <div className="landing-container flex flex-col justify-start gap-y-7 min-w-[450px]">

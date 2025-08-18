@@ -112,6 +112,7 @@ export default function Education() {
                 src="/static/images/education/transcript.pdf" // or omit and pass {file}
                 file={undefined}
             />
+            <p className={"text-sm mt-2 text-gray-400 text-gray-" + theme}>Note that only one page may show up on mobile devices.</p>
         </div>
     )
 }

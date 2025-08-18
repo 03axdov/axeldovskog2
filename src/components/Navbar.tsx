@@ -33,7 +33,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-gray-400 rounded-md navbar-element-" + theme}
+          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-gray-400 rounded-md navbar-element-" + theme + " text-" + theme}
           onClick={onClick}
         >
           {l.label}
@@ -88,14 +88,14 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         className={`md:hidden fixed top-0 right-0 h-screen w-[85%] max-w-[360px] bg-main border-l border-gray-800 shadow-xl
-                    transition-transform duration-300 will-change-transform
+                    transition-transform duration-300 will-change-transform mobile-menu-${theme}
                     ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4 px-6 border-b border-gray-800">
-          <span className="text-white text-lg font-medium">Menu</span>
+          <span className={"text-white text-lg font-medium text-" + theme}>Menu</span>
           <button
             aria-label="Close menu"
-            className="p-2 rounded-lg text-gray-200 hover:text-white"
+            className={"p-2 rounded-lg text-gray-200 hover:text-white text-" + theme}
             onClick={() => setOpen(false)}
           >
             <i className="fa-solid fa-xmark text-2xl" />

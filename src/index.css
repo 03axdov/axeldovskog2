@@ -123,6 +123,11 @@ body {
   color: rgb(0, 123, 255);
   border: 1px solid rgb(0, 123, 255);
 }
+.mobile-menu-light {
+  background: white!important;
+  border-left: 1px solid black;
+  color: black!important;
+}
 
 .theme-sci-fi {
   font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
