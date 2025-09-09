@@ -14,7 +14,7 @@ export default function Career() {
     ) {
         return (
             <div className={"work-element flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer career-" + theme + " " +
-                (selectedSection == section ? "bg-third border border-[rgb(0,0,0,0)] career-selected-" + theme : "border border-gray-600")
+                (selectedSection == section ? "bg-third career-selected-" + theme : "")
             }
             onClick={() => setSelectedSection(section)}>
                 <img className={"career-element-image w-[100px] rounded-lg mr-5 career-image-" + theme} src={"/static/images/career/" + filename}/>
@@ -40,9 +40,7 @@ export default function Career() {
             <div className="career-container flex flex-row mt-20 justify-center gap-15">
                 <div className="career-inner flex flex-col items-center w-[420px] min-w-[420px]">
                     {getWorkElement("Neo4j", "neo4j.svg", "full", " 9 June 2025 - 15 August 2025", "Software Engineer (Intern)", "Neo4j")}
-                    <div className="career-spacing border-r border-gray-600 h-[50px]"></div>
                     {getWorkElement("Arm", "arm.png", "part", " 15 August 2024 - 31 December 2024", "Software Engineer (Intern)", "Arm1")}
-                    <div className="career-spacing border-r border-gray-600 h-[50px]"></div>
                     {getWorkElement("Arm", "arm.png", "full", " 15 June 2024 - 15 August 2024", "Software Engineer (Intern)", "Arm2")}
                 </div>
 

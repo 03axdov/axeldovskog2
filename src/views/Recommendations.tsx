@@ -9,7 +9,9 @@ export default function Recommendations() {
         authorEmail: string,
         authorTitle: string,
         company: string,
-        authorImage: React.ReactNode) 
+        authorImage: React.ReactNode,
+        color: string
+    ) 
     {
         return (
             <div className={"p-4 rounded-md bg-secondary flex flex-col max-w-[550px] gap-y-5 recommendation-" + theme}>
@@ -20,7 +22,7 @@ export default function Recommendations() {
                 <div className="flex flex-row items-center w-full gap-x-5">
                     {authorImage}
                     <div className="flex flex-col">
-                        <p className="text-lg text-green-400">{author}</p>
+                        <p className={"text-lg text-" + color}>{author}</p>
                         <p className={"text-md text-gray-200 recommendation-text-" + theme}>{authorTitle}</p>
                         <p className={"text-sm text-gray-200 recommendation-text-" + theme}>{company}</p>
                         <p className={"text-sm text-gray-400 recommendation-text-" + theme}>{authorEmail}</p>
@@ -35,7 +37,7 @@ export default function Recommendations() {
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>RECOMMENDATIONS</p>
             <p lang="en" className={"section-subtitle text-4xl mb-15 tracking-wider max-w-[100%] hyphens-auto whitespace-normal break-words recommendations-title title-" + theme}>SOME RECOMMENDATIONS</p>
 
-            <div className="flex flex-row items-center gap-5 flex-wrap">
+            <div className="flex flex-row items-start justify-center gap-5 flex-wrap">
                 {getRecommendationElement(
                     `I had the honour to oversee the summer engineering intern group Axel was part of at Neo4j.
 
@@ -50,7 +52,20 @@ I would have no hesitation recommending Axel for any complex full stack developm
                     "phil.stott@neo4j.com",
                     "Senior Manager, Support Operations & Enablement", 
                     "Neo4j",
-                    <img className="h-[50px] w-[50px] rounded-full" src="/static/images/recommendations/philStott.jpg"></img>)}
+                    <img className="h-[50px] w-[50px] rounded-full" src="/static/images/recommendations/philStott.jpg"></img>,
+                    "blue-300")}
+
+                    {getRecommendationElement(
+                    `I had the pleasure of working with Axel during his summer internship, where he joined our engineering team to develop internal tools that significantly boosted our organization's productivity. 
+Axel consistently delivered high-quality work with remarkable autonomy, successfully tackling complex business requirements while seamlessly integrating with our team. 
+His strong coding skills and collaborative approach made him an invaluable contributor and a great team player.
+I would highly recommend Axel to any organization looking for a talented and reliable developer.`,
+                    "Damiano Mondardo", 
+                    "damiano.mondardo@neo4j.com",
+                    "Senior Operations Engineer", 
+                    "Neo4j",
+                    <img className="h-[50px] w-[50px] rounded-full" src="/static/images/recommendations/damianoMondardo.jpg"></img>,
+                    "purple-400")}
             </div>
         </div>
     )
