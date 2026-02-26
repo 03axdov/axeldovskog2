@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTheme } from "../contexts/ThemeContext"
 
 type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir"
@@ -7,6 +7,38 @@ export default function Career() {
     const { theme } = useTheme()
 
     const [selectedSection, setSelectedSection] = useState<WorkType>("Neo4j")
+    const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
+
+    useEffect(() => {
+        const imageSources = [
+            "/static/images/career/neo4j.svg",
+            "/static/images/career/arm.png",
+            "/static/images/career/armChip.jpg",
+            "/static/images/career/arm2.webp",
+            "/static/images/career/graph.jpg",
+            "/static/images/career/Palantir.jpg",
+            theme == "dark"
+                ? "/static/images/career/palantir.svg"
+                : "/static/images/career/palantir-light.svg",
+        ]
+
+        imageSources.forEach((src) => {
+            if (preloadedImagesRef.current.has(src)) return
+
+            const img = new Image()
+            img.decoding = "async"
+            img.loading = "eager"
+            img.src = src
+
+            // Keep a strong reference so the preload request isn't dropped.
+            preloadedImagesRef.current.set(src, img)
+
+            // Ask the browser to decode early when supported.
+            img.decode?.().catch(() => {
+                // Ignore decode errors for unsupported formats/browsers.
+            })
+        })
+    }, [theme])
 
     function getWorkElement(
         name: string, filename: string, status: "part" | "full",

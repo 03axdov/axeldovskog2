@@ -15,7 +15,7 @@ export default function MediaReviewrPage() {
             </a>
 
             <div className="w-[full] flex flex-col items-start gap-2 pb-5 border-b border-gray-600">
-                <img className="w-full max-w-[500px] border border-gray-800 rounded-lg h-full object-cover" src={`/static/images/portfolio/MediareviewrPage.jpg`} />
+                <img className="border border-gray-800 rounded-lg object-cover" src={`/static/images/portfolio/MediareviewrPage.jpg`} />
             </div>
 
             <p className={"text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center element-border-" + theme}>

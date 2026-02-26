@@ -3,6 +3,7 @@ import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
 import Education from "./Education";
+import Hackathons from "./Hackathons";
 import Landing from "./Landing";
 import Portfolio from "./Portfolio";
 import Recommendations from "./Recommendations";
@@ -18,6 +19,7 @@ export default function Main() {
             <Tests />
             <Career />
             <Portfolio />
+            <Hackathons />
             <Contact />
 
             <ThemeModal />

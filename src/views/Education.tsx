@@ -8,7 +8,7 @@ export default function Education() {
     const { theme } = useTheme()
 
     const [showTranscript, setShowTranscript] = useState(false)
-    const [selectedSection, setSelectedSection] = useState<SectionTypes>("ntu")
+    const [selectedSection, setSelectedSection] = useState<SectionTypes>("lth")
 
     function getUniversityElement(
         logoFilename: string, 
@@ -84,9 +84,9 @@ export default function Education() {
 
             <div className="education-container flex flex-row justify-center w-full mt-20 gap-10">
                 <div className="universities flex flex-col w-[420px] min-w-[420px]">
-                    {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                     {getUniversityElement("lthLogo.jpg", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}
                     {getUniversityElement("lu.png", "Bachelor of International Business", "Lund University", "August 2023 - June 2026", "lusem")}
+                    {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                 </div>
 
                 {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `At National Taiwan University,
