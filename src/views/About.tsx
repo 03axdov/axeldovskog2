@@ -32,6 +32,10 @@ export default function About() {
                                 <i className="fa-solid fa-hexagon-nodes fa-md mr-2"></i>
                                 Neo4j Graph Database
                             </p>
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-600 text-blue-600">
+                                <i className="fa-brands fa-docker fa-md mr-2"></i>
+                                Docker
+                            </p>
 
                         </div>
                     }

@@ -60,6 +60,23 @@ select:-webkit-autofill:focus {
     background: linear-gradient(90deg, rgba(115, 0, 255, 0.9) 0%, rgba(191, 0, 255, 0.9) 100%);
 }
 
+.tier-1 {
+    background: #00ffe5;
+    background: linear-gradient(135deg, rgba(0, 255, 229, 1) 0%, rgba(0, 178, 255, 1) 100%);
+}
+.tier-2 {
+background: #005fd4;
+background: linear-gradient(135deg, rgba(0, 95, 212, 1) 0%, rgba(162, 0, 255, 1) 100%);
+}
+.tier-3 {
+    background: #7300ff;
+    background: linear-gradient(135deg, rgba(115, 0, 255, 1) 0%, rgba(234, 0, 255, 1) 100%);
+}
+.no-tier {
+    background: #595959;
+    background: linear-gradient(135deg, rgba(89, 89, 89, 1) 0%, rgba(150, 150, 150, 1) 100%);
+}
+
 @media (max-width: 1000px) {
     
   .education-container {
@@ -90,13 +107,6 @@ select:-webkit-autofill:focus {
     gap: 10px;
   }
 }
-
-@media (max-width: 800px) {
-    .navbar {
-        display: none;
-    }
-}
-
 
 @media (max-width: 600px) {
     .landing-container {
@@ -199,4 +209,13 @@ select:-webkit-autofill:focus {
 
 code {
     border-radius: 10px;
+}
+
+.nav-backdrop {
+  backdrop-filter: blur(2px);
+}
+
+/* Optional: smoother iOS momentum scrolling inside the panel */
+#mobile-menu {
+  -webkit-overflow-scrolling: touch;
 }
