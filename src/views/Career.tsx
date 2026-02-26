@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useTheme } from "../contexts/ThemeContext"
 
-type WorkType = "Neo4j" | "Arm1" | "Arm2"
+type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir"
 
 export default function Career() {
     const { theme } = useTheme()
@@ -10,14 +10,16 @@ export default function Career() {
 
     function getWorkElement(
         name: string, filename: string, status: "part" | "full",
-        duration: string, position: string, section: WorkType
+        duration: string, position: string, section: WorkType, imageFull: boolean
     ) {
         return (
             <div className={"work-element flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer career-" + theme + " " +
                 (selectedSection == section ? "bg-third career-selected-" + theme : "")
             }
             onClick={() => setSelectedSection(section)}>
-                <img className={"career-element-image w-[100px] rounded-lg mr-5 career-image-" + theme} src={"/static/images/career/" + filename}/>
+                {imageFull && <img className={"career-element-image w-[100px] rounded-lg mr-5 career-image-" + theme} src={"/static/images/career/" + filename}/>}
+                {!imageFull && <img className={"career-element-image w-[100px] p-[20px] rounded-lg mr-5"} src={"/static/images/career/" + filename}/>}
+                
                 <div className="career-element-texts flex flex-col max-w-[calc(100%-100px-20px)]">
                     <p className="whitespace-nowrap max-w-[100%] career-element-larger text-xl">{name}</p>
                     <p className={"whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300 text-gray-" + theme}>{position}</p>
@@ -39,9 +41,10 @@ export default function Career() {
             
             <div className="career-container flex flex-row mt-20 justify-center gap-15">
                 <div className="career-inner flex flex-col items-center w-[420px] min-w-[420px]">
-                    {getWorkElement("Neo4j", "neo4j.svg", "full", " 9 June 2025 - 15 August 2025", "Software Engineer (Intern)", "Neo4j")}
-                    {getWorkElement("Arm", "arm.png", "part", " 15 August 2024 - 31 December 2024", "Software Engineer (Intern)", "Arm1")}
-                    {getWorkElement("Arm", "arm.png", "full", " 15 June 2024 - 15 August 2024", "Software Engineer (Intern)", "Arm2")}
+                    {getWorkElement("Palantir Technologies", (theme == "dark" ? "palantir.svg" : "palantir-light.svg"), "full", " 8 June 2026 - 8 September 2026", "Software Engineer (Intern)", "Palantir", false)}
+                    {getWorkElement("Neo4j", "neo4j.svg", "full", " 9 June 2025 - 15 August 2025", "Software Engineer (Intern)", "Neo4j", true)}
+                    {getWorkElement("Arm", "arm.png", "part", " 15 August 2024 - 31 December 2024", "Software Engineer (Intern)", "Arm1", true)}
+                    {getWorkElement("Arm", "arm.png", "full", " 15 June 2024 - 15 August 2024", "Software Engineer (Intern)", "Arm2", true)}
                 </div>
 
                 <div className="max-w-[1000px]">
@@ -157,6 +160,33 @@ export default function Career() {
                                 Docker
                             </p>
                         </div>
+                    </div>}
+
+                    {(selectedSection == "Palantir") && <div className="flex flex-col items-center">
+                        <h1 className={"w-full text-4xl pb-3 mb-5 border-b border-gray-600 text-gray-200 title-" + theme}>
+                            Palantir Technologies
+                        </h1>
+                        
+                        <div className="w-full flex flex-row gap-x-2 pb-5 justify-center">
+                            <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/Palantir.jpg" />
+                        </div>
+
+                        <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
+                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
+                                <i className="fa-solid fa-calendar text-sm mr-3" />
+                                8 June, 2026 - 8 September, 2026
+                            </p>
+
+                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
+                                <i className="fa-solid fa-location-dot text-sm mr-3" />
+                                London, UK
+                            </p>
+                        </div>
+
+                        <p className={"text-lg text-gray-400 text-" + theme}>
+                            Will be joining Palantir as a Software Engineer Intern for the summer of 2026.
+                        </p>
+
                     </div>}
                 </div>
             </div>
