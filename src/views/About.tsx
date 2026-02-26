@@ -1,12 +1,15 @@
 import AlbumList from "../components/AlbumList";
 import BookTierList from "../components/BookTierList";
 import ProficiencyElement from "../components/ProficiencyElement";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function About() {
+    const { theme } = useTheme()
+    
     return (
         <div id="about" className="overflow-x-hidden pb-20 px-10 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest">ABOUT ME</p>
-            <p className="section-subtitle text-4xl mb-15 tracking-wider">MY MAIN PROFICIENCIES</p>
+            <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>ABOUT ME</p>
+            <p className={"section-subtitle text-4xl mb-15 tracking-wider title-" + theme}>MY MAIN PROFICIENCIES</p>
             
             <div className="max-w-[100%] flex flex-row flex-wrap items-center justify-center gap-10">
                 <ProficiencyElement 
@@ -85,15 +88,15 @@ export default function About() {
                 />
             </div>
 
-            <p className="section-subtitle text-4xl mt-40 tracking-wider">SOME GREAT BOOKS</p>
-            <p className="text-lg text-gray-400 mt-5 mb-10">
+            <p className={"section-subtitle text-4xl mt-40 tracking-wider title-" + theme}>SOME GREAT BOOKS</p>
+            <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
                 I really like reading, mainly Fantasy and some Sci-Fi.<br></br>
                 Here are some of by favorite book series.
             </p>
             <BookTierList />
 
-            <p className="section-subtitle text-4xl mt-40 tracking-wider">MUSIC I LIKE</p>
-            <p className="text-lg text-gray-400 mt-5 mb-10">
+            <p className={"section-subtitle text-4xl mt-40 tracking-wider title-" + theme}>MUSIC I LIKE</p>
+            <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
                 While not as impactful to me as certain books, here are some albums I really like.
             </p>
             <AlbumList />

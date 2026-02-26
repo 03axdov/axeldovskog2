@@ -2,10 +2,12 @@ import { useState } from "react"
 import DalinarPage from "../components/portfolio/DalinarPage"
 import MuskiePage from "../components/portfolio/MuskiePage"
 import MediaReviewrPage from "../components/portfolio/MediaReviewrPage"
+import { useTheme } from "../contexts/ThemeContext"
 
 type ProjectType = "Dalinar" | "Muskie" | "MediaReviewr"
 
 export default function Portfolio() {
+    const { theme } = useTheme()
 
     const [selectedSection, setSelectedSection] = useState<ProjectType>("Dalinar")
 
@@ -14,7 +16,7 @@ export default function Portfolio() {
     ) {
         return (
             <div className={"flex w-full rounded-lg flex-row items-center justify-center cursor-pointer " +
-                (selectedSection == section ? "border border-" + selectedColor : "border border-[rgb(0,0,0,0)] hover:border-gray-600")
+                (selectedSection == section ? "border border-" + selectedColor + " portfolio-selected-" + theme : "border border-[rgb(0,0,0,0)] hover:border-gray-600")
             }
             style={{
                 background: background
@@ -26,10 +28,10 @@ export default function Portfolio() {
     }
 
     return (
-        <div id="portfolio" className="px-10 mt-50 mb-50 flex flex-col items-center">
-            <p className="text-2xl text-gray-500 mb-10 tracking-widest">PORTFOLIO</p>
-            <p className="section-subtitle text-4xl tracking-wider">MY PERSONAL PROJECTS</p>
-            <p className="text-lg text-gray-400 mt-5">
+        <div id="portfolio" className="px-10 mt-20 flex flex-col items-center">
+            <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>PORTFOLIO</p>
+            <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY PERSONAL PROJECTS</p>
+            <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
                 I enjoy working on my own projects in my spare time. Here are the main ones.
             </p>
             
@@ -49,7 +51,7 @@ export default function Portfolio() {
                 </div>
             </div>
 
-            <p className="text-md text-gray-400 mt-20">I also built this website using Javascript React and TailwindCSS for styling.</p>
+            <p className={"text-md text-gray-400 mt-20 text-" + theme}>I also built this website using Javascript React and TailwindCSS for styling.</p>
         </div>
     )
 }

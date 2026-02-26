@@ -14,7 +14,7 @@ export default function BookTierList() {
                 </div>
             </div>
             <div className="flex flex-row items-start border-b border-gray-800">
-                <div className="tier-row min-h-[200px] min-w-[200px] w-[200px] p-5 flex items-center justify-center text-center text-xl tier-2">
+                <div className="tier-row min-h-[200px] min-w-[200px] w-[200px] p-5 flex items-center justify-center text-center text-xl bg-blue-600">
                     Masterpiece
                 </div>
                 <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">
@@ -24,7 +24,7 @@ export default function BookTierList() {
                 </div>
             </div>
             <div className="flex flex-row items-start border-b border-gray-800">
-                <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl tier-3">
+                <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl bg-purple-600">
                     Pretty Great
                 </div>
                 <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">
@@ -33,7 +33,7 @@ export default function BookTierList() {
                 </div>
             </div>
             <div className="flex flex-row items-start border-b border-gray-800">
-                <div className="tier-row min-h-[200px] min-w-[200px] w-[200px] p-5 flex items-center justify-center text-center text-xl no-tier">
+                <div className="tier-row min-h-[200px] min-w-[200px] w-[200px] p-5 flex items-center justify-center text-center text-xl bg-gray-600">
                     Somehow haven't read
                 </div>
                 <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">

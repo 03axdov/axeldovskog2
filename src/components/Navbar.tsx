@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -9,6 +10,7 @@ const LINKS = [
 ];
 
 export default function Navbar() {
+  const { theme } = useTheme()
   const [open, setOpen] = useState(false);
 
   // Lock body scroll when menu is open (nice to have)
@@ -31,7 +33,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className="text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 rounded-full"
+          className={"text-gray-300 hover:text-white cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:border-gray-400 rounded-md navbar-element-" + theme + " text-" + theme}
           onClick={onClick}
         >
           {l.label}
@@ -41,18 +43,20 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-800">
+    <div className={"navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-700 navbar-" + theme}>
       <div className="flex flex-row items-center justify-between p-4 px-8">
         {/* Left side: links (desktop) */}
-        <nav className="hidden md:flex h-full flex-row items-center gap-x-10">
+        <nav className="hidden md:flex h-full flex-row items-center gap-x-10 text-white">
           <NavLinks />
         </nav>
 
         {/* Right side: CTA (desktop) */}
         <a
           href="#contact"
-          className="hidden md:inline-block rounded-full border-none blue-gradient blue-gradient-hover p-2 px-6 cursor-pointer"
+          className="hidden whitespace-nowrap md:flex flex-row items-center rounded-md 
+          border-none text-white bg-blue-500 hover:bg-blue-600 p-2 px-6 cursor-pointer"
         >
+          <i className="fa-solid fa-address-card mr-3"></i>
           Contact me
         </a>
 
@@ -65,7 +69,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
         >
           {/* Font Awesome Free icons */}
-          <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl`} />
+          <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl icon-` + theme} />
         </button>
       </div>
 
@@ -84,25 +88,25 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         className={`md:hidden fixed top-0 right-0 h-screen w-[85%] max-w-[360px] bg-main border-l border-gray-800 shadow-xl
-                    transition-transform duration-300 will-change-transform
+                    transition-transform duration-300 will-change-transform mobile-menu-${theme}
                     ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4 px-6 border-b border-gray-800">
-          <span className="text-white text-lg font-medium">Menu</span>
+          <span className={"text-white text-lg font-medium text-" + theme}>Menu</span>
           <button
             aria-label="Close menu"
-            className="p-2 rounded-lg text-gray-200 hover:text-white"
+            className={"p-2 rounded-lg text-gray-200 hover:text-white text-" + theme}
             onClick={() => setOpen(false)}
           >
             <i className="fa-solid fa-xmark text-2xl" />
           </button>
         </div>
 
-        <nav className="flex flex-col gap-y-1 p-4 px-6">
+        <nav className="flex flex-col gap-y-3 p-4 px-6">
           <NavLinks onClick={() => setOpen(false)} />
           <a
             href="#contact"
-            className="mt-4 rounded-full border-none blue-gradient blue-gradient-hover p-2 px-6 text-center"
+            className="mt-4 text-white whitespace-nowrap rounded-full border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 text-center"
             onClick={() => setOpen(false)}
           >
             Contact me

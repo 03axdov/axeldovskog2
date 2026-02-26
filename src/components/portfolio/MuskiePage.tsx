@@ -1,6 +1,8 @@
+import { useTheme } from "../../contexts/ThemeContext"
 import CodeBlock from "../CodeBlock"
 
 export default function MuskiePage() {
+    const { theme } = useTheme()
 
     const codeExample = `
 import numpy as np
@@ -55,19 +57,21 @@ AFTER TRAINING:
 
     return (
         <div className="flex flex-col w-[100%]">
-            <a target="_blank" href="https://github.com/03axdov/muskie" className="w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200">
+            <a target="_blank" 
+            href="https://github.com/03axdov/muskie" 
+            className={"w-full text-4xl pb-3 flex flex-row items-center tracking-widest border-b border-gray-600 mb-5 text-gray-200 title-" + theme}>
                 MUSKIE
                 <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 text-sm ml-3" />
             </a>
             <div className="w-full"><CodeBlock code={codeExample} language="python" /></div>
             <div className="w-full"><CodeBlock code={resExample} language="python" /></div>
             
-            <p className="text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center">
+            <p className={"text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center element-border-" + theme}>
                 <i className="fa-solid fa-calendar text-sm mr-3" />
                 September 2023 - October 2023
             </p>
 
-            <p className="text-lg text-gray-400">
+            <p className={"text-lg text-gray-400 text-" + theme}>
                 A machine-learning framework built from "scratch" using Python and the math library Numpy. 
                 It allows users to create and train machine-learning models (both regression and image classification are supported).
                 See above for a very basic example of how to create a model.
@@ -80,7 +84,7 @@ AFTER TRAINING:
                 </a>
             </div>
 
-            <p className="text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600">Frameworks and technologies used</p>
+            <p className={"text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
             <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                 <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
                     <i className="fa-brands fa-python fa-lg mr-3"></i>
