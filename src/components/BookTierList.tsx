@@ -18,6 +18,7 @@ export default function BookTierList() {
                     Masterpiece
                 </div>
                 <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">
+                    <BookElement filename="redrising.jpg" link="https://www.goodreads.com/book/show/15839976-red-rising" title="Red Rising" authors="Pierce Brown"/>
                     <BookElement filename="mistborn.jpg" link="https://www.goodreads.com/book/show/68428.Mistborn?ref=nav_sb_ss_1_8" title="The Mistborn Trilogy" authors="Brandon Sanderson"/>
                     <BookElement filename="tnotw.jpg" link="https://www.goodreads.com/book/show/186074.The_Name_of_the_Wind?ref=nav_sb_ss_1_12" title="The Kingkiller Chronicles" authors="Patrick Rothfuss"/>
                     <BookElement filename="berserk.jpg" link="https://www.goodreads.com/book/show/248871.Berserk_Vol_1?from_search=true&from_srp=true&qid=nB1lEhy4wA&rank=1" title="Berserk" authors="Kentaro Miura"/>

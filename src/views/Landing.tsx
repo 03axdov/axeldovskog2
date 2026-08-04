@@ -13,7 +13,7 @@ export default function Landing() {
                         <span className={"text-white text-6xl landing-title-" + theme}>Axel Dovskog</span>
                     </p>
                     <p className={"landing-body text-gray-400 text-left text-xl max-w-[500px] leading-9 landing-body-" + theme}>
-                        I'm 21 years old, and studying Computer Science and International business at Lund University.<br></br> 
+                        I'm 22 years old, and studying Computer Science and International business (completed) at Lund University.<br></br> 
                         Welcome to my personal website!
                     </p>
                     <div className="landing-buttons flex flex-row flex-wrap gap-3 text-md">

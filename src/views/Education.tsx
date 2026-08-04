@@ -89,10 +89,8 @@ export default function Education() {
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                 </div>
 
-                {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `At National Taiwan University,
-                the #1 ranked university in one of the worlds most technologically innovative countries,
-                I'm aiming to study courses within Computer Science,
-                primarily within machine learning and data handling.`)}
+                {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `
+                    Mainly took classes on machine learning, as well as general chinese and designing virtual experiences.`, 4.8, 5.0)}
 
                 {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
 

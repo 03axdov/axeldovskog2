@@ -6,7 +6,7 @@ type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir"
 export default function Career() {
     const { theme } = useTheme()
 
-    const [selectedSection, setSelectedSection] = useState<WorkType>("Neo4j")
+    const [selectedSection, setSelectedSection] = useState<WorkType>("Palantir")
     const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
 
     useEffect(() => {
@@ -216,7 +216,7 @@ export default function Career() {
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
-                            Will be joining Palantir as a Software Engineer Intern for the summer of 2026.
+                            Fullstack role on the Palantir Foundry platform.
                         </p>
 
                     </div>}
