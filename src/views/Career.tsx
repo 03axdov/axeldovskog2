@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useTheme } from "../contexts/ThemeContext"
 
-type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir"
+type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir" | "Paraglide AI"
 
 export default function Career() {
     const { theme } = useTheme()
@@ -20,6 +20,7 @@ export default function Career() {
             theme == "dark"
                 ? "/static/images/career/palantir.svg"
                 : "/static/images/career/palantir-light.svg",
+            "/static/images/career/paraglide.webp",
         ]
 
         imageSources.forEach((src) => {
@@ -67,12 +68,12 @@ export default function Career() {
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>CAREER</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY CAREER</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
-                I've done two summer internships, one of which included part-time work later on.<br></br>
-                There was no opportunity for extending my internship at Neo4j as I'm going on exchange studies.
+                I've done a few summer internships, as well as some part-time work.
             </p>
             
             <div className="career-container flex flex-row mt-20 justify-center gap-15">
                 <div className="career-inner flex flex-col items-center w-[420px] min-w-[420px]">
+                    {getWorkElement("Paraglide AI", "paraglide.webp", "part", "October 2026 - Now", "Software Engineer (Intern)", "Paraglide AI", true)}
                     {getWorkElement("Palantir Technologies", (theme == "dark" ? "palantir.svg" : "palantir-light.svg"), "full", " 8 June 2026 - 8 September 2026", "Software Engineer (Intern)", "Palantir", false)}
                     {getWorkElement("Neo4j", "neo4j.svg", "full", " 9 June 2025 - 15 August 2025", "Software Engineer (Intern)", "Neo4j", true)}
                     {getWorkElement("Arm", "arm.png", "part", " 15 August 2024 - 31 December 2024", "Software Engineer (Intern)", "Arm1", true)}
@@ -216,8 +217,65 @@ export default function Career() {
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
-                            Fullstack role on the Palantir Foundry platform.
+                            Fullstack role on the Palantir Foundry platform. Involved working with Forward Deployed Engineers who were the primary users of the system we were developing.
+                            Extended internship length by two weeks. Did a customer onsite with a customer in New York, where I got to present the work I was doing as well as understand what features users wanted.
                         </p>
+
+                        <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
+                        <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
+                                <i className="fa-brands fa-java fa-lg mr-3"></i>
+                                Java
+                            </p>
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                                <i className="fa-brands fa-js fa-lg mr-3"></i>
+                                Typescript
+                            </p>
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                                <i className="fa-brands fa-react fa-lg mr-3"></i>
+                                Typescript React
+                            </p>
+                        </div>
+
+                    </div>}
+
+                    {(selectedSection == "Paraglide AI") && <div className="flex flex-col items-center">
+                        <h1 className={"w-full text-4xl pb-3 mb-5 border-b border-gray-600 text-gray-200 title-" + theme}>
+                            Paraglide AI
+                        </h1>
+                        
+                        <div className="w-full flex flex-row gap-x-2 pb-5 justify-center">
+                            <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/paraglide-banner.png" />
+                        </div>
+
+                        <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
+                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
+                                <i className="fa-solid fa-calendar text-sm mr-3" />
+                                October, 2026 - Now
+                            </p>
+
+                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
+                                <i className="fa-solid fa-location-dot text-sm mr-3" />
+                                Malmö, Sweden
+                            </p>
+                        </div>
+
+                        <p className={"text-lg text-gray-400 text-" + theme}>
+                            Fullstack role, with high-ownership of features, as well as work relating to AI. Both backend and frontend using TypeScript. Team of less than 10 people, so a lot of responsibility given the high-pace of the startup.
+                            At least 20h per week.
+                        </p>
+
+                        <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
+                        <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                                <i className="fa-brands fa-js fa-lg mr-3"></i>
+                                Typescript
+                            </p>
+                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
+                                <i className="fa-brands fa-react fa-lg mr-3"></i>
+                                Typescript React
+                            </p>
+                        </div>
 
                     </div>}
                 </div>
