@@ -11,7 +11,7 @@ export default function ProficiencyElement({name, icon, description, technologie
     const { theme } = useTheme()
     
     return (
-        <div className={"p-10 rounded-md bg-secondary max-w-[100%] w-[450px] min-h-[450px] flex flex-col items-center proficiency-" + theme}>
+        <div className={"p-10 rounded-md bg-secondary max-w-[100%] w-[450px] h-[500px] flex flex-col items-center proficiency-" + theme}>
             {icon}
             <p className={"text-2xl mt-3 proficiency-title title-" + theme}>{name}</p>
             <p className="proficiency-description mt-10 text-gray-400">

@@ -82,7 +82,14 @@ export default function About() {
                                 <i className="fa-brands fa-google fa-md mr-2"></i>
                                 TensorFlow
                             </p>
-                            
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-red-400 text-red-400">
+                                <i className="fa-brands fa-meta fa-md mr-2"></i>
+                                PyTorch
+                            </p>
+                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-purple-400 text-purple-400">
+                                <i className="fa-solid fa-hexagon-nodes fa-md mr-2"></i>
+                                Sklearn
+                            </p>
                         </div>
                     }
                 />
