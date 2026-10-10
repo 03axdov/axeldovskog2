@@ -2,7 +2,6 @@ import AmbientImage from "./AmbientImage";
 
 interface AlbumElementProps {
     filename: string,
-    link: string,
     title: string,
     artists: string
 }

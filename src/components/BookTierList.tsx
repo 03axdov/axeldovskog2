@@ -26,7 +26,7 @@ export default function BookTierList() {
                 </div>
             </div>
             <div className="flex flex-row items-start border-b border-gray-800">
-                <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl bg-purple-600">
+                <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl bg-purple-500">
                     Pretty Great
                 </div>
                 <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">
@@ -34,6 +34,15 @@ export default function BookTierList() {
                     <BookElement filename="witcher.jpg" link="https://www.goodreads.com/book/show/6043781-blood-of-elves?from_search=true&from_srp=true&qid=IakxzLClIR&rank=4" title="The Witcher" authors="Andrzej Sapkowski"/>
                     <BookElement filename="ninth-house.jpg" link="https://www.goodreads.com/book/show/43263680-ninth-house" title="Ninth House" authors="Leigh Bardugo"/>
                     <BookElement filename="wotm.jpg" link="https://www.goodreads.com/en/book/show/58416952-the-will-of-the-many" title="The Will of the Many" authors="James Islington"/>
+                </div>
+            </div>
+            <div className="flex flex-row items-start border-b border-gray-800">
+                <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl bg-purple-600">
+                    Alright
+                </div>
+                <div className="tier-elements min-h-[200px] flex flex-row items-center gap-5 flex-wrap py-2 px-4">
+                    <BookElement filename="sotg.jpg" link="https://www.goodreads.com/book/show/52694527-the-shadow-of-the-gods" title="The Bloodsworn Saga" authors="John Gwynne"/>
+                    <BookElement filename="tpw.jpg" link="https://www.goodreads.com/en/book/show/35068705-the-poppy-war" title="The Poppy War" authors="R. F. Kuang"/>
                 </div>
             </div>
             <div className="flex flex-row items-start border-b border-gray-800">

@@ -5,31 +5,31 @@ export default function AlbumList() {
     
     return (
         <div className="album-list w-[calc(800px+5*28px)] max-w-[100%] flex flex-row flex-wrap items-center justify-center gap-7">
-            <AlbumElement filename="h&v.jpg" link="https://open.spotify.com/album/7txGsnDSqVMoRl6RQ9XyZP" title="Heroes and Villains" artists="Metro Boomin" />
-            <AlbumElement filename="wywh.png" link="https://open.spotify.com/album/0bCAjiUamIFqKJsekOYuRw" title="Wish You Were Here" artists="Pink Floyd" />
-            <AlbumElement filename="astroworld.png" link="https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I" title="ASTROWORLD" artists="Travis Scott" />
-            <AlbumElement filename="graduation.jpg" link="https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3" title="Graduation" artists="Kanye West" />
-            <AlbumElement filename="ram.png" link="https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" title="Random Access Memories" artists="Daft Punk" />
-            <AlbumElement filename="am.jpg" link="https://open.spotify.com/album/78bpIziExqiI9qztvNFlQu" title="AM" artists="Arctic Monkeys" />
-            <AlbumElement filename="currents.png" link="https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv" title="Currents" artists="Tame Impala" />
-            <AlbumElement filename="dsotm.png" link="https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv" title="The Dark Side of the Moon" artists="Pink Floyd" />
-            <AlbumElement filename="stoney.jpg" link="https://open.spotify.com/album/5s0rmjP8XOPhP6HhqOhuyC" title="Stoney" artists="Post Malone" />
-            <AlbumElement filename="uvst.png" link="https://open.spotify.com/album/3RQQmkQEvNCY4prGKE6oc5" title="Un Verano Sin Ti" artists="Bad Bunny" />
-            <AlbumElement filename="otaat.png" link="https://open.spotify.com/album/0rnd3h2dc82L4gTjW6Vfoq" title="One Thing At A Time" artists="Morgan Wallen" />
-            <AlbumElement filename="grodt.jpg" link="https://open.spotify.com/album/5G5rgQHzdQnw32SI0WjIo5" title="Get Rich or Die Trying" artists="50 Cent" />
-            <AlbumElement filename="eutdm.png" link="https://open.spotify.com/album/2d9BCZeAAhiZWPpbX9aPCW" title="El Ultimo Tour Del Mundo" artists="Bad Bunny" />
-            <AlbumElement filename="tsr.png" link="https://open.spotify.com/album/31qVWUdRrlb8thMvts0yYL" title="The Slow Rush" artists="Tame Impala" />
-            <AlbumElement filename="rodeo.png" link="https://open.spotify.com/album/4PWBTB6NYSKQwfo79I3prg" title="Rodeo" artists="Travis Scott" />
-            <AlbumElement filename="b&b.webp" link="https://open.spotify.com/album/6trNtQUgC8cgbWcqoMYkOR" title="beerbongs & bentleys" artists="Post Malone" />
-            <AlbumElement filename="mbtdf.jpg" link="https://open.spotify.com/album/20r762YmB5HeofjMCiPMLv" title="My Beautiful Dark Twisted Fantasy" artists="Kanye West" />
-            <AlbumElement filename="gkmc.jpg" link="https://open.spotify.com/album/748dZDqSZy6aPXKcI9H80u" title="good kid, m.A.A.d city" artists="Kendrick Lamar" />
-            <AlbumElement filename="2001.jpg" link="https://open.spotify.com/album/7q2B4M5EiBkqrlsNW8lB7N" title="2001" artists="Dr.Dre" />
-            <AlbumElement filename="ksg.png" link="https://open.spotify.com/album/6pwuKxMUkNg673KETsXPUV" title="KIDS SEE GHOSTS" artists="Kanye West & Kid Cudi" />
-            <AlbumElement filename="tfs.png" link="https://open.spotify.com/album/4rJDCELWL0fjdmN9Gn4f4g" title="The Forever Story" artists="JID" />
-            <AlbumElement filename="alla.jpg" link="https://open.spotify.com/album/3arNdjotCvtiiLFfjKngMc" title="AT.LONG.LAST.A$AP" artists="A$AP Rocky" />
-            <AlbumElement filename="hb.png" link="https://open.spotify.com/album/4g1ZRSobMefqF6nelkgibi" title="Hollywood's Bleeding" artists="Post Malone" />
-            <AlbumElement filename="tlop.jpg" link="https://open.spotify.com/album/7gsWAHLeT0w7es6FofOXk1" title="The Life Of Pablo" artists="Kanye West" />
-            <AlbumElement filename="damn.png" link="https://open.spotify.com/album/4eLPsYPBmXABThSJ821sqY" title="DAMN." artists="Kendrick Lamar" />
+            <AlbumElement filename="wywh.png" title="Wish You Were Here" artists="Pink Floyd" />
+            <AlbumElement filename="h&v.jpg" title="Heroes and Villains" artists="Metro Boomin" />
+            <AlbumElement filename="astroworld.png" title="ASTROWORLD" artists="Travis Scott" />
+            <AlbumElement filename="graduation.jpg" title="Graduation" artists="Kanye West" />
+            <AlbumElement filename="ram.png" title="Random Access Memories" artists="Daft Punk" />
+            <AlbumElement filename="am.jpg" title="AM" artists="Arctic Monkeys" />
+            <AlbumElement filename="currents.png" title="Currents" artists="Tame Impala" />
+            <AlbumElement filename="dsotm.png" title="The Dark Side of the Moon" artists="Pink Floyd" />
+            <AlbumElement filename="thewall.jpg" title="The Wall" artists="Pink Floyd" />
+            <AlbumElement filename="uvst.png" title="Un Verano Sin Ti" artists="Bad Bunny" />
+            <AlbumElement filename="otaat.png" title="One Thing At A Time" artists="Morgan Wallen" />
+            <AlbumElement filename="lz4.jpg" title="Led Zeppelin IV" artists="Led Zeppelin" />
+            <AlbumElement filename="tsr.png" title="The Slow Rush" artists="Tame Impala" />
+            <AlbumElement filename="rodeo.png" title="Rodeo" artists="Travis Scott" />
+            <AlbumElement filename="lz2.jpg" title="Led Zeppelin II" artists="Led Zeppelin" />
+            <AlbumElement filename="mbtdf.jpg" title="My Beautiful Dark Twisted Fantasy" artists="Kanye West" />
+            <AlbumElement filename="gkmc.jpg" title="good kid, m.A.A.d city" artists="Kendrick Lamar" />
+            <AlbumElement filename="rumours.png" title="Rumours" artists="Fleetwood Mac" />
+            <AlbumElement filename="ksg.png" title="KIDS SEE GHOSTS" artists="Kanye West & Kid Cudi" />
+            <AlbumElement filename="takecare.jpg" title="Take Care" artists="Drake" />
+            <AlbumElement filename="tgi.jpg" title="The Grand Illusion" artists="Styx" />
+            <AlbumElement filename="ledzeppelin.jpg" title="Led Zeppelin" artists="Led Zeppelin" />
+            <AlbumElement filename="tcd.jpg" title="The College Dropout" artists="Kanye West" />
+            <AlbumElement filename="thankmelater.jpg" title="Thank Me Later" artists="Drake" />
+            <AlbumElement filename="animals.webp" title="Animals" artists="Pink Floyd" />
            
         </div>
     )

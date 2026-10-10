@@ -106,7 +106,8 @@ export default function Events() {
                             </div>
 
                             <p className={"text-lg text-gray-400 text-" + theme}>
-                                The largest Event in Europe, with about 1000 participants in Stockholm, Paris, and Dublin. We (team of 4 who previously didn't know each other) developed a system that, using OpenTelemetry logs from a given system,
+                                The largest hackathon in Europe (I believe?), with about 1000 participants in Stockholm, Paris, and Dublin. 
+                                We (team of 4 who previously didn't know each other) developed an application that, using OpenTelemetry logs from a given system,
                                 analyzes these to find slow database queries. It then goes into the identified code and attempts to improve it (using Claude Code).
                                 If successful, it creates a new Github branch, commits the changes, and creates a merge request to the main branch.
                             </p>
@@ -158,8 +159,8 @@ export default function Events() {
                             </div>
 
                             <p className={"text-lg text-gray-400 text-" + theme}>
-                                Will be participating in the Jane Street SEE Program (Software Engineering track). 
-                                Participants will get a tour of how the company handles its software engineering operations.
+                                Participated in Jane Street SEE Program (Software Engineering track). 
+                                Got an introduction to Jane Street's Software Engineering operations, as well as some software aspects of quantititative trading in general.
                             </p>
                         </div>
                     )}
