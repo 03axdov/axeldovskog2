@@ -10,15 +10,18 @@ export default function AlbumElement({filename, title, artists}: AlbumElementPro
     
 
     return (
-        <a 
-        className="album-element hoverable-element w-[calc(20%-28px] max-w-[calc(20%-28px)] aspect-square relative flex flex-col items-center"
-        target="_blank" 
+        <div
+        className="album-element hoverable-element group/media w-[calc(20%-28px)] max-w-[calc(20%-28px)] aspect-square relative flex flex-col items-center rounded-xl"
+        tabIndex={0}
+        aria-label={`${title} by ${artists}`}
        >
-            <div className="pointer-events-none hoverable-element-popup absolute bg-[rgb(0,0,0,0.9)] bottom-[calc(100%-10px)] p-2 px-4 rounded-md flex flex-col">
-                <p className="text-xl whitespace-nowrap text-white">{title}</p>
-                <p className="text-md text-gray-400 whitespace-nowrap">by {artists}</p>
+            <div aria-hidden="true" className="hoverable-element-popup">
+                <p className="text-md leading-snug text-white">{title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-gray-400">by {artists}</p>
             </div>
-            <AmbientImage url={"/static/images/albums/" + filename}/>
-        </a>
+            <div className="hoverable-artwork w-full rounded-xl">
+                <AmbientImage url={"/static/images/albums/" + filename} liftOnHover={false}/>
+            </div>
+        </div>
     )
 }

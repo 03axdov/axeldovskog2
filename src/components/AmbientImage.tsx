@@ -1,65 +1,66 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Vibrant } from "node-vibrant/browser";
 
 interface Props {
-    url: string
+    url: string;
+    alt?: string;
+    liftOnHover?: boolean;
 }
 
-type CSSVars = React.CSSProperties & {
+type CSSVars = CSSProperties & {
   [key: `--${string}`]: string | number;
 };
 
 
-export default function AmbientImage({url}: Props) {
-    const [shadowColor, setShadowColor] = useState("rgba(0,0,0,0.3)");
-    const imgRef = useRef(null);
-    
+export default function AmbientImage({ url, alt = "", liftOnHover = true }: Props) {
+    const [paletteColor, setPaletteColor] = useState<{ url: string; rgb: string }>();
+    const shadowColor = paletteColor?.url === url ? paletteColor.rgb : "100 116 139";
+
     useEffect(() => {
-        getMostSaturatedColor(url)
-        
-    }, []);
+        let cancelled = false;
 
-    async function getMostSaturatedColor(url: string) {
-        const palette = await Vibrant.from(url).getPalette();
-        let best = { h: 0, s: -1, l: 0 };
-        
-        for (const swatch of Object.values(palette)) {
-            if (!swatch) continue;
-            const hsl = rgbToHsl(swatch.rgb[0], swatch.rgb[1], swatch.rgb[2]);
-            if (hsl.s > best.s) best = hsl;
+        async function extractColor() {
+            try {
+                const palette = await Vibrant.from(url).getPalette();
+                const swatch = palette.Vibrant ?? palette.LightVibrant
+                    ?? palette.DarkVibrant ?? palette.Muted ?? palette.DarkMuted
+                    ?? palette.LightMuted;
+
+                if (!cancelled && swatch) {
+                    setPaletteColor({ url, rgb: swatch.rgb.map(Math.round).join(" ") });
+                }
+            } catch {
+                // Keep the neutral glow when an image's palette cannot be read.
+            }
         }
 
-        if (best) {
-            setShadowColor("rgb(" + palette.DarkVibrant?.rgb.toString() + ")" || "")
-        }
-        
-    }
-
-    function rgbToHsl(r: number, g: number, b: number) {
-        r /= 255; g /= 255; b /= 255;
-        const max = Math.max(r, g, b), min = Math.min(r, g, b);
-        const l = (max + min) / 2;
-
-        if (max === min) return { h: 0, s: 0, l }; // gray
-
-        const d = max - min;
-        const s = d / (1 - Math.abs(2 * l - 1));
-        let h: number;
-
-        switch (max) {
-            case r: h = 60 * (((g - b) / d) % 6); break;
-            case g: h = 60 * ((b - r) / d + 2); break;
-            default: h = 60 * ((r - g) / d + 4); break;
-        }
-        if (h < 0) h += 360;
-        return { h, s, l };
-    }
+        void extractColor();
+        return () => { cancelled = true; };
+    }, [url]);
 
     return (
         <div
-        className="rounded-xl shadow-[0_0_50px_0px_var(--shadow-color)] hover:shadow-[0_0_50px_5px_var(--shadow-color)] hover:z-1"
-        style={{ "--shadow-color": shadowColor } as CSSVars}>
-            <img ref={imgRef} className="h-full w-full rounded-xl" src={url}/>
+            className={`group/ambient relative isolate w-full rounded-xl transition-transform duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none ${liftOnHover ? "hover:z-10 hover:-translate-y-1 hover:scale-[1.025]" : ""}`}
+            style={{ "--shadow-color": shadowColor } as CSSVars}
+        >
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-3 -z-10 rounded-[inherit] bg-[rgb(var(--shadow-color)/0.35)] opacity-60 blur-2xl transition-opacity duration-500 group-hover/ambient:opacity-100 group-hover/media:opacity-100 group-focus-visible/media:opacity-100 motion-reduce:transition-none"
+            />
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-3 -bottom-3 -z-10 h-1/2 rounded-full bg-[rgb(var(--shadow-color)/0.5)] blur-xl"
+            />
+            <img
+                className="relative block h-full w-full rounded-[inherit] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.65)]"
+                src={url}
+                alt={alt}
+                decoding="async"
+            />
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-[inherit] bg-linear-to-b from-white/10 via-transparent to-black/10 ring-1 ring-inset ring-white/10 transition-colors duration-300 group-hover/ambient:ring-white/25 group-hover/media:ring-white/25 group-focus-visible/media:ring-white/25 motion-reduce:transition-none"
+            />
         </div>
-    )
+    );
 }

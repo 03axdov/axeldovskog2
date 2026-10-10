@@ -16,12 +16,76 @@
 }
 
 .hoverable-element .hoverable-element-popup {
-    display: none;
-    z-index: 10;
+    position: absolute;
+    bottom: calc(100% + 16px);
+    left: 50%;
+    z-index: 30;
+    width: max-content;
+    max-width: min(240px, calc(100vw - 32px));
+    padding: 10px 14px;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: 12px;
+    background: rgb(18 18 22 / 0.95);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    overflow-wrap: anywhere;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 6px);
+    transition: opacity 180ms ease-out, transform 180ms ease-out, visibility 180ms;
 }
 
-.hoverable-element:hover .hoverable-element-popup {
-    display: flex;
+.hoverable-element-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: rgb(18 18 22 / 0.95);
+    border-right: 1px solid rgb(255 255 255 / 0.12);
+    border-bottom: 1px solid rgb(255 255 255 / 0.12);
+    transform: translate(-50%, -4px) rotate(45deg);
+}
+
+.hoverable-element:hover,
+.hoverable-element:focus-visible {
+    z-index: 30;
+}
+
+.hoverable-element:focus-visible {
+    outline: 2px solid rgb(148 163 184 / 0.8);
+    outline-offset: 6px;
+}
+
+.hoverable-artwork {
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+.hoverable-element:hover .hoverable-artwork,
+.hoverable-element:focus-visible .hoverable-artwork {
+    transform: translateY(-4px) scale(1.025);
+}
+
+.hoverable-element:hover .hoverable-element-popup,
+.hoverable-element:focus-visible .hoverable-element-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hoverable-artwork,
+    .hoverable-element .hoverable-element-popup {
+        transition: none;
+    }
+
+    .hoverable-element:hover .hoverable-artwork,
+    .hoverable-element:focus-visible .hoverable-artwork {
+        transform: none;
+    }
 }
 
 .university:hover {
