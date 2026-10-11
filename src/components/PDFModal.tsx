@@ -42,31 +42,44 @@ export default function PDFModal({ open, onClose, src, file, title = "Preview" }
       className="fixed inset-0 z-50 bg-black/60"
       role="dialog"
       aria-modal="true"
-      aria-label="PDF preview dialog"
+      aria-label={title}
       onClick={onClose}
     >
 
       {/* Modal panel */}
       <div className="absolute inset-0 p-4 sm:p-6 flex items-center justify-center">
-        <div className="w-full max-w-5xl h-[80vh] bg-white dark:bg-neutral-900 rounded-xl shadow-xl overflow-hidden relative" onClick={(e) => e.stopPropagation()}>
+        <div className="w-full max-w-5xl h-[80dvh] flex flex-col bg-white dark:bg-neutral-900 rounded-xl shadow-xl overflow-hidden relative" onClick={(e) => e.stopPropagation()}>
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-wrap items-center justify-between gap-3 shrink-0 px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
             <h2 className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
               {title}
             </h2>
+            <div className="flex items-center gap-3">
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-600 dark:text-blue-400 underline"
+              >
+                Open PDF
+              </a>
+            )}
             <button
+              type="button"
               onClick={onClose}
-              className="text-white rounded px-3 cursor-pointer py-1.5 text-sm border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              className="text-neutral-700 dark:text-neutral-200 rounded px-3 cursor-pointer py-1.5 text-sm border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
             >
               Close
             </button>
+            </div>
           </div>
 
           {/* Content */}
-          <div className="w-full h-[calc(80vh-52px)]">
+          <div className="w-full flex-1 min-h-0">
             {url ? (
               <iframe
-                title="PDF preview"
+                title={title}
                 src={`${url}#page=1&zoom=page-width`}
                 className="w-full h-full"
               />

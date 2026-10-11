@@ -5,11 +5,22 @@ import PDFModal from "../components/PDFModal"
 
 type SectionTypes = "ntu" | "lth" | "lusem"
 
+const transcripts = {
+    lund: {
+        title: "Lund University transcript",
+        src: "/static/images/education/transcript.pdf",
+    },
+    ntu: {
+        title: "NTU transcript",
+        src: "/static/images/education/transcript-taiwan.pdf",
+    },
+}
+
 export default function Education() {
     const { theme } = useTheme()
     const reduceMotion = useReducedMotion()
 
-    const [showTranscript, setShowTranscript] = useState(false)
+    const [selectedTranscript, setSelectedTranscript] = useState<keyof typeof transcripts | null>(null)
     const [selectedSection, setSelectedSection] = useState<SectionTypes>("lth")
     const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
 
@@ -98,7 +109,7 @@ export default function Education() {
                             }}></div>
                         </div>
                         {gpa && gpaMax && <p className="m-0 ml-3 text-lg">{gpa} <span className={"text-gray-400 text-" + theme}>out of {gpaMax}</span></p>}
-                        {!gpa && !gpaMax && <p className="m-0 ml-3 text-lg">No grades yet.</p>}
+                        {!gpa && !gpaMax && <p className="m-0 ml-3 text-lg">Non numerical grade scale.</p>}
                     </div>
                 </div>
             </div>
@@ -130,7 +141,7 @@ export default function Education() {
                         exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
                     >
                 {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `
-                    Mainly took classes on machine learning, as well as general chinese and designing virtual experiences.`, 4.8, 5.0)}
+                    At National Taiwan University, I mainly took classes on machine learning, as well as general chinese and designing virtual experiences. GPA: A`)}
 
                 {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
 
@@ -140,20 +151,34 @@ export default function Education() {
                 </div>
             </div>
 
-            <button 
-            className={"mt-15 flex flex-row items-center cursor-pointer text-xl p-2 px-4 rounded-md border border-gray-400 element-border-" + theme }
-            onClick={() => setShowTranscript(true)}>
-                <i className="fa-solid fa-file-pdf mr-3 text-blue-400"></i>
-                My transcript
-            </button>
+            <div className="mt-15 flex flex-wrap justify-center gap-4">
+                {Object.entries(transcripts).map(([key, transcript]) => (
+                    <button
+                        key={key}
+                        type="button"
+                        aria-haspopup="dialog"
+                        className={"flex flex-row items-center cursor-pointer text-xl p-2 px-4 rounded-md border border-gray-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 element-border-" + theme}
+                        onClick={() => setSelectedTranscript(key as keyof typeof transcripts)}
+                    >
+                        <i className="fa-solid fa-file-pdf mr-3 text-blue-400" aria-hidden="true"></i>
+                        {transcript.title}
+                    </button>
+                ))}
+            </div>
             <PDFModal
-                open={showTranscript}
-                onClose={() => setShowTranscript(false)}
-                title="Transcript"
-                src="/static/images/education/transcript.pdf" // or omit and pass {file}
-                file={undefined}
+                open={selectedTranscript !== null}
+                onClose={() => setSelectedTranscript(null)}
+                title={selectedTranscript ? transcripts[selectedTranscript].title : undefined}
+                src={selectedTranscript ? transcripts[selectedTranscript].src : undefined}
             />
-            <p className={"text-sm mt-2 text-gray-400 text-gray-" + theme}>Note that only one page may show up on mobile devices.</p>
+            <p className={"text-sm mt-2 text-center text-gray-400 text-" + theme}>
+                If the preview only shows one page on mobile, use Open PDF to view the full transcript.
+                <br></br><br></br>
+                Note that my Lund University transcript includes grades from both programs I studied,
+                <br></br>
+                with International Business courses being graded with letters and Computer Science courses
+                with 1 to 5 or G.
+            </p>
         </div>
     )
 }
