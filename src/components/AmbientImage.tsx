@@ -5,6 +5,7 @@ interface Props {
     url: string;
     alt?: string;
     liftOnHover?: boolean;
+    fit?: "width" | "height";
 }
 
 type CSSVars = CSSProperties & {
@@ -12,7 +13,7 @@ type CSSVars = CSSProperties & {
 };
 
 
-export default function AmbientImage({ url, alt = "", liftOnHover = true }: Props) {
+export default function AmbientImage({ url, alt = "", liftOnHover = true, fit = "width" }: Props) {
     const [paletteColor, setPaletteColor] = useState<{ url: string; rgb: string }>();
     const shadowColor = paletteColor?.url === url ? paletteColor.rgb : "100 116 139";
 
@@ -40,7 +41,7 @@ export default function AmbientImage({ url, alt = "", liftOnHover = true }: Prop
 
     return (
         <div
-            className={`group/ambient relative isolate w-full rounded-xl transition-transform duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none ${liftOnHover ? "hover:z-10 hover:-translate-y-1 hover:scale-[1.025]" : ""}`}
+            className={`group/ambient relative isolate ${fit === "height" ? "h-full w-auto rounded-md" : "w-full rounded-xl"} transition-transform duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none ${liftOnHover ? "hover:z-10 hover:-translate-y-1 hover:scale-[1.025]" : ""}`}
             style={{ "--shadow-color": shadowColor } as CSSVars}
         >
             <div
@@ -52,7 +53,7 @@ export default function AmbientImage({ url, alt = "", liftOnHover = true }: Prop
                 className="pointer-events-none absolute inset-x-3 -bottom-3 -z-10 h-1/2 rounded-full bg-[rgb(var(--shadow-color)/0.5)] blur-xl"
             />
             <img
-                className="relative block h-full w-full rounded-[inherit] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.65)]"
+                className={`relative block h-full ${fit === "height" ? "w-auto" : "w-full"} rounded-[inherit] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.65)]`}
                 src={url}
                 alt={alt}
                 decoding="async"

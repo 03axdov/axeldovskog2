@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
 
 type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir" | "Paraglide AI"
 
 export default function Career() {
     const { theme } = useTheme()
+    const reduceMotion = useReducedMotion()
 
     const [selectedSection, setSelectedSection] = useState<WorkType>("Palantir")
+    const detailKey = selectedSection === "Arm1" || selectedSection === "Arm2" ? "Arm" : selectedSection
     const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
 
     useEffect(() => {
@@ -21,6 +24,7 @@ export default function Career() {
                 ? "/static/images/career/palantir.svg"
                 : "/static/images/career/palantir-light.svg",
             "/static/images/career/paraglide.webp",
+            "/static/images/career/paraglide-banner.png",
         ]
 
         imageSources.forEach((src) => {
@@ -46,9 +50,18 @@ export default function Career() {
         duration: string, position: string, section: WorkType, imageFull: boolean
     ) {
         return (
-            <div className={"work-element flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer career-" + theme + " " +
+            <div className={"work-element flex rounded-2xl w-full p-4 flex-row items-center cursor-pointer transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 career-" + theme + " " +
                 (selectedSection == section ? "bg-third career-selected-" + theme : "")
             }
+            role="button"
+            tabIndex={0}
+            aria-pressed={selectedSection === section}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault()
+                    setSelectedSection(section)
+                }
+            }}
             onClick={() => setSelectedSection(section)}>
                 {imageFull && <img className={"career-element-image w-[100px] rounded-lg mr-5 career-image-" + theme} src={"/static/images/career/" + filename}/>}
                 {!imageFull && <img className={"career-element-image w-[100px] p-[20px] rounded-lg mr-5"} src={"/static/images/career/" + filename}/>}
@@ -81,6 +94,13 @@ export default function Career() {
                 </div>
 
                 <div className="max-w-[1000px]">
+                    <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                        key={detailKey}
+                        initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.22, ease: "easeOut" } }}
+                        exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
+                    >
                     {(selectedSection == "Arm1" || selectedSection == "Arm2") && <div className="flex flex-col items-center">
                         <h1 className={"w-full text-4xl pb-3 border-b border-gray-600 mb-5 text-gray-200 title-" + theme}>
                             ARM <span className={"text-gray-400 text-gray-" + theme}>(Advanced RISC Machines)</span>
@@ -278,6 +298,8 @@ export default function Career() {
                         </div>
 
                     </div>}
+                    </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
         </div>

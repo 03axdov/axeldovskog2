@@ -13,9 +13,23 @@ const LINKS = [
 export default function Navbar() {
   const { theme } = useTheme()
   const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const [useMobileMenu, setUseMobileMenu] = useState(false);
   const navbarRowRef = useRef<HTMLDivElement>(null);
   const navbarMeasureRef = useRef<HTMLDivElement>(null);
+  const contactClassName = "group/contact items-center justify-center gap-2.5 whitespace-nowrap rounded-xl border px-5 py-2.5 text-sm shadow-sm cursor-pointer transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 motion-reduce:transition-none " +
+    (theme === "light"
+      ? "border-blue-200 bg-blue-50 text-blue-700 hover:border-blue-400 hover:bg-blue-100 hover:text-blue-800"
+      : "border-blue-400/35 bg-blue-500/15 text-blue-200 hover:border-blue-400/60 hover:bg-blue-500/25 hover:text-white");
+  const contactContent = (
+    <>
+      <i aria-hidden="true" className="fa-regular fa-envelope" />
+      <span>Contact me</span>
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover/contact:translate-x-0.5 group-focus-visible/contact:translate-x-0.5 motion-reduce:transition-none motion-reduce:transform-none">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </svg>
+    </>
+  );
 
   useEffect(() => {
     const measureNavbarOverflow = () => {
@@ -69,7 +83,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className={"text-gray-300 cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] hover:text-white rounded-md navbar-element-" + theme + " text-" + theme}
+          className={"cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] text-gray-300 hover:text-white rounded-md navbar-element-" + theme + " text-" + theme}
           onClick={onClick}
         >
           {l.label}
@@ -79,9 +93,15 @@ export default function Navbar() {
   );
 
   return (
-    <div className={"navbar z-20 fixed top-0 left-0 w-full bg-main border-b border-gray-700 navbar-" + theme}>
+    <div className="z-20 fixed top-0 left-0 w-full">
       <div
+        className={"navbar relative bg-main border-b border-gray-700 transition-transform duration-300 ease-in-out motion-reduce:transition-none navbar-" + theme + (collapsed ? " -translate-y-full" : " translate-y-0")}
+      >
+      <div
+        id="navbar-content"
         ref={navbarRowRef}
+        inert={collapsed}
+        aria-hidden={collapsed}
         className="relative flex flex-row items-center justify-between p-4 px-8"
       >
         <div className="absolute invisible pointer-events-none h-0 overflow-hidden" aria-hidden="true">
@@ -94,11 +114,10 @@ export default function Navbar() {
             </nav>
             <a
               href="#contact"
-              className="flex whitespace-nowrap flex-row items-center rounded-md border-none text-white bg-blue-500 p-2 px-6"
+              className={"flex " + contactClassName}
               tabIndex={-1}
             >
-              <i className="fa-solid fa-address-card mr-3"></i>
-              Contact me
+              {contactContent}
             </a>
           </div>
         </div>
@@ -111,10 +130,9 @@ export default function Navbar() {
         {/* Right side: CTA (desktop) */}
         <a
           href="#contact"
-          className={(useMobileMenu ? "hidden" : "flex") + " whitespace-nowrap flex-row items-center rounded-md border-none text-white bg-blue-500 hover:bg-blue-600 p-2 px-6 cursor-pointer"}
+          className={(useMobileMenu ? "hidden " : "flex ") + contactClassName}
         >
-          <i className="fa-solid fa-address-card mr-3"></i>
-          Contact me
+          {contactContent}
         </a>
 
         {/* Mobile: hamburger button */}
@@ -128,6 +146,24 @@ export default function Navbar() {
           {/* Font Awesome Free icons */}
           <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl icon-` + theme} />
         </button>
+      </div>
+      <button
+        type="button"
+        aria-label={collapsed ? "Show navigation" : "Hide navigation"}
+        aria-expanded={!collapsed}
+        aria-controls="navbar-content"
+        title={collapsed ? "Show navigation" : "Hide navigation"}
+        className={"absolute top-full right-6 flex min-h-8 items-center justify-center gap-2 rounded-b-xl border border-t-0 border-gray-700 bg-main px-4 text-sm text-gray-300 shadow-md cursor-pointer hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 navbar-" + theme + " text-" + theme}
+        onClick={() => {
+          setOpen(false);
+          setCollapsed((value) => !value);
+        }}
+      >
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d={collapsed ? "m6 9 6 6 6-6" : "m6 15 6-6 6 6"} />
+        </svg>
+        <span>{collapsed ? "Show menu" : "Hide menu"}</span>
+      </button>
       </div>
 
       {/* Mobile: backdrop + panel */}
@@ -163,10 +199,10 @@ export default function Navbar() {
           <NavLinks onClick={() => setOpen(false)} />
           <a
             href="#contact"
-            className="mt-4 text-white whitespace-nowrap rounded-full border-none bg-blue-500 hover:bg-blue-600 p-2 px-6 text-center"
+            className={"mt-4 flex " + contactClassName}
             onClick={() => setOpen(false)}
           >
-            Contact me
+            {contactContent}
           </a>
         </nav>
       </div>

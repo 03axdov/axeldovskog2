@@ -3,7 +3,7 @@ import { useTheme } from "../contexts/ThemeContext"
 
 export default function ThemeModal() {
     const { theme, setTheme } = useTheme()
-    const [isExpanded, setIsExpanded] = useState(true)
+    const [isExpanded, setIsExpanded] = useState(false)
 
     function getThemeElement(name: string, color: string, icon: string) {
         return (

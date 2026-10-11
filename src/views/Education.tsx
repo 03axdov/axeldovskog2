@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
 import PDFModal from "../components/PDFModal"
 
@@ -6,9 +7,31 @@ type SectionTypes = "ntu" | "lth" | "lusem"
 
 export default function Education() {
     const { theme } = useTheme()
+    const reduceMotion = useReducedMotion()
 
     const [showTranscript, setShowTranscript] = useState(false)
     const [selectedSection, setSelectedSection] = useState<SectionTypes>("lth")
+    const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
+
+    useEffect(() => {
+        const filenames = ["lu.jpg", "lu2.jpg", "lth.jpg", "lusem.jpg", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg"]
+
+        filenames.forEach((filename) => {
+            const src = "/static/images/education/" + filename
+            if (preloadedImagesRef.current.has(src)) return
+
+            const image = new Image()
+            image.decoding = "async"
+            image.loading = "eager"
+            image.src = src
+
+            // Retain the images and decode them before their panels are displayed.
+            preloadedImagesRef.current.set(src, image)
+            image.decode?.().catch(() => {
+                // A failed preload should not interrupt navigation.
+            })
+        })
+    }, [])
 
     function getUniversityElement(
         logoFilename: string, 
@@ -19,7 +42,16 @@ export default function Education() {
     ) {
         return (
             <div className={"university w-full flex flex-row items-center border border-[rgb(0,0,0,0)] cursor-pointer university-" + theme +
-            " rounded-lg p-4 " + (selectedSection == selectedVal ? "bg-third university-selected university-selected-" + theme : "")}
+            " rounded-lg p-4 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 " + (selectedSection == selectedVal ? "bg-third university-selected university-selected-" + theme : "")}
+            role="button"
+            tabIndex={0}
+            aria-pressed={selectedSection === selectedVal}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault()
+                    setSelectedSection(selectedVal)
+                }
+            }}
             onClick={() => setSelectedSection(selectedVal)}
             >
                 <img className="w-[50px] mr-5" src={"/static/images/education/" + logoFilename}/>
@@ -89,12 +121,23 @@ export default function Education() {
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                 </div>
 
+                <div className="flex-grow max-w-[1000px] min-w-0">
+                    <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                        key={selectedSection}
+                        initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.22, ease: "easeOut" } }}
+                        exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
+                    >
                 {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `
                     Mainly took classes on machine learning, as well as general chinese and designing virtual experiences.`, 4.8, 5.0)}
 
                 {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
 
                 {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `At LUSEM I've spent 2 years studying different topics within business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).`, 4.3, 5)}
+                    </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
 
             <button 

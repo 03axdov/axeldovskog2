@@ -1,6 +1,7 @@
 import AlbumList from "../components/AlbumList";
 import BookTierList from "../components/BookTierList";
 import ProficiencyElement from "../components/ProficiencyElement";
+import ShowTierList from "../components/ShowTierList";
 import { useTheme } from "../contexts/ThemeContext";
 
 export default function About() {
@@ -107,6 +108,12 @@ export default function About() {
                 While not as impactful to me as certain books, here are some albums I really like.
             </p>
             <AlbumList />
+
+            <p className={"section-subtitle text-4xl mt-40 tracking-wider title-" + theme}>SHOWS I LIKE</p>
+            <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
+                Thought I'd also include some shows I like, why not?
+            </p>
+            <ShowTierList />
         </div>
     )
 }

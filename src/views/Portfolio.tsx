@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import DalinarPage from "../components/portfolio/DalinarPage"
 import MuskiePage from "../components/portfolio/MuskiePage"
 import MediaReviewrPage from "../components/portfolio/MediaReviewrPage"
@@ -8,6 +9,7 @@ type ProjectType = "Dalinar" | "Muskie" | "MediaReviewr"
 
 export default function Portfolio() {
     const { theme } = useTheme()
+    const reduceMotion = useReducedMotion()
 
     const [selectedSection, setSelectedSection] = useState<ProjectType>("Dalinar")
 
@@ -15,11 +17,21 @@ export default function Portfolio() {
         filename: string, section: ProjectType, background: string, selectedColor: string
     ) {
         return (
-            <div className={"flex w-full rounded-lg flex-row items-center justify-center cursor-pointer " +
+            <div className={"flex w-full rounded-lg flex-row items-center justify-center cursor-pointer transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 " +
                 (selectedSection == section ? "border border-" + selectedColor + " portfolio-selected-" + theme : "border border-[rgb(0,0,0,0)] hover:border-gray-600")
             }
             style={{
                 background: background
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label={section}
+            aria-pressed={selectedSection === section}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault()
+                    setSelectedSection(section)
+                }
             }}
             onClick={() => setSelectedSection(section)}>
                 <img className="h-[75px] rounded-lg" src={"/static/images/portfolio/" + filename}/>
@@ -43,11 +55,20 @@ export default function Portfolio() {
                 </div>
 
                 <div className="portfolio-inner w-[1000px] max-w-[calc(100%-300px-60px)]">
+                    <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                        key={selectedSection}
+                        initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.22, ease: "easeOut" } }}
+                        exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
+                    >
                     {selectedSection == "Dalinar" && <DalinarPage />}
 
                     {selectedSection == "Muskie" && <MuskiePage />}
 
                     {selectedSection == "MediaReviewr" && <MediaReviewrPage />}
+                    </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
 

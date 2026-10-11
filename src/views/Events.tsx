@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
 
 type EventType = "HackEurope" | "SEE"
 
 export default function Events() {
     const { theme } = useTheme()
+    const reduceMotion = useReducedMotion()
     const [selectedSection, setSelectedSection] = useState<EventType>("HackEurope")
     const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
     const eventPreviewImages: Record<EventType, string> = {
@@ -35,12 +37,21 @@ export default function Events() {
     function getEventElement(name: string, section: EventType, eventType: string) {
         return (
             <div
-                className={"flex w-full rounded-2xl p-4 flex-row items-center gap-6 cursor-pointer " +
+                className={"flex w-full rounded-2xl p-4 flex-row items-center gap-6 cursor-pointer transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 " +
                     (selectedSection == section
                         ? "bg-third career-selected-" + theme
                         : "") +
                     " career-" + theme
                 }
+                role="button"
+                tabIndex={0}
+                aria-pressed={selectedSection === section}
+                onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault()
+                        setSelectedSection(section)
+                    }
+                }}
                 onClick={() => setSelectedSection(section)}
             >
                 <div className="w-[72px] h-[72px] rounded-xl overflow-hidden shrink-0 bg-white">
@@ -74,6 +85,13 @@ export default function Events() {
                 </div>
 
                 <div className="portfolio-inner w-[1000px] max-w-[calc(100%-300px-60px)]">
+                    <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                        key={selectedSection}
+                        initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.22, ease: "easeOut" } }}
+                        exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
+                    >
                     {selectedSection == "HackEurope" && (
                         <div className="flex flex-col items-center">
                             <h1 className={"w-full text-4xl pb-3 mb-5 border-b border-gray-600 text-gray-200 title-" + theme}>
@@ -164,6 +182,8 @@ export default function Events() {
                             </p>
                         </div>
                     )}
+                    </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
         </div>
