@@ -14,11 +14,11 @@ export default function Recommendations() {
     ) 
     {
         return (
-            <div className={"p-4 rounded-md bg-secondary flex flex-col max-w-[550px] gap-y-5 recommendation-" + theme}>
-                <p className="text-md whitespace-pre-wrap">
+            <div className={"p-4 rounded-md bg-secondary flex flex-col max-w-[600px] h-[700px] gap-y-5 recommendation-" + theme}>
+                <p className="text-md leading-8 whitespace-pre-wrap">
                     "{recommendation}"
                 </p>
-                <div className="w-full border-b border-gray-600"></div>
+                <div className="w-full border-b border-gray-600 mt-auto"></div>
                 <div className="flex flex-row items-center w-full gap-x-5">
                     {authorImage}
                     <div className="flex flex-col">

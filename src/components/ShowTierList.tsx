@@ -2,7 +2,7 @@ import ShowElement from "./ShowElement";
 
 export default function BookTierList() {
     return (
-        <div className="flex flex-col w-[1000px] max-w-[100%] mb-10">
+        <div className="flex flex-col w-[1000px] max-w-[100%]">
             <div className="flex flex-row items-start border-y border-gray-800">
                 <div className="tier-row min-h-[200px] min-w-[200px] p-5 flex items-center justify-center text-center text-xl tier-1 bg-cyan-500">
                     \_(•-•)_/<br></br>absolute cinema
