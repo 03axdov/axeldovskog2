@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Main from './views/Main'
 import { useTheme } from './contexts/ThemeContext'
+import './Mobile.css'
 
 function App() {
   const { theme } = useTheme()

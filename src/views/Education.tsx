@@ -87,7 +87,7 @@ export default function Education() {
     ) {
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
-                <div className="relative flex flex-row h-[450px] w-full gap-x-3">
+                <div className="education-gallery relative flex flex-row h-[450px] w-full gap-x-3">
                     <p className={"text-white university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md"}>{name}</p>
                     <img className="w-[60%] bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1}/>
                     <div className="flex flex-col gap-y-3 flex-grow">
@@ -117,7 +117,7 @@ export default function Education() {
     }
 
     return (
-        <div id="education" className="px-10 flex flex-col items-center">
+        <div id="education" className="content-section px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>EDUCATION</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY EDUCATION</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>

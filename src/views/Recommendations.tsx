@@ -14,12 +14,12 @@ export default function Recommendations() {
     ) 
     {
         return (
-            <div className={"p-4 rounded-md bg-secondary flex flex-col max-w-[600px] h-[700px] gap-y-5 recommendation-" + theme}>
+            <div className={"recommendation-card p-4 rounded-md bg-secondary flex flex-col max-w-[600px] h-[700px] gap-y-5 recommendation-" + theme}>
                 <p className="text-md leading-8 whitespace-pre-wrap">
                     "{recommendation}"
                 </p>
                 <div className="w-full border-b border-gray-600 mt-auto"></div>
-                <div className="flex flex-row items-center w-full gap-x-5">
+                <div className="recommendation-author flex flex-row items-center w-full gap-x-5">
                     {authorImage}
                     <div className="flex flex-col">
                         <p className={"text-lg text-" + color}>{author}</p>
@@ -33,7 +33,7 @@ export default function Recommendations() {
     }
 
     return (
-        <div id="about" className="overflow-x-hidden pb-20 px-10 flex flex-col items-center">
+        <div id="recommendations" className="content-section overflow-x-hidden pb-20 px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>RECOMMENDATIONS</p>
             <p lang="en" className={"section-subtitle text-4xl mb-15 tracking-wider max-w-[100%] hyphens-auto whitespace-normal break-words recommendations-title title-" + theme}>SOME RECOMMENDATIONS</p>
 

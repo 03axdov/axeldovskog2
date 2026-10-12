@@ -5,7 +5,7 @@ export default function Tests() {
     const { theme } = useTheme()
     
     return (
-        <div id="tests" className="px-10 mt-20 flex flex-col items-center">
+        <div id="tests" className="content-section px-10 mt-20 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>TEST SCORES</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>STANDARDIZED TESTS</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>

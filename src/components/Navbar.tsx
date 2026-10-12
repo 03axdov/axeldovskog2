@@ -58,7 +58,8 @@ export default function Navbar() {
   }, [theme]);
 
   useEffect(() => {
-    if (!useMobileMenu) setOpen(false);
+    if (useMobileMenu) setCollapsed(false);
+    else setOpen(false);
   }, [useMobileMenu]);
 
   // Lock body scroll when menu is open (nice to have)
@@ -141,11 +142,12 @@ export default function Navbar() {
           className={(useMobileMenu ? "inline-flex" : "hidden") + " nav-control items-center justify-center"}
           onClick={() => setOpen((v) => !v)}
         >
-          {/* Font Awesome Free icons */}
-          <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"} text-2xl icon-` + theme} />
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+            <path d={open ? "m6 6 12 12M6 18 18 6" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
         </button>
       </div>
-      <button
+      {!useMobileMenu && <button
         type="button"
         aria-label={collapsed ? "Show navigation" : "Hide navigation"}
         aria-expanded={!collapsed}
@@ -161,7 +163,7 @@ export default function Navbar() {
           <path d={collapsed ? "m6 9 6 6 6-6" : "m6 15 6-6 6 6"} />
         </svg>
         <span>{collapsed ? "Show menu" : "Hide menu"}</span>
-      </button>
+      </button>}
       </div>
 
       {/* Mobile: backdrop + panel */}
@@ -178,6 +180,9 @@ export default function Navbar() {
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
+        aria-label="Navigation menu"
+        aria-hidden={!open}
+        inert={!open}
         className={`${useMobileMenu ? "fixed" : "hidden"} top-0 right-0 h-screen w-[85%] max-w-[360px] bg-main border-l border-gray-800 shadow-xl
                     transition-transform duration-300 will-change-transform mobile-menu-${theme}
                     ${open ? "translate-x-0" : "translate-x-full"}`}
@@ -189,7 +194,9 @@ export default function Navbar() {
             className="nav-control inline-flex items-center justify-center"
             onClick={() => setOpen(false)}
           >
-            <i className="fa-solid fa-xmark text-2xl" />
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+              <path d="m6 6 12 12M6 18 18 6" />
+            </svg>
           </button>
         </div>
 
