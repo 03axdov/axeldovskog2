@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import "./Navbar.css";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -17,10 +18,7 @@ export default function Navbar() {
   const [useMobileMenu, setUseMobileMenu] = useState(false);
   const navbarRowRef = useRef<HTMLDivElement>(null);
   const navbarMeasureRef = useRef<HTMLDivElement>(null);
-  const contactClassName = "group/contact items-center justify-center gap-2.5 whitespace-nowrap rounded-xl border px-5 py-2.5 text-sm shadow-sm cursor-pointer transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 motion-reduce:transition-none " +
-    (theme === "light"
-      ? "border-blue-200 bg-blue-50 text-blue-700 hover:border-blue-400 hover:bg-blue-100 hover:text-blue-800"
-      : "border-blue-400/35 bg-blue-500/15 text-blue-200 hover:border-blue-400/60 hover:bg-blue-500/25 hover:text-white");
+  const contactClassName = "group/contact nav-contact items-center justify-center gap-2.5 whitespace-nowrap";
   const contactContent = (
     <>
       <i aria-hidden="true" className="fa-regular fa-envelope" />
@@ -83,7 +81,7 @@ export default function Navbar() {
         <a
           key={l.href}
           href={l.href}
-          className={"cursor-pointer text-lg p-1 px-3 border border-[rgb(0,0,0,0)] text-gray-300 hover:text-white rounded-md navbar-element-" + theme + " text-" + theme}
+          className="nav-link"
           onClick={onClick}
         >
           {l.label}
@@ -93,23 +91,23 @@ export default function Navbar() {
   );
 
   return (
-    <div className="z-20 fixed top-0 left-0 w-full">
+    <div className="portfolio-navigation z-20 fixed top-0 left-0 w-full" data-theme={theme}>
       <div
-        className={"navbar relative bg-main border-b border-gray-700 transition-transform duration-300 ease-in-out motion-reduce:transition-none navbar-" + theme + (collapsed ? " -translate-y-full" : " translate-y-0")}
+        className={"nav-shell relative transition-transform duration-300 ease-in-out motion-reduce:transition-none" + (collapsed ? " -translate-y-full" : " translate-y-0")}
       >
       <div
         id="navbar-content"
         ref={navbarRowRef}
         inert={collapsed}
         aria-hidden={collapsed}
-        className="relative flex flex-row items-center justify-between p-4 px-8"
+        className="relative flex flex-row items-center justify-between gap-6 p-4 px-6 sm:px-8"
       >
         <div className="absolute invisible pointer-events-none h-0 overflow-hidden" aria-hidden="true">
           <div
             ref={navbarMeasureRef}
-            className="inline-flex flex-row items-center justify-between gap-x-8"
+            className="inline-flex flex-row items-center justify-between gap-x-6"
           >
-            <nav className="flex h-full flex-row items-center gap-x-10 text-white">
+            <nav className="flex h-full flex-row items-center gap-2">
               <NavLinks />
             </nav>
             <a
@@ -123,7 +121,7 @@ export default function Navbar() {
         </div>
 
         {/* Left side: links (desktop) */}
-        <nav className={(useMobileMenu ? "hidden" : "flex") + " h-full flex-row items-center gap-x-10 text-white"}>
+        <nav className={(useMobileMenu ? "hidden" : "flex") + " h-full flex-row items-center gap-2"}>
           <NavLinks />
         </nav>
 
@@ -140,7 +138,7 @@ export default function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className={(useMobileMenu ? "inline-flex" : "hidden") + " items-center justify-center p-2 rounded-lg text-gray-200 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"}
+          className={(useMobileMenu ? "inline-flex" : "hidden") + " nav-control items-center justify-center"}
           onClick={() => setOpen((v) => !v)}
         >
           {/* Font Awesome Free icons */}
@@ -153,7 +151,7 @@ export default function Navbar() {
         aria-expanded={!collapsed}
         aria-controls="navbar-content"
         title={collapsed ? "Show navigation" : "Hide navigation"}
-        className={"absolute top-full right-6 flex min-h-8 items-center justify-center gap-2 rounded-b-xl border border-t-0 border-gray-700 bg-main px-4 text-sm text-gray-300 shadow-md cursor-pointer hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 navbar-" + theme + " text-" + theme}
+        className="nav-control nav-toggle absolute top-full right-6 mt-2 flex items-center justify-center gap-2"
         onClick={() => {
           setOpen(false);
           setCollapsed((value) => !value);
@@ -185,10 +183,10 @@ export default function Navbar() {
                     ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4 px-6 border-b border-gray-800">
-          <span className={"text-white text-lg font-medium text-" + theme}>Menu</span>
+          <span className={"text-white text-lg font-normal text-" + theme}>Menu</span>
           <button
             aria-label="Close menu"
-            className={"p-2 rounded-lg text-gray-200 hover:text-white text-" + theme}
+            className="nav-control inline-flex items-center justify-center"
             onClick={() => setOpen(false)}
           >
             <i className="fa-solid fa-xmark text-2xl" />

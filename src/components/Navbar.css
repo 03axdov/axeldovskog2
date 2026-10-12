@@ -1,0 +1,101 @@
+.portfolio-navigation {
+    --nav-text: #eef5ff;
+    --nav-surface: rgb(9 20 36 / 58%);
+    --nav-hover: rgb(41 68 99 / 80%);
+    --nav-border: rgb(186 215 249 / 22%);
+    --nav-accent: #a5d0fa;
+    color: var(--nav-text);
+    font-weight: 400;
+}
+
+.portfolio-navigation[data-theme="light"] {
+    --nav-text: #15263d;
+    --nav-surface: rgb(255 255 255 / 65%);
+    --nav-hover: rgb(226 238 252 / 90%);
+    --nav-border: rgb(36 93 155 / 24%);
+    --nav-accent: #245d9b;
+}
+
+.portfolio-navigation .nav-shell {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.portfolio-navigation .nav-link,
+.portfolio-navigation .nav-control,
+.portfolio-navigation .nav-contact {
+    min-height: 44px;
+    border: 1px solid var(--nav-border);
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: var(--nav-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--nav-text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 180ms, border-color 180ms, color 180ms;
+}
+
+.portfolio-navigation .nav-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.portfolio-navigation .nav-link:hover,
+.portfolio-navigation .nav-control:hover {
+    background: var(--nav-hover);
+    border-color: var(--nav-accent);
+}
+
+.portfolio-navigation .nav-contact {
+    background: #a5d0fa;
+    border-color: #a5d0fa;
+    color: #0b213b;
+    padding-inline: 22px;
+}
+
+.portfolio-navigation .nav-contact:hover {
+    background: #c5e2ff;
+    border-color: #c5e2ff;
+}
+
+.portfolio-navigation[data-theme="light"] .nav-contact {
+    background: #245d9b;
+    border-color: #245d9b;
+    color: #fff;
+}
+
+.portfolio-navigation[data-theme="light"] .nav-contact:hover {
+    background: #194a80;
+    border-color: #194a80;
+}
+
+.portfolio-navigation .nav-control {
+    min-width: 44px;
+    padding: 10px 12px;
+}
+
+.portfolio-navigation .nav-toggle {
+    padding-inline: 16px;
+    font-size: 13px;
+}
+
+.portfolio-navigation .nav-link:focus-visible,
+.portfolio-navigation .nav-contact:focus-visible,
+.portfolio-navigation .nav-control:focus-visible {
+    outline: 2px solid var(--nav-accent);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-navigation .nav-link,
+    .portfolio-navigation .nav-contact,
+    .portfolio-navigation .nav-control {
+        transition: none;
+    }
+}

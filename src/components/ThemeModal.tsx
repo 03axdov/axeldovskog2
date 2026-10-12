@@ -1,46 +1,60 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useTheme } from "../contexts/ThemeContext"
+import "./ThemeModal.css"
 
 export default function ThemeModal() {
     const { theme, setTheme } = useTheme()
     const [isExpanded, setIsExpanded] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement>(null)
 
-    function getThemeElement(name: string, color: string, icon: string) {
-        return (
-            <div className={"bg-third rounded-md p-2 px-4 flex flex-row select-none items-center cursor-pointer border element-border-" + theme + " " + theme + "-" + name.toLowerCase() + "-theme-button " +
-                (theme == name.toLowerCase() ? `border-${color} text-${color}` : "border-[rgb(0,0,0,0)] hover:border-gray-600 text-gray-400")
-            }
-            onClick={() => setTheme(name.toLowerCase())}>
-                <i className={icon + " mr-2"}></i>
-                <p className="text-md">{name}</p>
-            </div>
-        )
+    function closePicker() {
+        setIsExpanded(false)
+        triggerRef.current?.focus()
     }
-    
-    return (<>
-        <div className={"theme-modal border border-gray-600 z-10 fixed bottom-3 right-3 p-4 bg-secondary rounded-md theme-modal-" + theme + (!isExpanded ? " cursor-pointer": "")}
-        onClick={() => setIsExpanded(true)}>
-            <div className="flex flex-col max-w-[350px] gap-y-3">
-                {isExpanded && <>
-                <i className={"fa-solid fa-minus p-1 rounded-md cursor-pointer absolute top-1 right-1 text-gray-400 text-" + theme + (theme == "dark" ? " hover:bg-gray-900 " : " hover:bg-gray-300 ") }
-                onClick={(e) => {
-                    e.stopPropagation()
-                    setIsExpanded(false)
-                }}></i>
 
-                <p className={"flex flex-row items-center text-xl pb-1 border-b text-white border-gray-700 w-full text-" + theme}>
-                    <i className={"fa-solid fa-palette mr-2 fa-sm text-gray-400 text-gray-" + theme}></i>
-                    Themes
-                </p>
-                <div className="flex flex-row items-center flex-wrap gap-3">
-                    {getThemeElement("Dark", "purple-500", "fa-solid fa-moon")}
-                    {getThemeElement("Light", "blue-400", "fa-solid fa-sun")}
-
-                    {/* getThemeElement("Sci-Fi", "blue-400", "fa-solid fa-jedi") */}
+    return (
+        <div className="theme-picker" data-theme={theme} onKeyDown={(event) => {
+            if (event.key === "Escape" && isExpanded) {
+                event.stopPropagation()
+                closePicker()
+            }
+        }}>
+            {isExpanded && (
+                <div id="theme-picker-panel" className="theme-picker-panel" role="group" aria-labelledby="theme-picker-heading">
+                    <div className="theme-picker-header">
+                        <h2 id="theme-picker-heading">Appearance</h2>
+                        <button type="button" className="theme-picker-close" aria-label="Close theme picker" onClick={closePicker}>
+                            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+                                <path d="m6 6 12 12M18 6 6 18" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className="theme-picker-options">
+                        {["Dark", "Light"].map((name) => (
+                            <button key={name} type="button" className="theme-picker-option" aria-pressed={theme === name.toLowerCase()} onClick={() => setTheme(name.toLowerCase())}>
+                                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    {name === "Dark" ? <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" /> : <>
+                                        <circle cx="12" cy="12" r="4" />
+                                        <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" />
+                                    </>}
+                                </svg>
+                                {name}
+                                <svg className="theme-picker-check" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="m5 12 4 4L19 6" />
+                                </svg>
+                            </button>
+                        ))}
+                    </div>
                 </div>
-                </>}
-                {!isExpanded && <i className={"fa-solid fa-palette fa-md text-gray-400 text-gray-" + theme}></i>}
-            </div>
+            )}
+            <button ref={triggerRef} type="button" className="theme-picker-trigger" aria-expanded={isExpanded} aria-controls="theme-picker-panel" onClick={() => setIsExpanded((expanded) => !expanded)}>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 3v18" />
+                    <path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none" />
+                </svg>
+                Theme
+            </button>
         </div>
-    </>)
+    )
 }

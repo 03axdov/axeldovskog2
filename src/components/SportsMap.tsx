@@ -16,12 +16,11 @@ function MapControls() {
 
     useEffect(() => {
         // MapContainer options only apply at creation; update the live map too.
-        map.scrollWheelZoom.enable();
+        map.scrollWheelZoom.disable();
         map.fitBounds(homeBounds, { padding: [30, 30], animate: false });
         const observer = new ResizeObserver(() => map.invalidateSize());
         observer.observe(map.getContainer());
         return () => {
-            map.scrollWheelZoom.disable();
             observer.disconnect();
         };
     }, [map]);
@@ -131,7 +130,7 @@ export default function SportsMap() {
                 minZoom={2}
                 maxZoom={10}
                 zoomSnap={0.25}
-                scrollWheelZoom={true}
+                scrollWheelZoom={false}
                 className="sports-map-canvas"
             >
                 <TileLayer

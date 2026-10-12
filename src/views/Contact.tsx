@@ -1,86 +1,79 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import "./Contact.css";
 
 export default function Contact() {
-    const { theme } = useTheme()
-    
+    const { theme } = useTheme();
     const [form, setForm] = useState({ email: "", subject: "", message: "" });
 
     return (
-        <div id="contact" className="px-10 pb-20 flex flex-col items-center">
-            <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>CONTACT</p>
-            <p className={"text-4xl tracking-wider title-" + theme}>CONTACT ME</p>
-            <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
-                Feel free to reach out to me at <a className={"text-blue-400 hover:underline blue-text-" + theme} href="mailto:axel.dovskog@outlook.com">axel.dovskog@outlook.com</a> or using the form below!
-            </p>
+        <section id="contact" className="contact-section" data-theme={theme} aria-labelledby="contact-heading">
+            <img className="contact-landscape" src="/static/images/bigsky.avif" alt="" aria-hidden="true" loading="lazy" />
+            <div className="contact-shade" aria-hidden="true" />
 
-            <form
-                action="https://formspree.io/f/xzzvqbay"
-                method="POST"
-                className={"mt-10 w-full max-w-2xl rounded-2xl border border-gray-800 bg-secondary backdrop-blur p-6 shadow-lg element-border-" + theme}
-            >
-
-                {/* Email */}
-                <div>
-                    <label htmlFor="email" className={"block text-sm font-medium text-gray-300 text-" + theme}>
-                    Email
-                    </label>
-                    <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={`mt-1 w-full rounded-lg border border-gray-600 focus:text-blue-400 focus:border-blue-400 bg-third px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none element-border-` + theme}
-                    placeholder="john.doe@example.com"
-                    />
-                    
+            <div className="contact-layout">
+                <div className="contact-intro">
+                    <p className="contact-eyebrow">Contact</p>
+                    <h2 id="contact-heading" className={`contact-heading title-${theme}`}>Let's get<br />in touch.</h2>
+                    <p className="contact-description">
+                        Feel free to reach out by email or leave a message using the form.
+                    </p>
+                    <a className="contact-email" href="mailto:axel.dovskog@outlook.com">
+                        axel.dovskog@outlook.com
+                        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M7 17 17 7M7 7h10v10" />
+                        </svg>
+                    </a>
                 </div>
 
-                {/* Subject */}
-                <div className="mt-4">
-                <label htmlFor="subject" className={"block text-sm font-medium text-gray-300 text-" + theme}>Subject</label>
-                <input
-                    id="subject"
-                    type="text"
-                    name="subject"
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className={`mt-1 w-full rounded-lg bg-third border border-gray-600 focus:text-blue-400 focus:border-blue-400 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none element-border-` + theme}
-                    placeholder="Regarding..."
-                />
-                </div>
-
-                {/* Message */}
-                <div className="mt-4">
-                <label htmlFor="message" className={"block text-sm font-medium text-gray-300 text-" + theme}>
-                    Message
-                </label>
-                <textarea
-                    id="message"
-                    value={form.message}
-                    name="message"
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    rows={6}
-                    className={`mt-1 w-full rounded-lg bg-third border border-gray-600 focus:border-blue-400 px-3 py-2
-                        text-gray-100 placeholder-gray-500 focus:outline-none min-h-[300px] resize-none element-border-` + theme}
-                    placeholder="Hi! I'm reaching out regarding..."
-                />
-                </div>
-
-                {/* Actions */}
-                <div className="mt-6 flex items-center gap-3">
-                <button
-                    type="submit"
-                    className="inline-flex cursor-pointer ml-auto items-center justify-center rounded-md 
-                    bg-blue-600 hover:bg-blue-700 px-5 py-2 text-md text-white
-                      focus:outline-none"
-                >
-                    <i className="fa-solid fa-paper-plane mr-3"></i>
-                    Send message
-                </button>
-                </div>
-            </form>
-        </div>
-    )
+                <form action="https://formspree.io/f/xzzvqbay" method="POST" className="contact-form" aria-label="Send Axel a message">
+                    <div className="contact-field-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            autoComplete="email"
+                            value={form.email}
+                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            className="contact-field"
+                            placeholder="you@example.com"
+                        />
+                    </div>
+                    <div className="contact-field-group">
+                        <label htmlFor="subject">Subject</label>
+                        <input
+                            id="subject"
+                            type="text"
+                            name="subject"
+                            value={form.subject}
+                            onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                            className="contact-field"
+                            placeholder="What would you like to talk about?"
+                        />
+                    </div>
+                    <div className="contact-field-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={form.message}
+                            onChange={(e) => setForm({ ...form, message: e.target.value })}
+                            rows={6}
+                            className="contact-field"
+                            placeholder="Hi Axel, ..."
+                        />
+                    </div>
+                    <div className="contact-actions">
+                        <button type="submit" className="contact-submit">
+                            Send message
+                            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m22 2-7 20-4-9-9-4Z M22 2 11 13" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    );
 }
