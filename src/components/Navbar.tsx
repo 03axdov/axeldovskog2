@@ -58,6 +58,26 @@ export default function Navbar() {
   }, [theme]);
 
   useEffect(() => {
+    const syncControlsPosition = () => {
+      const rowHeight = navbarRowRef.current?.offsetHeight ?? 76;
+      const top = collapsed && !useMobileMenu ? 8 : rowHeight + 8;
+      const root = document.documentElement;
+      const value = `${top}px`;
+
+      if (root.style.getPropertyValue("--navbar-controls-top") !== value) {
+        root.style.setProperty("--navbar-controls-top", value);
+        window.dispatchEvent(new Event("navbar-controls-position"));
+      }
+    };
+
+    syncControlsPosition();
+    const observer = new ResizeObserver(syncControlsPosition);
+    if (navbarRowRef.current) observer.observe(navbarRowRef.current);
+
+    return () => observer.disconnect();
+  }, [collapsed, useMobileMenu]);
+
+  useEffect(() => {
     if (useMobileMenu) setCollapsed(false);
     else setOpen(false);
   }, [useMobileMenu]);
@@ -92,7 +112,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="portfolio-navigation z-20 fixed top-0 left-0 w-full" data-theme={theme}>
+    <div className="portfolio-navigation z-50 fixed top-0 left-0 w-full" data-theme={theme}>
       <div
         className={"nav-shell relative transition-transform duration-300 ease-in-out motion-reduce:transition-none" + (collapsed ? " -translate-y-full" : " translate-y-0")}
       >

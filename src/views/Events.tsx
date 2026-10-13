@@ -125,6 +125,19 @@ export default function Events() {
                                 If successful, it creates a new Github branch, commits the changes, and creates a merge request to the main branch.
                             </p>
 
+                            <div className="mt-5 flex w-full flex-wrap items-center gap-3">
+                                <a
+                                    href="https://github.com/03axdov/HackEurope"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center rounded-full border border-gray-600 px-6 py-2 hover:border-gray-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
+                                >
+                                    <i className="fa-brands fa-github fa-lg mr-3" aria-hidden="true"></i>
+                                    HackEurope GitHub
+                                    <span className="sr-only">(opens in a new tab)</span>
+                                </a>
+                            </div>
+
                             <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>
                                 Frameworks and technologies used
                             </p>

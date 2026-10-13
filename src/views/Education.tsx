@@ -1,13 +1,49 @@
 import { useEffect, useRef, useState } from "react"
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
 import PDFModal from "../components/PDFModal"
+import "./Education.css"
 
 type SectionTypes = "ntu" | "lth" | "lusem"
 
 const completedPrograms: Partial<Record<SectionTypes, string>> = {
     lusem: "Bachelor of International Business",
     ntu: "Exchange Student",
+}
+
+const universityPages: Record<SectionTypes, {
+    name: string
+    images: [string, string, string]
+    description: string
+    qsRank: string
+    rankingCountry: string
+    gpa?: number
+    gpaMax?: number
+}> = {
+    lth: {
+        name: "Lund University (LTH)",
+        qsRank: "71st",
+        rankingCountry: "Sweden",
+        images: ["lu.jpg", "lu2.jpg", "lth.jpg"],
+        description: "At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).",
+        gpa: 4.35,
+        gpaMax: 5,
+    },
+    lusem: {
+        name: "Lund University (LUSEM)",
+        qsRank: "71st",
+        rankingCountry: "Sweden",
+        images: ["lund2.webp", "lund3.webp", "lusem.jpg"],
+        description: "I completed my Bachelor of International Business at LUSEM in June 2026, studying business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).",
+        gpa: 4.3,
+        gpaMax: 5,
+    },
+    ntu: {
+        name: "National Taiwan University",
+        qsRank: "54th",
+        rankingCountry: "Taiwan",
+        images: ["ntu.jpeg", "taipei.jpeg", "ntu2.jpg"],
+        description: "I completed my exchange semester at National Taiwan University in December 2025, mainly taking classes on machine learning, general Chinese, and designing virtual experiences. GPA: A",
+    },
 }
 
 const transcripts = {
@@ -23,28 +59,18 @@ const transcripts = {
 
 export default function Education() {
     const { theme } = useTheme()
-    const reduceMotion = useReducedMotion()
 
     const [selectedTranscript, setSelectedTranscript] = useState<keyof typeof transcripts | null>(null)
     const [selectedSection, setSelectedSection] = useState<SectionTypes>("lth")
-    const preloadedImagesRef = useRef<Map<string, HTMLImageElement>>(new Map())
+    const educationPanelsRef = useRef<HTMLDivElement>(null)
+    const studyExplanationRef = useRef<HTMLDialogElement>(null)
 
     useEffect(() => {
-        const filenames = ["lu.jpg", "lu2.jpg", "lth.jpg", "lusem.jpg", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg"]
-
-        filenames.forEach((filename) => {
-            const src = "/static/images/education/" + filename
-            if (preloadedImagesRef.current.has(src)) return
-
-            const image = new Image()
-            image.decoding = "async"
-            image.loading = "eager"
-            image.src = src
-
-            // Retain the images and decode them before their panels are displayed.
-            preloadedImagesRef.current.set(src, image)
+        // Warm the actual panel images, including photos added to the page data.
+        // Keeping these elements mounted avoids recreating them on every switch.
+        educationPanelsRef.current?.querySelectorAll("img").forEach((image) => {
             image.decode?.().catch(() => {
-                // A failed preload should not interrupt navigation.
+                // A failed image should not interrupt navigation.
             })
         })
     }, [])
@@ -95,32 +121,35 @@ export default function Education() {
     }
 
 
-    function getUniversityPage(
-        name: string,
-        filename1: string,
-        filename2: string,
-        filename3: string,
-        description: string,
-        gpa?: number,
-        gpaMax?: number
-    ) {
+    function getUniversityPage(section: SectionTypes) {
+        const { name, images: [filename1, filename2, filename3], description, qsRank, rankingCountry, gpa, gpaMax } = universityPages[section]
+        const fetchPriority = section === "lth" ? "auto" : "low"
+
         return (
             <div className="flex flex-grow max-w-[1000px] flex-col items-center">
                 <div className="education-gallery relative flex flex-row h-[450px] w-full gap-x-3">
                     <p className={"text-white university-name absolute top-3 left-3 text-2xl p-2 px-4 bg-[rgb(0,0,0,0.7)] rounded-md"}>{name}</p>
-                    <img className="w-[60%] bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1}/>
-                    <div className="flex flex-col gap-y-3 flex-grow">
-                        <img className="h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename2}/>
-                        <img className="h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename3}/>
+                    <img className="w-[60%] shrink-0 bg-third h-[100%] object-cover rounded-md" src={"/static/images/education/" + filename1} alt={name + " campus"} loading="eager" decoding="async" fetchPriority={fetchPriority}/>
+                    <div className="flex min-w-0 flex-col gap-y-3 flex-1">
+                        <img className="w-full h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename2} alt={name + " campus, second view"} loading="eager" decoding="async" fetchPriority={fetchPriority}/>
+                        <img className="w-full h-[calc(50%-6px)] object-cover bg-third rounded-md" src={"/static/images/education/" + filename3} alt={name + " campus, third view"} loading="eager" decoding="async" fetchPriority={fetchPriority}/>
                     </div>
                 </div>
-                
-                {completedPrograms[selectedSection] && (
-                    <p className={"mt-5 flex w-full flex-wrap items-center gap-2 " + (theme === "light" ? "text-green-800" : "text-green-300")}>
-                        <i className="fa-solid fa-check" aria-hidden="true"></i>
-                        {completedPrograms[selectedSection]} — Completed
+                <div className="mt-5 flex w-full flex-wrap items-center gap-3">
+                    <p className={"inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-full border px-4 py-2 text-sm font-normal " + (theme === "light" ? "border-amber-300 bg-amber-50 text-amber-900" : "border-amber-400/30 bg-amber-400/10 text-amber-200")}>
+                        <i className="fa-solid fa-trophy" aria-hidden="true"></i>
+                        <span>QS World University Rankings</span>
+                        <span>{qsRank} in the world</span>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>Highest ranked in {rankingCountry}</span>
                     </p>
-                )}
+                    {completedPrograms[section] && (
+                        <p className={"inline-flex max-w-full shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-normal " + (theme === "light" ? "border-green-300 bg-green-50 text-green-900" : "border-green-400/30 bg-green-400/10 text-green-200")}>
+                            <i className="fa-solid fa-check" aria-hidden="true"></i>
+                            Completed
+                        </p>
+                    )}
+                </div>
                 <p className={"w-full mt-5 text-gray-300 text-lg text-" + theme}>
                     {description}
                 </p>
@@ -142,13 +171,63 @@ export default function Education() {
     }
 
     return (
-        <div id="education" className="content-section px-10 flex flex-col items-center">
+        <div id="education" data-theme={theme} className="education-section content-section px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>EDUCATION</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY EDUCATION</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
                 I'm studying for a Master of Computer Science at Lund University, Sweden, and have completed my Bachelor of International Business.<br></br>
                 I also completed an exchange semester at National Taiwan University during the fall of 2025.
             </p>
+            <button
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="study-explanation"
+                className="study-explanation-trigger mt-5 flex items-center justify-center gap-2 text-center"
+                onClick={() => studyExplanationRef.current?.showModal()}
+            >
+                <i className="fa-regular fa-circle-question" aria-hidden="true"></i>
+                Why study 2 full-time programs
+            </button>
+            <dialog
+                ref={studyExplanationRef}
+                id="study-explanation"
+                aria-labelledby="study-explanation-title"
+                className="study-explanation"
+                onClick={(event) => {
+                    if (event.target === event.currentTarget) studyExplanationRef.current?.close()
+                }}
+            >
+                <div className="p-6 sm:p-8" onClick={(event) => event.stopPropagation()}>
+                    <p className="study-explanation-eyebrow">STUDYING BOTH</p>
+                    <h2 id="study-explanation-title" className={"mt-3 text-2xl tracking-wide title-" + theme}>
+                        Why study 2 full-time programs?
+                    </h2>
+                    <div className="study-explanation-copy mt-6 space-y-4">
+                        <p className="study-explanation-priority">
+                            Computer Science is my main priority and the field I want to focus on.
+                        </p>
+                        <p>
+                            Part of my motivation for taking on two full-time programs was to challenge myself,
+                            work hard, and see what I could achieve with a demanding workload.
+                        </p>
+                        <p>
+                            I also felt that what I learned in International Business would carry over well to
+                            Computer Science work: working in teams, collaborating with stakeholders, and
+                            understanding the business needs behind technical decisions.
+                        </p>
+                    </div>
+                    <div className="mt-6 flex justify-end">
+                        <button
+                            type="button"
+                            autoFocus
+                            className="study-explanation-close"
+                            onClick={() => studyExplanationRef.current?.close()}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </dialog>
 
             <div className="education-container flex flex-row justify-center w-full mt-20 gap-10">
                 <div className="universities grid auto-rows-fr self-start w-[420px] min-w-[420px]">
@@ -157,22 +236,86 @@ export default function Education() {
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
                 </div>
 
-                <div className="flex-grow max-w-[1000px] min-w-0">
-                    <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                        key={selectedSection}
-                        initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 10 }}
-                        animate={{ opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.22, ease: "easeOut" } }}
-                        exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
-                    >
-                {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `
-                    I completed my exchange semester at National Taiwan University in December 2025, mainly taking classes on machine learning, general Chinese, and designing virtual experiences. GPA: A`)}
+                <div ref={educationPanelsRef} className="education-panels flex-grow w-full max-w-[1000px] min-w-0">
+                    {(Object.keys(universityPages) as SectionTypes[]).map((section) => (
+                        <div
+                            key={section}
+                            className={"education-panel" + (selectedSection === section ? " education-panel-active" : "")}
+                            role="region"
+                            aria-label={universityPages[section].name}
+                            aria-hidden={selectedSection !== section}
+                            inert={selectedSection !== section}
+                        >
+                            {getUniversityPage(section)}
+                            {section == "lth" && (
+                                <section
+                                    aria-labelledby="lth-thesis-title"
+                                    className={"mt-8 w-full max-w-[1000px] rounded-xl border border-gray-700 bg-secondary p-5 sm:p-6 element-border-" + theme}
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <img
+                                            src="/static/images/career/neo4j.svg"
+                                            alt="Neo4j logo"
+                                            className={"size-16 shrink-0 rounded-lg bg-third career-image-" + theme}
+                                        />
+                                        <div className="min-w-0">
+                                            <h3 id="lth-thesis-title" className={"text-xl title-" + theme}>
+                                                Master's thesis at Neo4j
+                                            </h3>
+                                            <p className={"mt-1 text-gray-400 text-" + theme}>
+                                                January 2027 - June 2027
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <p className={"mt-4 text-lg text-gray-300 text-" + theme}>
+                                        I will be writing my master's thesis for Neo4j, with a focus on
+                                        eagerness analysis for the Cypher compiler.
+                                    </p>
+                                    <p className={"mt-3 text-sm text-gray-400 text-" + theme}>
+                                        My Computer Science program is an integrated master's, so I did not
+                                        write a separate bachelor's thesis as part of it.
+                                    </p>
+                                </section>
+                            )}
 
-                {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
-
-                {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `I completed my Bachelor of International Business at LUSEM in June 2026, studying business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).`, 4.3, 5)}
-                    </motion.div>
-                    </AnimatePresence>
+                            {section == "lusem" && (
+                                <section
+                                    aria-labelledby="lusem-thesis-title"
+                                    className={"mt-8 w-full max-w-[1000px] rounded-xl border border-gray-700 bg-secondary p-5 sm:p-6 element-border-" + theme}
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <img
+                                            src="/static/images/education/lu.png"
+                                            alt="Lund University logo"
+                                            className="size-16 shrink-0 object-contain"
+                                        />
+                                        <div className="min-w-0">
+                                            <h3 id="lusem-thesis-title" className={"text-xl title-" + theme}>
+                                                Bachelor's thesis at LUSEM
+                                            </h3>
+                                            <p className={"mt-1 text-gray-400 text-" + theme}>
+                                                International Business - Completed
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <p className={"mt-4 text-lg text-gray-300 text-" + theme}>
+                                        I wrote my bachelor's thesis on how financial development impacts
+                                        capital structure across different industries.
+                                    </p>
+                                    <a
+                                        href="https://lup.lub.lu.se/student-papers/search/publication/9244421"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={"mt-4 inline-flex items-center gap-2 rounded-sm text-blue-400 underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 blue-text-" + theme}
+                                    >
+                                        Read thesis
+                                        <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                        <span className="sr-only">(opens in a new tab)</span>
+                                    </a>
+                                </section>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
 

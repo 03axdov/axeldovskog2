@@ -1,0 +1,85 @@
+.about-skip-origin {
+    width: 1px;
+    height: 1px;
+    flex-shrink: 0;
+    margin-top: 16px;
+}
+
+.about-skip-controls {
+    position: sticky;
+    top: var(--navbar-controls-top, 84px);
+    z-index: 40;
+    width: 100%;
+    transition: top 300ms ease-in-out;
+}
+
+.about-skip-interests {
+    --skip-text: #dbeafe;
+    --skip-background: rgb(12 30 54 / 96%);
+    --skip-hover: #1e406e;
+    --skip-border: rgb(96 165 250 / 50%);
+    --skip-accent: #93c5fd;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 1px solid var(--skip-border);
+    border-radius: 999px;
+    background: var(--skip-background);
+    color: var(--skip-text);
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgb(0 0 0 / 18%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: left 300ms ease-out, transform 300ms ease-out, background-color 180ms, border-color 180ms;
+}
+
+.about-skip-controls-sticky .about-skip-interests {
+    left: 0;
+    transform: translateX(0);
+}
+
+#about[data-theme="light"] .about-skip-interests {
+    --skip-text: #1e40af;
+    --skip-background: rgb(239 246 255 / 96%);
+    --skip-hover: #dbeafe;
+    --skip-border: rgb(37 99 235 / 35%);
+    --skip-accent: #2563eb;
+}
+
+.about-skip-interests > i {
+    flex-shrink: 0;
+}
+
+.about-skip-interests:hover {
+    background: var(--skip-hover);
+    border-color: var(--skip-accent);
+}
+
+.about-skip-interests:focus-visible {
+    outline: 2px solid var(--skip-accent);
+    outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+    .about-skip-controls {
+        top: var(--navbar-controls-top, 76px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-skip-controls,
+    .about-skip-interests {
+        transition: none;
+    }
+}

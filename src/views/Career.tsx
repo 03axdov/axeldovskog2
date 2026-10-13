@@ -138,7 +138,7 @@ export default function Career() {
                             Neo4j <span className={"text-gray-400 text-gray-" + theme}>(Graph Database)</span></h1>
                         
                         <div className="w-full flex flex-row gap-x-2 pb-5 justify-center">
-                            <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/graph.jpg" />
+                            <img className="rounded-2xl h-full object-cover border border-gray-700" src="/static/images/career/graph.png" />
                         </div>
 
                         <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import AlbumList from "../components/AlbumList";
 import BookTierList from "../components/BookTierList";
 import DetailTag from "../components/DetailTag";
@@ -5,12 +6,46 @@ import ProficiencyElement from "../components/ProficiencyElement";
 import ShowTierList from "../components/ShowTierList";
 import SportsMap from "../components/SportsMap";
 import { useTheme } from "../contexts/ThemeContext";
+import "./About.css";
 
 export default function About() {
     const { theme } = useTheme()
+    const skipOriginRef = useRef<HTMLDivElement>(null)
+    const [skipIsSticky, setSkipIsSticky] = useState(false)
+
+    useEffect(() => {
+        let frame = 0
+        let top = 84
+
+        const updateSticky = () => {
+            frame = 0
+            const origin = skipOriginRef.current
+            if (origin) setSkipIsSticky(origin.getBoundingClientRect().top < top)
+        }
+
+        const scheduleUpdate = () => {
+            if (!frame) frame = requestAnimationFrame(updateSticky)
+        }
+
+        const syncControlsPosition = () => {
+            top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navbar-controls-top")) || 84
+            scheduleUpdate()
+        }
+
+        syncControlsPosition()
+        window.addEventListener("scroll", scheduleUpdate, { passive: true })
+        window.addEventListener("resize", scheduleUpdate)
+        window.addEventListener("navbar-controls-position", syncControlsPosition)
+        return () => {
+            cancelAnimationFrame(frame)
+            window.removeEventListener("scroll", scheduleUpdate)
+            window.removeEventListener("resize", scheduleUpdate)
+            window.removeEventListener("navbar-controls-position", syncControlsPosition)
+        }
+    }, [])
     
     return (
-        <div id="about" data-theme={theme} className="content-section detail-tags-section overflow-x-hidden pb-20 px-10 flex flex-col items-center">
+        <div id="about" data-theme={theme} className="content-section detail-tags-section overflow-x-clip pb-20 px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>ABOUT ME</p>
             <p className={"section-subtitle text-4xl mb-15 tracking-wider title-" + theme}>MY MAIN PROFICIENCIES</p>
             
@@ -63,13 +98,20 @@ export default function About() {
             </div>
 
             <p className={"text-2xl text-gray-500 tracking-widest pt-[100px] title-" + theme}>SOME PERSONAL INTERESTS</p>
-            <a
-                href="#education"
-                className={"mt-4 rounded-sm text-center text-blue-400 underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 blue-text-" + theme}
-            >
-                Skip personal interests and go to education
-                <i className="fa-solid fa-arrow-down ml-2" aria-hidden="true"></i>
-            </a>
+            <div ref={skipOriginRef} className="about-skip-origin" aria-hidden="true" />
+            <div className={"about-skip-controls" + (skipIsSticky ? " about-skip-controls-sticky" : "")}>
+                <button
+                    type="button"
+                    className="about-skip-interests"
+                    onClick={() => document.getElementById("education")?.scrollIntoView({
+                        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+                        block: "start",
+                    })}
+                >
+                    <span>Skip personal interests and go to education</span>
+                    <i className="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </button>
+            </div>
 
             <p className={"section-subtitle text-4xl mt-20 tracking-wider title-" + theme}>SOME GREAT BOOKS</p>
             <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
