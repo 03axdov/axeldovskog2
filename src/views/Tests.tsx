@@ -17,6 +17,7 @@ export default function Tests() {
                 testName="SAT" 
                 score={1560}
                 maxScore={1600}
+                dateTaken="December 2022"
                 filename={"usa.png"} 
                 description={`
                     A standardized test from the USA, testing students on their linguistic and mathematical skills.
@@ -47,10 +48,11 @@ export default function Tests() {
                 testName="Högskoleprovet" 
                 score={1.7}
                 maxScore={2.0}
+                dateTaken="Spring 2022"
                 filename={"sweden.png"} 
                 description={`
                     A standardized test given to students in Sweden, testing students on their Swedish, English, and mathematical skills.
-                    Swedish and English are combined, giving a maximum of 2 points, and the mathematics section gives a maximum of 2 point as well, with the end score being the average of the two.
+                   The end score is the average of the two sections, each of which are out of 2 with 1 being the average score.
                 `}
                 scoreSection={<div className="mt-5 w-full flex flex-col gap-3 px-3">
                     

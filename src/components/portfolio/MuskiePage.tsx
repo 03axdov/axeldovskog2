@@ -1,3 +1,4 @@
+import DetailTag from "../DetailTag"
 import { useTheme } from "../../contexts/ThemeContext"
 import CodeBlock from "../CodeBlock"
 
@@ -66,10 +67,7 @@ AFTER TRAINING:
             <div className="w-full"><CodeBlock code={codeExample} language="python" /></div>
             <div className="w-full"><CodeBlock code={resExample} language="python" /></div>
             
-            <p className={"text-lg my-5 p-2 px-4 rounded-md bg-third mr-auto text-gray-400 flex flex-row items-center element-border-" + theme}>
-                <i className="fa-solid fa-calendar text-sm mr-3" />
-                September 2023 - October 2023
-            </p>
+            <DetailTag icon="fa-solid fa-calendar" className="my-5 self-start">September 2023 - October 2023</DetailTag>
 
             <p className={"text-lg text-gray-400 text-" + theme}>
                 A machine-learning framework built from "scratch" using Python and the math library Numpy. 
@@ -86,10 +84,7 @@ AFTER TRAINING:
 
             <p className={"text-xl mt-10 w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
             <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
-                    <i className="fa-brands fa-python fa-lg mr-3"></i>
-                    Python
-                </p>
+                <DetailTag icon="fa-brands fa-python" tone="blue">Python</DetailTag>
             </div>
             
         </div>

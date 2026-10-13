@@ -1,5 +1,6 @@
 import AlbumList from "../components/AlbumList";
 import BookTierList from "../components/BookTierList";
+import DetailTag from "../components/DetailTag";
 import ProficiencyElement from "../components/ProficiencyElement";
 import ShowTierList from "../components/ShowTierList";
 import SportsMap from "../components/SportsMap";
@@ -9,7 +10,7 @@ export default function About() {
     const { theme } = useTheme()
     
     return (
-        <div id="about" className="content-section overflow-x-hidden pb-20 px-10 flex flex-col items-center">
+        <div id="about" data-theme={theme} className="content-section detail-tags-section overflow-x-hidden pb-20 px-10 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>ABOUT ME</p>
             <p className={"section-subtitle text-4xl mb-15 tracking-wider title-" + theme}>MY MAIN PROFICIENCIES</p>
             
@@ -21,26 +22,11 @@ export default function About() {
                                 as well as creating efficient ways of modelling data."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-green-400 text-green-400">
-                                <i className="fa-brands fa-java fa-md mr-2"></i>
-                                Java Spring Boot
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-500 text-blue-500">
-                                <i className="fa-brands fa-python fa-md mr-2"></i>
-                                Python Django
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
-                                <i className="fa-brands fa-aws fa-md mr-2"></i>
-                                AWS
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-pink-500 text-pink-500">
-                                <i className="fa-solid fa-hexagon-nodes fa-md mr-2"></i>
-                                Neo4j Graph Database
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-600 text-blue-600">
-                                <i className="fa-brands fa-docker fa-md mr-2"></i>
-                                Docker
-                            </p>
+                            <DetailTag icon="fa-brands fa-java" tone="green">Java Spring Boot</DetailTag>
+                            <DetailTag icon="fa-brands fa-python" tone="blue">Python Django</DetailTag>
+                            <DetailTag icon="fa-brands fa-aws" tone="orange">AWS</DetailTag>
+                            <DetailTag icon="fa-solid fa-hexagon-nodes" tone="pink">Neo4j Graph Database</DetailTag>
+                            <DetailTag icon="fa-brands fa-docker" tone="blue">Docker</DetailTag>
 
                         </div>
                     }
@@ -52,22 +38,10 @@ export default function About() {
                     description="This includes interacting with APIs, constructing intuitive and easy-to-use pages and websites, and styling these."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-react fa-md mr-2"></i>
-                                Javascript React
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-300 text-blue-300">
-                                <i className="fa-solid fa-wind fa-md mr-2"></i>
-                                TailwindCSS
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-500 text-orange-500">
-                                <i className="fa-brands fa-html5 fa-md mr-2"></i>
-                                HTML
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
-                                <i className="fa-brands fa-css3 fa-md mr-2"></i>
-                                CSS
-                            </p>
+                            <DetailTag icon="fa-brands fa-react" tone="cyan">Javascript React</DetailTag>
+                            <DetailTag icon="fa-solid fa-wind" tone="blue">TailwindCSS</DetailTag>
+                            <DetailTag icon="fa-brands fa-html5" tone="orange">HTML</DetailTag>
+                            <DetailTag icon="fa-brands fa-css3" tone="blue">CSS</DetailTag>
 
                         </div>
                     }
@@ -80,24 +54,22 @@ export default function About() {
                     and a website that allows users to build models without having to code (see Projects)."
                     technologies={
                         <div className="mt-3 flex flex-row flex-wrap items-center gap-3 w-full">
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-500 text-orange-500">
-                                <i className="fa-brands fa-google fa-md mr-2"></i>
-                                TensorFlow
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-red-400 text-red-400">
-                                <i className="fa-brands fa-meta fa-md mr-2"></i>
-                                PyTorch
-                            </p>
-                            <p className="text-md p-1 px-3 text-md flex flex-row items-center rounded-md border border-purple-400 text-purple-400">
-                                <i className="fa-solid fa-hexagon-nodes fa-md mr-2"></i>
-                                Sklearn
-                            </p>
+                            <DetailTag icon="fa-brands fa-google" tone="orange">TensorFlow</DetailTag>
+                            <DetailTag icon="fa-brands fa-meta" tone="red">PyTorch</DetailTag>
+                            <DetailTag icon="fa-solid fa-hexagon-nodes" tone="purple">Sklearn</DetailTag>
                         </div>
                     }
                 />
             </div>
 
-            <p className={"text-2xl text-gray-500 tracking-widest pt-[100px] title-" + theme}>THE IMPORTANT STUFF</p>
+            <p className={"text-2xl text-gray-500 tracking-widest pt-[100px] title-" + theme}>SOME PERSONAL INTERESTS</p>
+            <a
+                href="#education"
+                className={"mt-4 rounded-sm text-center text-blue-400 underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 blue-text-" + theme}
+            >
+                Skip personal interests and go to education
+                <i className="fa-solid fa-arrow-down ml-2" aria-hidden="true"></i>
+            </a>
 
             <p className={"section-subtitle text-4xl mt-20 tracking-wider title-" + theme}>SOME GREAT BOOKS</p>
             <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
@@ -114,7 +86,7 @@ export default function About() {
 
             <p className={"section-subtitle text-4xl mt-40 tracking-wider title-" + theme}>SHOWS I LIKE</p>
             <p className={"text-lg text-gray-400 mt-5 mb-10 text-" + theme}>
-                Thought I'd also include some shows I like, why not?
+               Some shows I like, why not?
             </p>
             <ShowTierList />
 
@@ -124,8 +96,6 @@ export default function About() {
                 Not super invested but follow the NHL and NFL a bit.
             </p>
             <SportsMap />
-
-            <p className={"text-2xl text-gray-500 tracking-widest pt-[100px] title-" + theme}>LESS IMPORTANT STUFF BELOW</p>
 
         </div>
     )

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
+import DetailTag from "../components/DetailTag"
 
 type WorkType = "Neo4j" | "Arm1" | "Arm2" | "Palantir" | "Paraglide AI"
 
@@ -77,7 +78,7 @@ export default function Career() {
     }
 
     return (
-        <div id="career"  className="content-section px-10 mt-20 mb-50 flex flex-col items-center">
+        <div id="career" data-theme={theme} className="content-section detail-tags-section px-10 mt-20 mb-50 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>CAREER</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY CAREER</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
@@ -112,15 +113,9 @@ export default function Career() {
                         </div>
 
                         <div className="flex my-5 flex-row items-center w-full flex-wrap gap-3">
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-calendar text-sm mr-3" />
-                                15 June 2024 - 31 December 2024
-                            </p>
+                            <DetailTag icon="fa-solid fa-calendar">15 June 2024 - 31 December 2024</DetailTag>
 
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-location-dot text-sm mr-3" />
-                                Lund, Sweden
-                            </p>
+                            <DetailTag icon="fa-solid fa-location-dot">Lund, Sweden</DetailTag>
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
@@ -131,18 +126,9 @@ export default function Career() {
                         
                         <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-yellow-400 text-yellow-400">
-                                <i className="fa-brands fa-js fa-lg mr-3"></i>
-                                Javascript
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
-                                <i className="fa-solid fa-hat-cowboy fa-lg mr-3"></i>
-                                jQuery
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
-                                <i className="fa-brands fa-node-js fa-lg mr-3"></i>
-                                Javascript Electron
-                            </p>
+                            <DetailTag icon="fa-brands fa-js" tone="yellow">Javascript</DetailTag>
+                            <DetailTag icon="fa-solid fa-hat-cowboy" tone="orange">jQuery</DetailTag>
+                            <DetailTag icon="fa-brands fa-node-js" tone="blue">Javascript Electron</DetailTag>
 
                         </div>
                     </div>}
@@ -156,15 +142,9 @@ export default function Career() {
                         </div>
 
                         <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-calendar text-sm mr-3" />
-                                9 June 2025 - 15 August 2025
-                            </p>
+                            <DetailTag icon="fa-solid fa-calendar">9 June 2025 - 15 August 2025</DetailTag>
 
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-location-dot text-sm mr-3" />
-                                Malmö, Sweden
-                            </p>
+                            <DetailTag icon="fa-solid fa-location-dot">Malmö, Sweden</DetailTag>
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
@@ -176,42 +156,15 @@ export default function Career() {
                         
                         <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
-                                <i className="fa-brands fa-java fa-lg mr-3"></i>
-                                Java
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-js fa-lg mr-3"></i>
-                                Typescript
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
-                                <i className="fa-brands fa-python fa-lg mr-3"></i>
-                                Python
-                            </p>
-                            <p className="p-1 px-3 text-md flex flex-row items-center rounded-md border border-green-400 text-green-400">
-                                <i className="fa-brands fa-java fa-lg mr-3"></i>
-                                Java Spring Boot
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-500 text-blue-500">
-                                <i className="fa-brands fa-python fa-lg mr-3"></i>
-                                Python Fastapi
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-react fa-lg mr-3"></i>
-                                Typescript React
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-purple-400 text-purple-400">
-                                <i className="fa-solid fa-hexagon-nodes fa-lg mr-3"></i>
-                                Neo4j Graph Database
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-pink-400 text-pink-400">
-                                <i className="fa-solid fa-hexagon-nodes fa-lg mr-3"></i>
-                                Neo4j Cypher Query Language
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-500 text-blue-500">
-                                <i className="fa-brands fa-docker fa-lg mr-3"></i>
-                                Docker
-                            </p>
+                            <DetailTag icon="fa-brands fa-java" tone="orange">Java</DetailTag>
+                            <DetailTag icon="fa-brands fa-js" tone="cyan">Typescript</DetailTag>
+                            <DetailTag icon="fa-brands fa-python" tone="blue">Python</DetailTag>
+                            <DetailTag icon="fa-brands fa-java" tone="green">Java Spring Boot</DetailTag>
+                            <DetailTag icon="fa-brands fa-python" tone="blue">Python Fastapi</DetailTag>
+                            <DetailTag icon="fa-brands fa-react" tone="cyan">Typescript React</DetailTag>
+                            <DetailTag icon="fa-solid fa-hexagon-nodes" tone="purple">Neo4j Graph Database</DetailTag>
+                            <DetailTag icon="fa-solid fa-hexagon-nodes" tone="pink">Neo4j Cypher Query Language</DetailTag>
+                            <DetailTag icon="fa-brands fa-docker" tone="blue">Docker</DetailTag>
                         </div>
                     </div>}
 
@@ -225,15 +178,9 @@ export default function Career() {
                         </div>
 
                         <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-calendar text-sm mr-3" />
-                                8 June, 2026 - 8 September, 2026
-                            </p>
+                            <DetailTag icon="fa-solid fa-calendar">8 June, 2026 - 8 September, 2026</DetailTag>
 
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-location-dot text-sm mr-3" />
-                                London, UK
-                            </p>
+                            <DetailTag icon="fa-solid fa-location-dot">London, UK</DetailTag>
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
@@ -243,18 +190,9 @@ export default function Career() {
 
                         <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-orange-400 text-orange-400">
-                                <i className="fa-brands fa-java fa-lg mr-3"></i>
-                                Java
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-js fa-lg mr-3"></i>
-                                Typescript
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-react fa-lg mr-3"></i>
-                                Typescript React
-                            </p>
+                            <DetailTag icon="fa-brands fa-java" tone="orange">Java</DetailTag>
+                            <DetailTag icon="fa-brands fa-js" tone="cyan">Typescript</DetailTag>
+                            <DetailTag icon="fa-brands fa-react" tone="cyan">Typescript React</DetailTag>
                         </div>
 
                     </div>}
@@ -269,15 +207,9 @@ export default function Career() {
                         </div>
 
                         <div className="flex flex-row my-5 items-center w-full flex-wrap gap-3">
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-calendar text-sm mr-3" />
-                                October, 2026 - Now
-                            </p>
+                            <DetailTag icon="fa-solid fa-calendar">October, 2026 - Now</DetailTag>
 
-                            <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                <i className="fa-solid fa-location-dot text-sm mr-3" />
-                                Malmö, Sweden
-                            </p>
+                            <DetailTag icon="fa-solid fa-location-dot">Malmö, Sweden</DetailTag>
                         </div>
 
                         <p className={"text-lg text-gray-400 text-" + theme}>
@@ -287,14 +219,8 @@ export default function Career() {
 
                         <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-js fa-lg mr-3"></i>
-                                Typescript
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-react fa-lg mr-3"></i>
-                                Typescript React
-                            </p>
+                            <DetailTag icon="fa-brands fa-js" tone="cyan">Typescript</DetailTag>
+                            <DetailTag icon="fa-brands fa-react" tone="cyan">Typescript React</DetailTag>
                         </div>
 
                     </div>}

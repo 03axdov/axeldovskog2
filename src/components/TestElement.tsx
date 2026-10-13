@@ -4,13 +4,14 @@ interface TestElementProps {
     testName: string
     score: number,
     maxScore: number,
+    dateTaken: string,
     percentile: string
     filename: string,
     description: string,
     scoreSection?: React.JSX.Element
 }
 
-export default function TestElement({testName, score, maxScore, filename, description, scoreSection, percentile}: TestElementProps) {
+export default function TestElement({testName, score, maxScore, dateTaken, filename, description, scoreSection, percentile}: TestElementProps) {
     const { theme } = useTheme()
     
     return (
@@ -21,6 +22,9 @@ export default function TestElement({testName, score, maxScore, filename, descri
                 Score: 
                 <span className={"ml-3 text-" + (testName == "SAT" ? "purple-400 purple-text-" + theme : "blue-400 blue-text-" + theme)}>{score}</span>
                 <span className={"text-gray-400 text-sm ml-1 text-" + theme}> / {maxScore}{testName != "SAT" ? ".0" : ""}</span>
+            </p>
+            <p className={"mt-2 text-sm text-center text-gray-400 text-" + theme}>
+                {dateTaken}
             </p>
             <p className={"mt-5 mb-auto text-gray-400 text-justify text-" + theme}>
                 {description}

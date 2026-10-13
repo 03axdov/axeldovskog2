@@ -91,48 +91,6 @@
     line-height: 1.85;
 }
 
-.landing-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 32px;
-}
-
-.landing-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    min-height: 50px;
-    padding: 13px 22px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 400;
-    transition: background-color 180ms, border-color 180ms;
-}
-
-.landing-link--primary {
-    background: var(--hero-accent);
-    color: #0b213b;
-}
-
-.landing-link--primary:hover {
-    background: #c5e2ff;
-}
-
-.landing-link--secondary {
-    border-color: rgb(255 255 255 / 30%);
-    background: rgb(5 12 24 / 15%);
-    color: var(--hero-text);
-}
-
-.landing-link--secondary:hover {
-    background: rgb(255 255 255 / 10%);
-    border-color: var(--hero-accent);
-}
-
-.landing-link:focus-visible,
 .landing-scroll:focus-visible {
     outline: 2px solid var(--hero-accent);
     outline-offset: 5px;

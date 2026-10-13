@@ -1,0 +1,71 @@
+.detail-tags-section {
+    --tag-text: #c2cfdf;
+    --tag-surface: rgb(9 20 36 / 60%);
+    --tag-border: rgb(186 215 249 / 18%);
+    --tag-accent: #a5d0fa;
+    --tag-yellow: #e7cb7b;
+    --tag-orange: #e9b28b;
+    --tag-blue: #9cc4ef;
+    --tag-cyan: #92d3df;
+    --tag-green: #a0d4b3;
+    --tag-purple: #c6b3e6;
+    --tag-pink: #dfb0ce;
+    --tag-red: #e6a3a3;
+}
+
+.detail-tags-section[data-theme="light"] {
+    --tag-text: #43556c;
+    --tag-surface: #f3f7fc;
+    --tag-border: rgb(36 93 155 / 18%);
+    --tag-accent: #245d9b;
+    --tag-yellow: #85640e;
+    --tag-orange: #a65422;
+    --tag-blue: #245d9b;
+    --tag-cyan: #177080;
+    --tag-green: #33764b;
+    --tag-purple: #7951a6;
+    --tag-pink: #995179;
+    --tag-red: #a94444;
+}
+
+.detail-tags-section[data-theme="sci-fi"] {
+    --tag-border: rgb(0 255 247 / 20%);
+    --tag-accent: #87e5e0;
+}
+
+.detail-tags-section .detail-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 1px solid var(--tag-border);
+    border-radius: 999px;
+    background: var(--tag-surface);
+    color: var(--tag-text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.detail-tag > i {
+    flex-shrink: 0;
+    color: var(--tag-icon, var(--tag-accent));
+    font-size: 13px;
+}
+
+.detail-tag > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.detail-tag[data-tone="yellow"] { --tag-icon: var(--tag-yellow); }
+.detail-tag[data-tone="orange"] { --tag-icon: var(--tag-orange); }
+.detail-tag[data-tone="blue"] { --tag-icon: var(--tag-blue); }
+.detail-tag[data-tone="cyan"] { --tag-icon: var(--tag-cyan); }
+.detail-tag[data-tone="green"] { --tag-icon: var(--tag-green); }
+.detail-tag[data-tone="purple"] { --tag-icon: var(--tag-purple); }
+.detail-tag[data-tone="pink"] { --tag-icon: var(--tag-pink); }
+.detail-tag[data-tone="red"] { --tag-icon: var(--tag-red); }

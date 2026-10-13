@@ -25,21 +25,11 @@ export default function Landing() {
                     with completed studies in International Business.
                 </p>
 
-                <div className="landing-actions">
-                    <a className="landing-link landing-link--primary" href="#career">
-                        Career
-                        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 12h14m-6-6 6 6-6 6" />
-                        </svg>
-                    </a>
-                    <a className="landing-link landing-link--secondary" href="#education">Education</a>
-                    <a className="landing-link landing-link--secondary" href="#portfolio">Portfolio</a>
-                </div>
             </div>
 
             <div className="landing-footer">
                 <p>Computer Science (mainly) <span aria-hidden="true">/</span> International Business</p>
-                <a className="landing-scroll" href="#about">
+                <a className="landing-scroll" href="#recommendations">
                     Scroll down
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 5v14m-6-6 6 6 6-6" />

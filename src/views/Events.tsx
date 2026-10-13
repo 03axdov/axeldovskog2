@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
+import DetailTag from "../components/DetailTag"
 
 type EventType = "HackEurope" | "SEE"
 
@@ -71,7 +72,7 @@ export default function Events() {
     }
 
     return (
-        <div id="events" className="content-section px-10 mt-20 mb-30 flex flex-col items-center">
+        <div id="events" data-theme={theme} className="content-section detail-tags-section px-10 mt-20 mb-30 flex flex-col items-center">
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>EVENTS</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>EVENTS ATTENDED</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
@@ -112,15 +113,9 @@ export default function Events() {
                             </div>
 
                             <div className="flex my-5 flex-row items-center w-full flex-wrap gap-3">
-                                <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                    <i className="fa-solid fa-laptop-code text-sm mr-3" />
-                                    HackEurope, Stockholm
-                                </p>
+                                <DetailTag icon="fa-solid fa-laptop-code">HackEurope, Stockholm</DetailTag>
 
-                                <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                    <i className="fa-solid fa-calendar text-sm mr-3" />
-                                    20h, 21-22 February
-                                </p>
+                                <DetailTag icon="fa-solid fa-calendar">20h, 21-22 February</DetailTag>
                             </div>
 
                             <p className={"text-lg text-gray-400 text-" + theme}>
@@ -134,18 +129,9 @@ export default function Events() {
                                 Frameworks and technologies used
                             </p>
                             <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
-                                <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-blue-400 text-blue-400">
-                                <i className="fa-brands fa-python fa-lg mr-3"></i>
-                                Python
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-cyan-400 text-cyan-400">
-                                <i className="fa-brands fa-react fa-lg mr-3"></i>
-                                Javascript React
-                            </p>
-                            <p className="text-lg p-1 px-3 text-md flex flex-row items-center rounded-md border border-green-300 text-green-300">
-                                <i className="fa-brands fa-python fa-lg mr-3"></i>
-                                Python Django
-                            </p>
+                                <DetailTag icon="fa-brands fa-python" tone="blue">Python</DetailTag>
+                                <DetailTag icon="fa-brands fa-react" tone="cyan">Javascript React</DetailTag>
+                                <DetailTag icon="fa-brands fa-python" tone="green">Python Django</DetailTag>
                             </div>
                         </div>
                     )}
@@ -165,15 +151,9 @@ export default function Events() {
                             </div>
 
                             <div className="flex my-5 flex-row items-center w-full flex-wrap gap-3">
-                                <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                    <i className="fa-solid fa-building-columns text-sm mr-3" />
-                                    Jane Street, London
-                                </p>
+                                <DetailTag icon="fa-solid fa-building-columns">Jane Street, London</DetailTag>
 
-                                <p className={"text-lg p-2 px-4 rounded-md bg-third text-gray-400 flex flex-row items-center element-border-" + theme}>
-                                    <i className="fa-solid fa-calendar text-sm mr-3" />
-                                    24-28 March, 2026
-                                </p>
+                                <DetailTag icon="fa-solid fa-calendar">24-28 March, 2026</DetailTag>
                             </div>
 
                             <p className={"text-lg text-gray-400 text-" + theme}>

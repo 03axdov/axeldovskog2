@@ -5,6 +5,11 @@ import PDFModal from "../components/PDFModal"
 
 type SectionTypes = "ntu" | "lth" | "lusem"
 
+const completedPrograms: Partial<Record<SectionTypes, string>> = {
+    lusem: "Bachelor of International Business",
+    ntu: "Exchange Student",
+}
+
 const transcripts = {
     lund: {
         title: "Lund University transcript",
@@ -52,7 +57,7 @@ export default function Education() {
         selectedVal: SectionTypes
     ) {
         return (
-            <div className={"university w-full flex flex-row items-center border border-[rgb(0,0,0,0)] cursor-pointer university-" + theme +
+            <div className={"university group/university w-full flex flex-row items-center border border-[rgb(0,0,0,0)] cursor-pointer university-" + theme +
             " rounded-lg p-4 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 " + (selectedSection == selectedVal ? "bg-third university-selected university-selected-" + theme : "")}
             role="button"
             tabIndex={0}
@@ -69,7 +74,21 @@ export default function Education() {
                 <div className="flex flex-col max-w-[calc(100%-50px-20px)]">
                     <p className="whitespace-nowrap max-w-[100%] career-element-larger text-xl">{title}</p>
                     <p className={"whitespace-nowrap max-w-[100%] career-element-large text-lg text-gray-300 text-" + theme}>{universityName}</p>
-                    <p className={"whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400 text-" + theme}>{time}</p>
+                    <div className="flex min-h-6 items-center gap-2">
+                        <p className={"min-w-0 whitespace-nowrap max-w-[100%] career-element-mid text-md text-gray-400 text-" + theme}>{time}</p>
+                        {completedPrograms[selectedVal] && (
+                            <span className={"group/completion relative inline-flex size-5 shrink-0 items-center justify-center rounded-full text-xs " + (theme === "light" ? "bg-green-100 text-green-800" : "bg-green-400/20 text-green-300")}>
+                                <i className="fa-solid fa-check" aria-hidden="true"></i>
+                                <span className="sr-only">Complete</span>
+                                <span
+                                    aria-hidden="true"
+                                    className={"pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 hidden -translate-x-1/2 whitespace-nowrap rounded-md px-2 py-1 text-xs group-hover/completion:block group-focus-visible/university:block " + (theme === "light" ? "bg-green-100 text-green-800" : "bg-green-900 text-green-100")}
+                                >
+                                    Complete
+                                </span>
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
         )
@@ -96,6 +115,12 @@ export default function Education() {
                     </div>
                 </div>
                 
+                {completedPrograms[selectedSection] && (
+                    <p className={"mt-5 flex w-full flex-wrap items-center gap-2 " + (theme === "light" ? "text-green-800" : "text-green-300")}>
+                        <i className="fa-solid fa-check" aria-hidden="true"></i>
+                        {completedPrograms[selectedSection]} — Completed
+                    </p>
+                )}
                 <p className={"w-full mt-5 text-gray-300 text-lg text-" + theme}>
                     {description}
                 </p>
@@ -121,12 +146,12 @@ export default function Education() {
             <p className={"text-2xl text-gray-500 mb-10 tracking-widest pt-[100px] title-" + theme}>EDUCATION</p>
             <p className={"section-subtitle text-4xl tracking-wider title-" + theme}>MY EDUCATION</p>
             <p className={"text-lg text-gray-400 mt-5 text-" + theme}>
-                I'm studying 200% at Lund University, Sweden.<br></br>
-                During the fall semester of 2025, I'm studying as an exchange student at National Taiwan University.
+                I'm studying for a Master of Computer Science at Lund University, Sweden, and have completed my Bachelor of International Business.<br></br>
+                I also completed an exchange semester at National Taiwan University during the fall of 2025.
             </p>
 
             <div className="education-container flex flex-row justify-center w-full mt-20 gap-10">
-                <div className="universities flex flex-col w-[420px] min-w-[420px]">
+                <div className="universities grid auto-rows-fr self-start w-[420px] min-w-[420px]">
                     {getUniversityElement("lthLogo.jpg", "Master of Computer Science", "Lund University", "August 2022 - June 2027", "lth")}
                     {getUniversityElement("lu.png", "Bachelor of International Business", "Lund University", "August 2023 - June 2026", "lusem")}
                     {getUniversityElement("ntu.png", "Exchange Student", "National Taiwan University", "August 2025 - December 2025", "ntu")}
@@ -141,11 +166,11 @@ export default function Education() {
                         exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -6, transition: { duration: reduceMotion ? 0 : 0.12 } }}
                     >
                 {selectedSection == "ntu" && getUniversityPage("National Taiwan University", "ntu.jpeg", "taipei.jpeg", "ntu2.jpg", `
-                    At National Taiwan University, I mainly took classes on machine learning, as well as general chinese and designing virtual experiences. GPA: A`)}
+                    I completed my exchange semester at National Taiwan University in December 2025, mainly taking classes on machine learning, general Chinese, and designing virtual experiences. GPA: A`)}
 
                 {selectedSection == "lth" && getUniversityPage("Lund University (LTH)", "lu.jpg", "lu2.jpg", "lth.jpg", `At LTH I've spent 3 years studying different topics within computer science. See my transcript below for a detailed course list (LTH courses are the ones graded 1-5).`, 4.35, 5)}
 
-                {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `At LUSEM I've spent 2 years studying different topics within business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).`, 4.3, 5)}
+                {selectedSection == "lusem" && getUniversityPage("Lund University (LUSEM)", "lu.jpg", "lu2.jpg", "lusem.jpg", `I completed my Bachelor of International Business at LUSEM in June 2026, studying business, economics, and management. See my transcript below for a detailed course list (LUSEM courses are the ones graded A-F).`, 4.3, 5)}
                     </motion.div>
                     </AnimatePresence>
                 </div>
