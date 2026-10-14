@@ -244,6 +244,7 @@ export default function Career() {
                             <DetailTag icon="fa-brands fa-java" tone="orange">Java</DetailTag>
                             <DetailTag icon="fa-brands fa-js" tone="cyan">Typescript</DetailTag>
                             <DetailTag icon="fa-brands fa-react" tone="cyan">Typescript React</DetailTag>
+                            <DetailTag icon="fa-solid fa-hexagon-nodes" tone="pink">GraphQL</DetailTag>
                         </div>
 
                     </div>}
@@ -272,6 +273,11 @@ export default function Career() {
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">
                             <DetailTag icon="fa-brands fa-js" tone="cyan">Typescript</DetailTag>
                             <DetailTag icon="fa-brands fa-react" tone="cyan">Typescript React</DetailTag>
+                            <DetailTag icon="fa-solid fa-server" tone="red">NestJS</DetailTag>
+                            <DetailTag icon="fa-brands fa-react" tone="purple">Next.js</DetailTag>
+                            <DetailTag icon="fa-solid fa-database" tone="blue">Postgres (with Prisma)</DetailTag>
+                            <DetailTag icon="fa-brands fa-aws" tone="orange">AWS</DetailTag>
+                            <DetailTag icon="fa-brands fa-docker" tone="blue">Docker</DetailTag>
                         </div>
 
                     </div>}
