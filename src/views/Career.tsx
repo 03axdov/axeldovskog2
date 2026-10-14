@@ -210,6 +210,9 @@ export default function Career() {
                                     </p>
                                 </div>
                             </div>
+                            <p className={"mt-4 rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4 text-lg text-blue-400 blue-text-" + theme}>
+                                <span>Foundry DevOps is a software application within the Foundry product, not a traditional DevOps team.</span>
+                            </p>
                             <p className={"mt-4 text-lg text-gray-300 text-" + theme}>
                                 I was part of the DevOps Marketplace team, which handles packaging and installation of products on the Foundry platform.
                                 These products package Foundry resources, such as representations of data and data-backed workflows, so they can be distributed and installed in other environments. Read more in the{" "}
