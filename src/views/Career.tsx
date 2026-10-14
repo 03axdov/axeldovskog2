@@ -21,6 +21,7 @@ export default function Career() {
             "/static/images/career/arm2.webp",
             "/static/images/career/graph.jpg",
             "/static/images/career/Palantir.jpg",
+            "/static/images/career/Marketplace.png",
             theme == "dark"
                 ? "/static/images/career/palantir.svg"
                 : "/static/images/career/palantir-light.svg",
@@ -187,6 +188,53 @@ export default function Career() {
                             Fullstack role on the Palantir Foundry platform. Involved working with Forward Deployed Engineers who were the primary users of the system we were developing.
                             Extended internship length by two weeks. Did a customer onsite with a customer in New York, where I got to present the work I was doing as well as understand what features users wanted.
                         </p>
+
+                        <section
+                            className={"mt-8 w-full rounded-xl border border-gray-700 bg-secondary p-5 sm:p-6 element-border-" + theme}
+                            aria-labelledby="palantir-team-heading"
+                        >
+                            <div className="flex items-center gap-4">
+                                <img
+                                    src="/static/images/career/Marketplace.png"
+                                    alt="Foundry Marketplace logo"
+                                    width={64}
+                                    height={64}
+                                    className={"size-16 shrink-0 rounded-lg bg-third p-2 object-contain career-image-" + theme}
+                                />
+                                <div className="min-w-0">
+                                    <h2 id="palantir-team-heading" className={"text-xl title-" + theme}>
+                                        DevOps Marketplace
+                                    </h2>
+                                    <p className={"mt-1 text-gray-400 text-" + theme}>
+                                        Product packaging &amp; installation
+                                    </p>
+                                </div>
+                            </div>
+                            <p className={"mt-4 text-lg text-gray-300 text-" + theme}>
+                                I was part of the DevOps Marketplace team, which handles packaging and installation of products on the Foundry platform.
+                                These products package Foundry resources, such as representations of data and data-backed workflows, so they can be distributed and installed in other environments. Read more in the{" "}
+                                <a
+                                    href="https://www.palantir.com/docs/foundry/devops/overview/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={"rounded-sm text-blue-400 underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 blue-text-" + theme}
+                                >
+                                    Foundry DevOps documentation
+                                </a>.
+                            </p>
+                            <p className={"mt-3 text-lg text-gray-300 text-" + theme}>
+                                I worked on the{" "}
+                                <a
+                                    href="https://www.palantir.com/docs/foundry/marketplace/install-product/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={"rounded-sm text-blue-400 underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 blue-text-" + theme}
+                                >
+                                    installation functionality
+                                </a>{" "}
+                                in particular. This involved a complex backend built around finite state machines, with many different data types and abstractions to handle concerns such as dependencies between products.
+                            </p>
+                        </section>
 
                         <p className={"mt-10 text-xl w-full text-gray-200 pb-1 border-b border-gray-600 text-" + theme}>Frameworks and technologies used</p>
                         <div className="mt-5 flex flex-row flex-wrap w-full gap-3">

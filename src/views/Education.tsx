@@ -186,7 +186,7 @@ export default function Education() {
                 onClick={() => studyExplanationRef.current?.showModal()}
             >
                 <i className="fa-regular fa-circle-question" aria-hidden="true"></i>
-                Why study 2 full-time programs
+                Why study 2 full-time degrees
             </button>
             <dialog
                 ref={studyExplanationRef}
@@ -200,19 +200,19 @@ export default function Education() {
                 <div className="p-6 sm:p-8" onClick={(event) => event.stopPropagation()}>
                     <p className="study-explanation-eyebrow">STUDYING BOTH</p>
                     <h2 id="study-explanation-title" className={"mt-3 text-2xl tracking-wide title-" + theme}>
-                        Why study 2 full-time programs?
+                        Why study 2 full-time degrees?
                     </h2>
                     <div className="study-explanation-copy mt-6 space-y-4">
                         <p className="study-explanation-priority">
                             Computer Science is my main priority and the field I want to focus on.
                         </p>
                         <p>
-                            Part of my motivation for taking on two full-time programs was to challenge myself,
+                            Part of my motivation for taking on two full-time degrees was to challenge myself,
                             work hard, and see what I could achieve with a demanding workload.
                         </p>
                         <p>
                             I also felt that what I learned in International Business would carry over well to
-                            Computer Science work: working in teams, collaborating with stakeholders, and
+                            Computer Science work: working in teams, collaborating with stakeholders, improved soft skills in general, and
                             understanding the business needs behind technical decisions.
                         </p>
                     </div>
